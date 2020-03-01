@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="生活,留学申请," />
+  <meta name="keywords" content="生活,纸牌," />
 
 
 
@@ -105,21 +105,23 @@
 
 
 
-<meta name="description" content="Photo by Will O on Unsplash   即将寒假结束. 虽然申请季结束, 现在已是等待结果的阶段. 但是作为出国党的我来说, 焦虑程度不亚于申请前期的套磁和中期的网申. 名义上我们已经”放假”, 只需要躺在家里等结果就可以了. 然而事实上, 我现在面临的东西远超我之前的想象.  Gap?假如最终得到的是最坏的结果, 我美国欧洲的学校全都被拒了, 那么我该怎么办呢. 工作的话,">
+<meta name="description" content="前言本文的目的是计算一些在拖拉机(升级)纸牌游戏中常见的概率问题. 计算方法大部分使用python完成. 每一项概率计算都是以随机发牌若干次, 以频率代替概率实现.  目前已完成计算的概率问题有:  主牌 (main cards) 数量分布 对 (doubles) 的数量分布 出对时被打败的概率  未完成的概率问题有:  拖拉机出现的概率  未来将持续更新未完成问题与已完成问题. 概率计算卡牌概况">
 <meta property="og:type" content="article">
-<meta property="og:title" content="申请">
-<meta property="og:url" content="hongxunyang.github.io/2020/02/01/%E7%94%B3%E8%AF%B7%E7%9A%84%E4%B8%80%E5%A0%86%E4%BA%8B/index.html">
+<meta property="og:title" content="拖拉机(升级)概率计算--精简版">
+<meta property="og:url" content="hongxunyang.github.io/2020/03/01/%E6%8B%96%E6%8B%89%E6%9C%BA-%E5%8D%87%E7%BA%A7-%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/index.html">
 <meta property="og:site_name" content="Hong Xunyang&#39;s Homepage">
-<meta property="og:description" content="Photo by Will O on Unsplash   即将寒假结束. 虽然申请季结束, 现在已是等待结果的阶段. 但是作为出国党的我来说, 焦虑程度不亚于申请前期的套磁和中期的网申. 名义上我们已经”放假”, 只需要躺在家里等结果就可以了. 然而事实上, 我现在面临的东西远超我之前的想象.  Gap?假如最终得到的是最坏的结果, 我美国欧洲的学校全都被拒了, 那么我该怎么办呢. 工作的话,">
+<meta property="og:description" content="前言本文的目的是计算一些在拖拉机(升级)纸牌游戏中常见的概率问题. 计算方法大部分使用python完成. 每一项概率计算都是以随机发牌若干次, 以频率代替概率实现.  目前已完成计算的概率问题有:  主牌 (main cards) 数量分布 对 (doubles) 的数量分布 出对时被打败的概率  未完成的概率问题有:  拖拉机出现的概率  未来将持续更新未完成问题与已完成问题. 概率计算卡牌概况">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="/images/%E7%94%B3%E8%AF%B72.jpg">
-<meta property="article:published_time" content="2020-02-01T15:10:51.000Z">
-<meta property="article:modified_time" content="2020-02-01T16:56:52.776Z">
+<meta property="og:image" content="/images/%E6%8B%96%E6%8B%89%E6%9C%BA_%E5%AF%B9%E6%95%B0.png">
+<meta property="og:image" content="/images/%E6%8B%96%E6%8B%89%E6%9C%BA_%E4%B8%BB%E7%89%8C%E6%95%B0.png">
+<meta property="og:image" content="/images/%E6%8B%96%E6%8B%89%E6%9C%BA_%E5%AF%B9%E8%A2%AB%E6%89%93%E8%B4%A5%E6%A6%82%E7%8E%87.png">
+<meta property="article:published_time" content="2020-03-01T07:01:31.000Z">
+<meta property="article:modified_time" content="2020-03-01T07:12:54.537Z">
 <meta property="article:author" content="Hong Xunyang">
 <meta property="article:tag" content="生活">
-<meta property="article:tag" content="留学申请">
+<meta property="article:tag" content="纸牌">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="/images/%E7%94%B3%E8%AF%B72.jpg">
+<meta name="twitter:image" content="/images/%E6%8B%96%E6%8B%89%E6%9C%BA_%E5%AF%B9%E6%95%B0.png">
 
 
 
@@ -149,13 +151,13 @@
 
 
 
-  <link rel="canonical" href="hongxunyang.github.io/2020/02/01/申请的一堆事/"/>
+  <link rel="canonical" href="hongxunyang.github.io/2020/03/01/拖拉机-升级-概率计算/"/>
 
 
 
 
 
-  <title>申请 | Hong Xunyang's Homepage</title>
+  <title>拖拉机(升级)概率计算--精简版 | Hong Xunyang's Homepage</title>
   
 
 
@@ -282,7 +284,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="hongxunyang.github.io/2020/02/01/%E7%94%B3%E8%AF%B7%E7%9A%84%E4%B8%80%E5%A0%86%E4%BA%8B/">
+    <link itemprop="mainEntityOfPage" href="hongxunyang.github.io/2020/03/01/%E6%8B%96%E6%8B%89%E6%9C%BA-%E5%8D%87%E7%BA%A7-%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hong Xunyang">
@@ -299,7 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">申请</h1>
+          <h1 class="post-title" itemprop="name headline">拖拉机(升级)概率计算--精简版</h1>
         
 
         <div class="post-meta">
@@ -311,8 +313,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-01T23:10:51+08:00">
-                2020-02-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-01T15:01:31+08:00">
+                2020-03-01
               </time>
             
 
@@ -352,8 +354,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/02/01/%E7%94%B3%E8%AF%B7%E7%9A%84%E4%B8%80%E5%A0%86%E4%BA%8B/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/01/%E7%94%B3%E8%AF%B7%E7%9A%84%E4%B8%80%E5%A0%86%E4%BA%8B/" itemprop="commentCount"></span>
+                <a href="/2020/03/01/%E6%8B%96%E6%8B%89%E6%9C%BA-%E5%8D%87%E7%BA%A7-%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/01/%E6%8B%96%E6%8B%89%E6%9C%BA-%E5%8D%87%E7%BA%A7-%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -379,36 +381,97 @@
 
       
       
-        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-          
-          
-            <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox"
-                 href="/images/%E7%94%B3%E8%AF%B72.jpg" rel="gallery_ck6s6550y0008tcujdwyb6kce"
-                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
-                <img src="/images/%E7%94%B3%E8%AF%B72.jpg" itemprop="contentUrl"/>
-              </a>
-            
-          
-
-          
-          </div>
-        </div>
-      
 
       
-        <center> Photo by Will O on Unsplash </center>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文的目的是计算一些在拖拉机(升级)纸牌游戏中常见的概率问题. 计算方法大部分使用python完成. 每一项概率计算都是以随机发牌若干次, 以频率代替概率实现. </p>
+<p>目前已完成计算的概率问题有:</p>
+<ol>
+<li>主牌 (main cards) 数量分布</li>
+<li>对 (doubles) 的数量分布</li>
+<li>出对时被打败的概率</li>
+</ol>
+<p>未完成的概率问题有:</p>
+<ol>
+<li>拖拉机出现的概率</li>
+</ol>
+<p>未来将持续更新未完成问题与已完成问题.</p>
+<h1 id="概率计算"><a href="#概率计算" class="headerlink" title="概率计算"></a>概率计算</h1><p>卡牌概况: 两副牌, 一共108张, 包含4张鬼 (Ghost), 36张主牌 (Main Cards). 为了简单起见, 默认方块4是主牌, 即所有的方块和所有的4都是主牌. </p>
+<h2 id="对-doubles-出现的概率分布"><a href="#对-doubles-出现的概率分布" class="headerlink" title="对(doubles)出现的概率分布"></a>对(doubles)出现的概率分布</h2><p>这里计算出现N张对的概率, 分别讨论庄家 (Boss), 非庄家 (Others). 随机发牌10万次, 统计庄家和非庄家手里的对的数量, 并以频率代替概率, 绘制出如下图表.</p>
+<p><img src="/images/拖拉机_对数.png" alt=""></p>
+<center>  <font size=3> 横坐标为你获得的对的数量, 纵坐标为概率. 蓝色曲线为非庄家的分布, 橙色曲线为庄家的分布. <font> </center>
 
-<h2 id=""><a href="#" class="headerlink" title=""></a><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=522083291&auto=1&height=66"></iframe></h2><p>即将寒假结束. 虽然申请季结束, 现在已是等待结果的阶段. 但是作为出国党的我来说, 焦虑程度不亚于申请前期的套磁和中期的网申. 名义上我们已经”放假”, 只需要躺在家里等结果就可以了. 然而事实上, 我现在面临的东西远超我之前的想象. </p>
-<h1 id="Gap"><a href="#Gap" class="headerlink" title="Gap?"></a>Gap?</h1><p>假如最终得到的是最坏的结果, 我美国欧洲的学校全都被拒了, 那么我该怎么办呢. 工作的话, 基本上是不会考虑的; 所以只有一条路, gap一年, 然后第二年再申请一次. 可是, 谁能够保证我第二年不会再次面临全拒呢? 如果我没有暑研, 没有国外教授的推荐信, 仅仅只是在国内积累科研经验, 几乎没有任何用处… </p>
-<p>那么, 我必须要拿到暑研机会. 而现在已是2月, 官方途径的暑研早已结束, 现在只有零零星星的私人联系暑研的途径了. 也就是说, 即使现在申请结果还没有出来, 我也必须要做好最坏的打算: 从现在开始套磁, 在一个月内申请这个暑假的暑研. 从同学的经验来看, 100封套磁信是少不了了. </p>
-<p>可是事情有那么简单就好了. 如今国内新型冠状病毒肆虐, 美国对中国的签证从今天开始暂停发放, 大概要等到疫情结束才会恢复签证. 那么, 即使我费劲千辛万苦终于有一个教授肯赏脸为我提供暑研机会, 我也需要面对第二座大山: 签证. </p>
-<p>如今在知乎上看到的申请案例, 拿到offer的大多都是有过暑研经历和外籍教授推荐信的. 越看越焦虑, 干脆不看了. 其实, 若能拿到暑研机会以及能够拿到签证, 我能够接受gap一年再申请. 若我只需要担心这一件事情也好.</p>
-<h1 id="异地恋-异国恋"><a href="#异地恋-异国恋" class="headerlink" title="异地恋, 异国恋"></a>异地恋, 异国恋</h1><p>几天以来都辗转反侧, 睡不着觉. 有一些事情, 我觉得自己是如此的无助. 如果到最后, 我只拿到了欧洲的offer, 而仓鼠拿到了美国offer, 我该如何去抉择呢. 若我选择了欧洲, 那么我们注定要异国了. 我不敢去想象异国的生活, 却不得不去想. 几天以来我一直在拼命地去想办法, 我们要是真的异国了该怎么办…我们不仅隔着整个太平洋无法相见, 我们甚至还会面临着时差的问题. 像是你对我抛出的问题: “如果我实验做失败了, 很晚才回到家里, 需要一个肩膀, 而你那边正是凌晨, 我们连讲话都讲不上, 该怎办?” 我真的很害怕这样的事情发生. </p>
-<p>那么我可以gap吗…积累一年经验, 来年再来美国找你…怕是会遭受到很大的反对吧…</p>
-<p>我一直在想办法, 若将来避免不了异国, 我该怎么办. 于是我建了这个个人网站, 希望我们能够通过网站去了解对方的生活, 去弥补一下空间和时间上的距离. </p>
-<p>如果, 我拿到了offer, 而你没有拿到又该怎么办呢…这些都是我需要思考的事情, 也让我几天辗转无眠. 未来的路就像是蒙上了一层厚厚的雾气, 看不见这条路通向哪里. 申请没有定论, 没有着落, 心里也一直悬着一块大石头…</p>
-<p>很难过…不想和仓鼠分开…我不知道我做的够不够, 我不知道光是信念是否能够维护住我们之间的情感…</p>
+<p><strong>非庄家时</strong></p>
+<ol>
+<li><font color=blue> 最有可能获得3个对 </font></li>
+<li><font color=blue> 获得2-4个对的概率大概都在20-30%, 这三种情况总和占到了所有情况的60% </font></li>
+<li><font color=blue> 基本不可能一个对都没有, 此时概率只有2.5% </font>
+
+</li>
+</ol>
+<p><strong>庄家时</strong></p>
+<ol>
+<li><font color=red> 最有可能获得5个对, 平均比非庄家多出2个对 </font></li>
+<li><font color=red> 获得4-6个对的概率都在20%左右, 这三种情况占到了所有情况的60% </font></li>
+<li><font color=red> 一次获得7个以上对的概率达到了10%, 远高于非庄家的1% </font>
+
+</li>
+</ol>
+<p>此外, 庄家的概率分布标准差更大, 因此更有可能获得非常多对, 但同时也更有可能获得非常少对. 因此庄家更加靠运气吃饭. </p>
+<h2 id="主牌的分布"><a href="#主牌的分布" class="headerlink" title="主牌的分布"></a>主牌的分布</h2><p>这里计算在一次发牌中, 获得N张主牌的概率分布. 分别讨论庄家和非庄家的情况. 操作方式同上, 得到分布图. </p>
+<p><img src="/images/拖拉机_主牌数.png" alt=""></p>
+<center>  <font size=3> 横坐标为你获得的主牌的数量, 纵坐标为概率. 蓝色曲线为非庄家的分布, 橙色曲线为庄家的分布.</font>  </center>
+
+<p> <strong>非庄家时</strong> </p>
+<ol>
+<li><font color=blue> 最有可能获得8张主牌. </font></li>
+<li><font color=blue> 获得6-10张主牌的概率都在10%以上, 这三种情况占到了所有情况的60% </font> </li>
+<li><font color=blue> 只有10%的可能主牌数$\le$ 5张; 同样只有10%的可能主牌数$\ge$ 12张 </font></li>
+<li><font color=blue> 主牌分布的标准差大概为3张. 因此每一次发牌中, 主牌数量会有$\pm$ 3张的浮动 </font>
+
+</li>
+</ol>
+<p><strong>庄家时</strong> </p>
+<ol>
+<li><font color=red> 最有可能获得11张主牌, 平均比非庄家的人多出3张主牌</font></li>
+<li><font color=red> 获得9-13张主牌的概率在10%以上, 占到了所有情况的70%</font></li>
+<li><font color=red>  而对于庄家来说, 有只有10%的可能主牌数$\le$ 7张, 同样只有10%的概率主牌数$\ge$ 15张</font></li>
+<li><font color=red> 主牌分布的标准差大概为4张. 因此每一次发牌中, 主牌数量会有$\pm$ 4张的浮动</font>
+
+</li>
+</ol>
+<p>同样的, 庄家的分布方差更大, 因此更有可能获得超多主牌或者较少主牌. 于是庄家也更加靠运气吃饭. 由于进行了10万次随机发牌, 从频数上可以更加直观地看到这10万次发牌主牌数量集中在什么地方. 对于非庄家来说: </p>
+<blockquote>
+<p>这10万次发牌中: 只有1次有1张主牌, 17次有2张主牌. 100次有3张主牌, 600次有4张主牌, 2000次有5张主牌.<br>这10万次发牌中: 只有3次有18张主牌, 33次有17次主牌, 115次有16张主牌, 500次有15张主牌, 1630次有14张主牌, 8000次有13张主牌.<br>这10万次发牌中: 有几乎2万次是8张主牌, 2万次是9张主牌.</p>
+</blockquote>
+<p>庄家在这个基础上+3张主牌数即可. </p>
+<h2 id="对手有大于”对N”的对的概率"><a href="#对手有大于”对N”的对的概率" class="headerlink" title="对手有大于”对N”的对的概率"></a>对手有大于”对N”的对的概率</h2><p>这一小节的目的是为了分析一种情况下的出牌策略, 这种情况是: </p>
+<blockquote>
+<p>若我手里有对10, 那么我是否应该要出牌? 对手若有对K, 那么就惨败了. 这个概率似乎挺大的?<br>如果我手里有对K, 我是否应该出牌? 对手如果有对A, 也惨败. 但是这个概率似乎并不大?<br>如果我手里有对2, 我又是否应该出牌? 对2是最小的牌, 对手肯定有比这个大的牌.<br>如果我是庄家, 且我有对K, 那么被人打败的概率还是没有那么大的, 毕竟我拿了底牌, 手里的牌比别人更好.</p>
+</blockquote>
+<p>以上的叙述都是基于经验而来, 有一定的道理. 下面我们真正计算一下上面几种情况, 出牌被打败的概率. 显然, 这个问题也要分庄家和非庄家来看. 同样用随机发牌3万次, 统计对手能够打败自己的次数. 计算结果如下:  </p>
+<p><strong>自己是非庄家时</strong></p>
+<ol>
+<li><font color=blue> 如果自己手里有对10, 那么两个对手之一能够打败自己(有比10大的同花色对, 例如对J, 对A等)的概率是46% </font></li>
+<li><font color=blue> 如果自己手里有对K, 那么两个对手之一能够打败自己的概率是15% </font></li>
+<li><font color=blue> 如果自己手里只有对2, 那么被打败的概率则有83% </font>
+
+</li>
+</ol>
+<p><strong>自己是庄家时</strong></p>
+<ol>
+<li><font color=red> 如果自己手里有对10, 被打败的概率是36% </font></li>
+<li><font color=red> 如果自己手里有对K, 被打败10% </font></li>
+<li><font color=red> 如果自己手里只有对2, 被打败的概率则有71% </font> 
+
+</li>
+</ol>
+<p>由此可见, 庄家确实能够有效地降低自己出的对被打败的概率, 大约能够降低10%的概率. 但从实战角度来看, 我到底该不该出我手里的对? 例如我有对7应不应该出呢? 我们可以把这个概率的阈值设定为30%, 也就是说如果被打败的概率低于三分之一, 那就应该出牌; 反之则不应该出牌. 可以直接计算概率, 下图则是3万次随机发牌的统计概率分布图</p>
+<p><img src="/images/拖拉机_对被打败概率.png" alt=""></p>
+<center> <font size=3> 横坐标是你出的对, 纵坐标则是这个对被人打败的概率. 蓝色是非庄家情况, 橙色则是庄家的情况</font> </center>
+
+<p><strong>按照这个标准, 非庄家至少要出对Q; 而庄家则至少要出对J.</strong></p>
+<p>当然, 在实战中可以快速地计算各个对被打败的概率. 在小于10的对中, 我们可以采用线性插值的方式大致地计算出对N被打败的概率. 对非庄家来说: 斜率为</p>
+<script type="math/tex; mode=display">k=\frac{46-83}{8}=-5\%</script><p>也就是说, 我们可以大概估计: 比对3大的概率是83-5=78%; 比对4大的概率是: 73%; 比对5大的概率是68…比对10大的概率是46%. 非庄家则在这个基础上减去10%的概率.</p>
 
       
     </div>
@@ -428,7 +491,7 @@
           
             <a href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag"># 生活</a>
           
-            <a href="/tags/%E7%95%99%E5%AD%A6%E7%94%B3%E8%AF%B7/" rel="tag"># 留学申请</a>
+            <a href="/tags/%E7%BA%B8%E7%89%8C/" rel="tag"># 纸牌</a>
           
         </div>
       
@@ -441,8 +504,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/29/%E6%97%A0%E9%A2%98/" rel="next" title="无题">
-                <i class="fa fa-chevron-left"></i> 无题
+              <a href="/2020/02/29/%E5%8D%87%E7%BA%A7-%E6%8B%96%E6%8B%89%E6%9C%BA-%E7%BA%B8%E7%89%8C%E6%B8%B8%E6%88%8F/" rel="next" title="升级(拖拉机)纸牌游戏">
+                <i class="fa fa-chevron-left"></i> 升级(拖拉机)纸牌游戏
               </a>
             
           </div>
@@ -450,10 +513,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/02/17/%E6%96%B0%E5%86%A0%E8%82%BA%E7%82%8E%E7%96%AB%E6%83%85%E4%B8%8B%E7%9A%84%E5%AF%92%E5%81%87/" rel="prev" title="新冠肺炎疫情下的寒假">
-                新冠肺炎疫情下的寒假 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -615,7 +674,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Gap"><span class="nav-number"></span> <span class="nav-text">Gap?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异地恋-异国恋"><span class="nav-number"></span> <span class="nav-text">异地恋, 异国恋</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概率计算"><span class="nav-number">2.</span> <span class="nav-text">概率计算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对-doubles-出现的概率分布"><span class="nav-number">2.1.</span> <span class="nav-text">对(doubles)出现的概率分布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主牌的分布"><span class="nav-number">2.2.</span> <span class="nav-text">主牌的分布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对手有大于”对N”的对的概率"><span class="nav-number">2.3.</span> <span class="nav-text">对手有大于”对N”的对的概率</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -864,6 +923,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

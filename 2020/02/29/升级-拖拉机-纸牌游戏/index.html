@@ -116,7 +116,7 @@
 <meta property="og:image" content="/images/%E6%8B%96%E6%8B%89%E6%9C%BA_%E4%B8%BB%E7%89%8C%E6%95%B0.png">
 <meta property="og:image" content="/images/%E6%8B%96%E6%8B%89%E6%9C%BA_%E5%AF%B9%E8%A2%AB%E6%89%93%E8%B4%A5%E6%A6%82%E7%8E%87.png">
 <meta property="article:published_time" content="2020-02-28T16:18:57.000Z">
-<meta property="article:modified_time" content="2020-03-01T06:59:47.003Z">
+<meta property="article:modified_time" content="2020-03-01T12:08:18.946Z">
 <meta property="article:author" content="Hong Xunyang">
 <meta property="article:tag" content="生活">
 <meta name="twitter:card" content="summary">
@@ -457,17 +457,17 @@
 <p>以上的叙述都是基于经验而来, 有一定的道理. 下面我们真正计算一下上面几种情况, 出牌被打败的概率. 显然, 这个问题也要分庄家和非庄家来看. 同样用随机发牌3万次, 统计对手能够打败自己的次数. 计算结果如下:  </p>
 <p><strong>自己是非庄家时</strong></p>
 <ol>
-<li><font color=blue> 如果自己手里有对10, 那么两个对手之一能够打败自己(有比10大的同花色对, 例如对J, 对A等)的概率是46% </font></li>
-<li><font color=blue> 如果自己手里有对K, 那么两个对手之一能够打败自己的概率是15% </font></li>
-<li><font color=blue> 如果自己手里只有对2, 那么被打败的概率则有83% </font>
+<li><font color=blue> 如果自己手里有对10, 那么两个对手之一能够打败自己(有比10大的同花色对, 例如对J, 对A等)的概率是32% </font></li>
+<li><font color=blue> 如果自己手里有对K, 那么两个对手之一能够打败自己的概率是10% </font></li>
+<li><font color=blue> 如果自己手里只有对2, 那么被打败的概率则有66% </font>
 
 </li>
 </ol>
 <p><strong>自己是庄家时</strong></p>
 <ol>
-<li><font color=red> 如果自己手里有对10, 被打败的概率是36% </font></li>
-<li><font color=red> 如果自己手里有对K, 被打败10% </font></li>
-<li><font color=red> 如果自己手里只有对2, 被打败的概率则有71% </font> 
+<li><font color=red> 如果自己手里有对10, 被打败的概率是20% </font></li>
+<li><font color=red> 如果自己手里有对K, 被打败5% </font></li>
+<li><font color=red> 如果自己手里只有对2, 被打败的概率则有45% </font> 
 
 </li>
 </ol>
@@ -475,9 +475,9 @@
 <p><img src="/images/拖拉机_对被打败概率.png" alt=""></p>
 <center> <font size=3> 横坐标是你出的对, 纵坐标则是这个对被人打败的概率. 蓝色是非庄家情况, 橙色则是庄家的情况</font> </center>
 
-<p><strong>按照这个标准, 非庄家至少要出对Q; 而庄家则至少要出对J.</strong></p>
+<p><strong>按照这个标准, 非庄家至少要出对10; 而庄家则至少要出对8或对7.</strong></p>
 <p>当然, 在实战中可以快速地计算各个对被打败的概率. 在小于10的对中, 我们可以采用线性插值的方式大致地计算出对N被打败的概率. 对非庄家来说: 斜率为</p>
-<script type="math/tex; mode=display">k=\frac{46-83}{8}=-5\%</script><p>也就是说, 我们可以大概估计: 比对3大的概率是83-5=78%; 比对4大的概率是: 73%; 比对5大的概率是68…比对10大的概率是46%. 非庄家则在这个基础上减去10%的概率.</p>
+<script type="math/tex; mode=display">k=\frac{32-66}{8}=-4\%</script><p>也就是说, 我们可以大概估计: 比对3大的概率是66-4=62%; 比对4大的概率是: 58%; 比对5大的概率是54…比对10大的概率是33%. 自己是庄家则在这个基础上减去10%的概率.</p>
 <h1 id="博弈策略"><a href="#博弈策略" class="headerlink" title="博弈策略"></a>博弈策略</h1><p>需要解决的问题</p>
 <ol>
 <li>上面计算过的概率, 多大的概率是阈值, 超过阈值该做什么动作?</li>

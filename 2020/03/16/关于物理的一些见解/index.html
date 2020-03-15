@@ -118,7 +118,7 @@
 
 
 
-  <meta name="keywords" content="物理,场论," />
+  <meta name="keywords" content="物理,哈密顿分析,场论," />
 
 
 
@@ -129,17 +129,18 @@
 
 
 
-<meta name="description" content="对于一个经典场来说, 若其哈氏密度无下界, 那么会导致场存在不稳定性, 这种不稳定性的一个特例是场的 Ostrogradsky 不稳定性. 动量线性依赖的哈密顿量哈氏密度无下界的一个特例是哈密顿量线性依赖于某一个动量, 例如 $H&#x3D;P+X^2$. 运动方程为 \dot{X}+1\quad \dot{P}&#x3D;-2x在此运动下, 位置$X$和动量$P$都会毫无限制地增长. 原因之一是动量$P$可正可负,">
+<meta name="description" content="介绍这里记录一些平时学习物理的一些见解. 并不保证正确, 纯属娱乐. 理论力学与哈密顿分析拉格朗日力学一般讨论到拉格朗日力学和哈密顿力学的区别的时候, 有的教材会说: 拉氏力学的方程是二阶微分方程, 而哈氏力学的方程是两个一阶微分方程. 而我认为, 实际上拉氏力学也可以看作是两个一阶微分方程. 从几何的角度来看, 拉氏力学描述切从$T\mathscr{C}$上的流, 而哈氏力学描述余切丛$T^{\">
 <meta property="og:type" content="article">
-<meta property="og:title" content="熵与场的不稳定性">
-<meta property="og:url" content="hongxunyang.github.io/2020/03/15/%E5%9C%BA%E7%9A%84%E4%B8%8D%E7%A8%B3%E5%AE%9A%E6%80%A7/index.html">
+<meta property="og:title" content="关于物理的一些见解">
+<meta property="og:url" content="hongxunyang.github.io/2020/03/16/%E5%85%B3%E4%BA%8E%E7%89%A9%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%81%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Hong Xunyang&#39;s Homepage">
-<meta property="og:description" content="对于一个经典场来说, 若其哈氏密度无下界, 那么会导致场存在不稳定性, 这种不稳定性的一个特例是场的 Ostrogradsky 不稳定性. 动量线性依赖的哈密顿量哈氏密度无下界的一个特例是哈密顿量线性依赖于某一个动量, 例如 $H&#x3D;P+X^2$. 运动方程为 \dot{X}+1\quad \dot{P}&#x3D;-2x在此运动下, 位置$X$和动量$P$都会毫无限制地增长. 原因之一是动量$P$可正可负,">
+<meta property="og:description" content="介绍这里记录一些平时学习物理的一些见解. 并不保证正确, 纯属娱乐. 理论力学与哈密顿分析拉格朗日力学一般讨论到拉格朗日力学和哈密顿力学的区别的时候, 有的教材会说: 拉氏力学的方程是二阶微分方程, 而哈氏力学的方程是两个一阶微分方程. 而我认为, 实际上拉氏力学也可以看作是两个一阶微分方程. 从几何的角度来看, 拉氏力学描述切从$T\mathscr{C}$上的流, 而哈氏力学描述余切丛$T^{\">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-15T13:17:21.000Z">
-<meta property="article:modified_time" content="2020-03-15T13:17:21.000Z">
+<meta property="article:published_time" content="2020-03-15T16:11:50.000Z">
+<meta property="article:modified_time" content="2020-03-15T16:11:50.000Z">
 <meta property="article:author" content="Hong Xunyang">
 <meta property="article:tag" content="物理">
+<meta property="article:tag" content="哈密顿分析">
 <meta property="article:tag" content="场论">
 <meta name="twitter:card" content="summary">
 
@@ -171,13 +172,13 @@
 
 
 
-  <link rel="canonical" href="hongxunyang.github.io/2020/03/15/场的不稳定性/"/>
+  <link rel="canonical" href="hongxunyang.github.io/2020/03/16/关于物理的一些见解/"/>
 
 
 
 
 
-  <title>熵与场的不稳定性 | Hong Xunyang's Homepage</title>
+  <title>关于物理的一些见解 | Hong Xunyang's Homepage</title>
   
 
 
@@ -304,7 +305,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="hongxunyang.github.io/2020/03/15/%E5%9C%BA%E7%9A%84%E4%B8%8D%E7%A8%B3%E5%AE%9A%E6%80%A7/">
+    <link itemprop="mainEntityOfPage" href="hongxunyang.github.io/2020/03/16/%E5%85%B3%E4%BA%8E%E7%89%A9%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%81%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hong Xunyang">
@@ -321,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">熵与场的不稳定性</h1>
+          <h1 class="post-title" itemprop="name headline">关于物理的一些见解</h1>
         
 
         <div class="post-meta">
@@ -333,8 +334,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-15T21:17:21+08:00">
-                2020-03-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-16T00:11:50+08:00">
+                2020-03-16
               </time>
             
 
@@ -374,8 +375,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/03/15/%E5%9C%BA%E7%9A%84%E4%B8%8D%E7%A8%B3%E5%AE%9A%E6%80%A7/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/15/%E5%9C%BA%E7%9A%84%E4%B8%8D%E7%A8%B3%E5%AE%9A%E6%80%A7/" itemprop="commentCount"></span>
+                <a href="/2020/03/16/%E5%85%B3%E4%BA%8E%E7%89%A9%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%81%E8%A7%A3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/16/%E5%85%B3%E4%BA%8E%E7%89%A9%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%81%E8%A7%A3/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -403,34 +404,15 @@
       
 
       
-        <p>对于一个经典场来说, 若其哈氏密度无下界, 那么会导致场存在不稳定性, 这种不稳定性的一个特例是场的 Ostrogradsky 不稳定性.</p>
-<h1 id="动量线性依赖的哈密顿量"><a href="#动量线性依赖的哈密顿量" class="headerlink" title="动量线性依赖的哈密顿量"></a>动量线性依赖的哈密顿量</h1><p>哈氏密度无下界的一个特例是哈密顿量线性依赖于某一个动量, 例如 $H=P+X^2$. 运动方程为</p>
-<script type="math/tex; mode=display">\dot{X}+1\quad \dot{P}=-2x</script><p>在此运动下, 位置$X$和动量$P$都会毫无限制地增长. 原因之一是动量$P$可正可负, 而势能项则只能为正. 为了保证能量守恒, 一种可行的方案就是动量无限制地减少, 位置无限制的增大, 但保持$P+X^2=E$不变. </p>
-<p>值得注意的是, 与我们熟悉的情况不同, 这种不稳定性是由动能引起的. 我们一般所说的不稳定性一般是指势能项的不稳定: 不存在局部最小值. 实际上, 从哈密顿的观点来看, 势能不稳定性和动能不稳定性在相空间角度来看并无太大区别: $P\to X,\,X\to -P$是一组正则变换. 势能的不稳定性在正则变换下会变成动能不稳定性. </p>
-<p>因此, 凡是存在势能不稳定性的系统, 在正则变换下就成为了动能不稳定性. 由此所有与动能不稳定性相关的系统都可以用回归到用”势能”来进行分析.</p>
-<h1 id="场的不稳定性"><a href="#场的不稳定性" class="headerlink" title="场的不稳定性"></a>场的不稳定性</h1><p>哈氏量无下界的场具有不稳定性. 关于这一点, 我是从以下角度来思考的</p>
-<ol>
-<li><p>举例子, 无质量的KG场的哈密顿量可以写为</p>
-<script type="math/tex; mode=display">\mathscr{H}=\dot{\phi}^2+\nabla \phi \cdot \nabla \phi</script><p>将场离散化, 其实可以看做是<strong>相互作用较为特殊的多粒子系统</strong>. </p>
-<script type="math/tex; mode=display">\mathscr{H}=\dot{\phi}_i^2 + (\phi_{i+1,jk}-\phi_{i,jk})/\delta x_i\times \cdots</script><p>第一项可以看做是第$i$个粒子的动能项, 而后面的部分是$i$和$i+1$等周边编号的粒子的相互作用, 较为复杂. 于是<strong>场的演化在一定程度上可以看做是多粒子的相互作用系统的演化, 因而可以用统计力学进行分析</strong>. </p>
-</li>
-<li><p>对于整个系统来说, 哈密顿量或能量需要守恒, 但是对于单个粒子来说, 由于存在复杂的相互作用, 因此其能量可以任意变化. 于是我们所定义的: “场的不稳定性” 实际上可以归结为研究这个”多粒子系统”的分布特性. </p>
-</li>
-</ol>
-<p>提到分布, 就不得不定义场的熵, 真实的分布是使得场的熵最小的分布. 于是我猜测: “场的不稳定性可以被看作是最大熵时, 粒子系统分布的怪异与非物理性”. </p>
-<h2 id="关于熵"><a href="#关于熵" class="headerlink" title="关于熵"></a>关于熵</h2><p>这里算是复习了一下熵的概念.<br>1, <strong>若认为熵的定义及熵增是第一性原理</strong>, 即默认</p>
-<script type="math/tex; mode=display">S=-\int \rho\ln\rho \, d\Omega</script><p>以及系统趋向于增加熵. 那么这能推出什么结论? 我们对$\rho$做一个变分, 看看熵的变化量.</p>
-<script type="math/tex; mode=display">\delta S = -\int\,d\Omega\, \left(1+\ln \rho\right)\delta\rho</script><p>简单起见, 我们仅要求这个变分”改变一个粒子的能量”, 或者$\delta\rho\sim -\delta(\bf{r}-\bf{r_0})+\delta(\bf{r}-\bf{r_1})$. 其中$\bf{r}$代表场的$\Gamma$相空间中的坐标, 这个变分表明将粒子从$\bf{r_0}$拉到了$\bf{r_1}$. 代入可以得到</p>
-<script type="math/tex; mode=display">\delta S \sim -\ln\left(\frac{\rho({\bf{r_1})}}{\rho(\bf{r_0})}\right)</script><p>这说明, 如果要熵增的话, 即$\delta S&gt;0$, 则要求 $\rho(\bf{r_1})&lt;\rho(\bf{r_0})$. 即将概率高的位置的粒子拉到概率低的位置的粒子会增加上. 由此可以得到推论: <strong>最大熵发生在所有微观态都等概率</strong>. </p>
-<p>于是熵的定义与熵增等效于等概率原理</p>
-<p>2, <strong>那么熵为什么这么定义呢?</strong> 我们可以将熵定义为系统某一分布下微观态的总数. 对于第$l$个粒子微观态上有$a_l$个粒子, 一共有$N$个粒子的系统, 总系统微观状态数有</p>
-<script type="math/tex; mode=display">\Omega=\frac{N!}{a_1!a_2!\cdots a_n!}</script><p>取对数, 在斯特林近似下有</p>
-<script type="math/tex; mode=display">\ln \Omega = N\ln N - \sum_l a_l\ln a_l</script><p>归一化之后再连续化, 就得到了熵的定义</p>
-<script type="math/tex; mode=display">S=\sum_l \frac{a_l}{N}\ln\left(\frac{a_l}{N}\right)\sim \int\,d\Omega\,\rho\ln \rho</script><p><strong>于是以$S=\int \rho\ln\rho$定义的熵具有描述系统该分布下微观状态数的作用</strong>. 加上等概率原理, 便可以知道<strong>稳定状态下的系统使熵最大</strong></p>
-<p>3, <strong>熵最大的系统会给出指数型的分布</strong></p>
-<p>在约束条件$\phi=\int \varepsilon f(\varepsilon)\,d\varepsilon\, -\, E=0$的约束下, 求熵$S=\int\,d\varepsilon\,f(\varepsilon)\ln f(\varepsilon)$的最大值. 这是个简单的条件极值问题: 定义拉格朗日乘子$\lambda$, 对$\theta=S-\lambda \phi$求极值. 由</p>
-<script type="math/tex; mode=display">0=\delta \theta = \int\,d\varepsilon\,(\ln f +1)\delta f - \lambda \int d\varepsilon\,\varepsilon\,\delta f</script><p>得到拉氏乘子$\lambda=(\ln f +1)/\varepsilon$. 于是解得熵最大时的分布为</p>
-<script type="math/tex; mode=display">f=\exp\left(A+\lambda \varepsilon\right)</script>
+        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>这里记录一些平时学习物理的一些见解. 并不保证正确, 纯属娱乐.</p>
+<h1 id="理论力学与哈密顿分析"><a href="#理论力学与哈密顿分析" class="headerlink" title="理论力学与哈密顿分析"></a>理论力学与哈密顿分析</h1><h2 id="拉格朗日力学"><a href="#拉格朗日力学" class="headerlink" title="拉格朗日力学"></a>拉格朗日力学</h2><p>一般讨论到拉格朗日力学和哈密顿力学的区别的时候, 有的教材会说: 拉氏力学的方程是二阶微分方程, 而哈氏力学的方程是两个一阶微分方程. 而我认为, 实际上拉氏力学也可以看作是两个一阶微分方程.</p>
+<p>从几何的角度来看, 拉氏力学描述切从$T\mathscr{C}$上的流, 而哈氏力学描述余切丛$T^{\star}\mathscr{C}$上的流. 而既然余切丛和切从可以看做是同构的流形, 那么自然拉氏力学和哈氏力学都可以看作是同一个动力学模型在不同流形中的描述. </p>
+<p>对于哈氏力学来说, 流由哈密顿方程决定</p>
+<script type="math/tex; mode=display">\dot{X}=\frac{\partial H}{\partial X},\qquad \dot{P}=-\frac{\partial H}{\partial X}</script><p>而对于拉氏力学来说, 流由拉格朗日方程以及”提升曲线”决定</p>
+<script type="math/tex; mode=display">\dot{x}=v,\qquad \dot{v}=\left(\frac{\partial^2L}{\partial v^i\partial v^j}\right)^{-1}\left( \frac{\partial L}{\partial x^i}-v^j\frac{\partial^2 L}{\partial v^j \partial q^i} \right)</script><p>第一个方程代表了”提升曲线”, 与拉氏量无关; 第二个方程则是拉格朗日方程. 这大概就是拉氏力学和哈氏力学的差别…</p>
+<h2 id="哈密顿力学"><a href="#哈密顿力学" class="headerlink" title="哈密顿力学"></a>哈密顿力学</h2><p>1, 对场的哈密顿量做傅里叶分解, $\mathscr{H}\to \mathscr{H}_k,\quad \phi\to \phi_k,\quad \pi \to \pi_k$. 从理论力学可以知道, 纯坐标变换是正则变换; 由于$P\to Q\quad Q\to -P$是正则变换, 可以推理得到纯动量变换也必然是正则变换. 因此傅里叶变换是一个正则变换, 对哈密顿密度做傅里叶变换之后的$\mathscr{H}_k=\pi_k+\cdots$可以看做是$\Gamma$相空间的另一组坐标.</p>
+<p>2, 场在离散化之后可以看做是多粒子系统的统计力学. 只不过相互作用较为复杂. 由于傅里叶变换是正则变换, 因此在傅里叶空间看场, 可以将相互作用变得简单一点. 看做统计力学的好处在于: 我们不可能完全了解每个场点的场值, 因此信息是缺失的. 在信息缺失的时候, 可以考虑最大熵模型, 估计场最有可能处于什么样的状态. </p>
+
       
     </div>
     
@@ -449,6 +431,8 @@
           
             <a href="/tags/%E7%89%A9%E7%90%86/" rel="tag"><i class="fa fa-tag"></i> 物理</a>
           
+            <a href="/tags/%E5%93%88%E5%AF%86%E9%A1%BF%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-tag"></i> 哈密顿分析</a>
+          
             <a href="/tags/%E5%9C%BA%E8%AE%BA/" rel="tag"><i class="fa fa-tag"></i> 场论</a>
           
         </div>
@@ -462,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/10/%E5%85%B3%E4%BA%8E%E5%93%88%E5%AF%86%E9%A1%BF%E5%88%86%E6%9E%90%E7%9A%84%E7%96%91%E9%97%AE/" rel="next" title="关于哈密顿分析的疑问">
-                <i class="fa fa-chevron-left"></i> 关于哈密顿分析的疑问
+              <a href="/2020/03/15/%E5%9C%BA%E7%9A%84%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90,%20%E7%86%B5/" rel="next" title="场的统计分析, 熵">
+                <i class="fa fa-chevron-left"></i> 场的统计分析, 熵
               </a>
             
           </div>
@@ -558,7 +542,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -580,7 +564,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -646,7 +630,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#动量线性依赖的哈密顿量"><span class="nav-number">1.</span> <span class="nav-text">动量线性依赖的哈密顿量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#场的不稳定性"><span class="nav-number">2.</span> <span class="nav-text">场的不稳定性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于熵"><span class="nav-number">2.1.</span> <span class="nav-text">关于熵</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理论力学与哈密顿分析"><span class="nav-number">2.</span> <span class="nav-text">理论力学与哈密顿分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#拉格朗日力学"><span class="nav-number">2.1.</span> <span class="nav-text">拉格朗日力学</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#哈密顿力学"><span class="nav-number">2.2.</span> <span class="nav-text">哈密顿力学</span></a></li></ol></li></ol></div>
             
 
           </div>

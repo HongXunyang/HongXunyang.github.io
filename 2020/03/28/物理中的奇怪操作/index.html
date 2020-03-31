@@ -118,7 +118,7 @@
 
 
 
-  <meta name="keywords" content="生活,纸牌," />
+  <meta name="keywords" content="物理," />
 
 
 
@@ -129,24 +129,18 @@
 
 
 
-<meta name="description" content="前言本文的目的是计算一些在拖拉机(升级)纸牌游戏中常见的概率问题. 计算方法大部分使用python完成. 每一项概率计算都是以随机发牌若干次, 以频率代替概率实现.  目前已完成计算的概率问题有:  主牌 (main cards) 数量分布 对 (doubles) 的数量分布 出对时被打败的概率  未完成的概率问题有:  拖拉机出现的概率  未来将持续更新未完成问题与已完成问题. 概率计算卡牌概况">
+<meta name="description" content="介绍本文主要是收录一点在物理中看到的令人目瞪口呆的操作… 或是神奇的脑洞等等. 不定时更新 宇宙学Baumann.Csomology在计算暴涨发生条件与暴涨持续条件的时候, 需要对暴涨场做一定的推导. 其中最神奇的操作如下: 已知暴涨场是时空协变的标量场, 满足方程 \ddot{\phi}+3H\dot{\phi}+V_{\phi}而持续暴涨的条件为 -\frac{\ddot{\phi}}{H\d">
 <meta property="og:type" content="article">
-<meta property="og:title" content="拖拉机(升级)概率计算--精简版">
-<meta property="og:url" content="hongxunyang.github.io/2020/03/01/%E6%8B%96%E6%8B%89%E6%9C%BA-%E5%8D%87%E7%BA%A7-%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/index.html">
+<meta property="og:title" content="物理中的奇怪操作">
+<meta property="og:url" content="hongxunyang.github.io/2020/03/28/%E7%89%A9%E7%90%86%E4%B8%AD%E7%9A%84%E5%A5%87%E6%80%AA%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="Hong Xunyang&#39;s Homepage">
-<meta property="og:description" content="前言本文的目的是计算一些在拖拉机(升级)纸牌游戏中常见的概率问题. 计算方法大部分使用python完成. 每一项概率计算都是以随机发牌若干次, 以频率代替概率实现.  目前已完成计算的概率问题有:  主牌 (main cards) 数量分布 对 (doubles) 的数量分布 出对时被打败的概率  未完成的概率问题有:  拖拉机出现的概率  未来将持续更新未完成问题与已完成问题. 概率计算卡牌概况">
+<meta property="og:description" content="介绍本文主要是收录一点在物理中看到的令人目瞪口呆的操作… 或是神奇的脑洞等等. 不定时更新 宇宙学Baumann.Csomology在计算暴涨发生条件与暴涨持续条件的时候, 需要对暴涨场做一定的推导. 其中最神奇的操作如下: 已知暴涨场是时空协变的标量场, 满足方程 \ddot{\phi}+3H\dot{\phi}+V_{\phi}而持续暴涨的条件为 -\frac{\ddot{\phi}}{H\d">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="/images/%E6%8B%96%E6%8B%89%E6%9C%BA_%E5%AF%B9%E6%95%B0.png">
-<meta property="og:image" content="/images/%E6%8B%96%E6%8B%89%E6%9C%BA_%E4%B8%BB%E7%89%8C%E6%95%B0.png">
-<meta property="og:image" content="/images/%E6%8B%96%E6%8B%89%E6%9C%BA_%E5%AF%B9%E8%A2%AB%E6%89%93%E8%B4%A5%E6%A6%82%E7%8E%87.png">
-<meta property="og:image" content="/images/%E6%8B%96%E6%8B%89%E6%9C%BA_%E5%AF%B9%E8%A2%AB%E6%89%93%E8%B4%A5%E6%A6%82%E7%8E%87.png">
-<meta property="article:published_time" content="2020-03-01T07:01:31.000Z">
-<meta property="article:modified_time" content="2020-03-01T07:01:31.000Z">
+<meta property="article:published_time" content="2020-03-28T14:37:09.000Z">
+<meta property="article:modified_time" content="2020-03-28T14:37:09.000Z">
 <meta property="article:author" content="Hong Xunyang">
-<meta property="article:tag" content="生活">
-<meta property="article:tag" content="纸牌">
+<meta property="article:tag" content="物理">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="/images/%E6%8B%96%E6%8B%89%E6%9C%BA_%E5%AF%B9%E6%95%B0.png">
 
 
 
@@ -176,13 +170,13 @@
 
 
 
-  <link rel="canonical" href="hongxunyang.github.io/2020/03/01/拖拉机-升级-概率计算/"/>
+  <link rel="canonical" href="hongxunyang.github.io/2020/03/28/物理中的奇怪操作/"/>
 
 
 
 
 
-  <title>拖拉机(升级)概率计算--精简版 | Hong Xunyang's Homepage</title>
+  <title>物理中的奇怪操作 | Hong Xunyang's Homepage</title>
   
 
 
@@ -309,7 +303,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="hongxunyang.github.io/2020/03/01/%E6%8B%96%E6%8B%89%E6%9C%BA-%E5%8D%87%E7%BA%A7-%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/">
+    <link itemprop="mainEntityOfPage" href="hongxunyang.github.io/2020/03/28/%E7%89%A9%E7%90%86%E4%B8%AD%E7%9A%84%E5%A5%87%E6%80%AA%E6%93%8D%E4%BD%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hong Xunyang">
@@ -326,7 +320,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">拖拉机(升级)概率计算--精简版</h1>
+          <h1 class="post-title" itemprop="name headline">物理中的奇怪操作</h1>
         
 
         <div class="post-meta">
@@ -338,8 +332,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-01T15:01:31+08:00">
-                2020-03-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-28T22:37:09+08:00">
+                2020-03-28
               </time>
             
 
@@ -361,8 +355,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
+                  <a href="/categories/%E7%89%A9%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">物理</span>
                   </a>
                 </span>
 
@@ -379,8 +373,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/03/01/%E6%8B%96%E6%8B%89%E6%9C%BA-%E5%8D%87%E7%BA%A7-%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/01/%E6%8B%96%E6%8B%89%E6%9C%BA-%E5%8D%87%E7%BA%A7-%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/" itemprop="commentCount"></span>
+                <a href="/2020/03/28/%E7%89%A9%E7%90%86%E4%B8%AD%E7%9A%84%E5%A5%87%E6%80%AA%E6%93%8D%E4%BD%9C/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/28/%E7%89%A9%E7%90%86%E4%B8%AD%E7%9A%84%E5%A5%87%E6%80%AA%E6%93%8D%E4%BD%9C/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -408,96 +402,14 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文的目的是计算一些在拖拉机(升级)纸牌游戏中常见的概率问题. 计算方法大部分使用python完成. 每一项概率计算都是以随机发牌若干次, 以频率代替概率实现. </p>
-<p>目前已完成计算的概率问题有:</p>
-<ol>
-<li>主牌 (main cards) 数量分布</li>
-<li>对 (doubles) 的数量分布</li>
-<li>出对时被打败的概率</li>
-</ol>
-<p>未完成的概率问题有:</p>
-<ol>
-<li>拖拉机出现的概率</li>
-</ol>
-<p>未来将持续更新未完成问题与已完成问题.</p>
-<h1 id="概率计算"><a href="#概率计算" class="headerlink" title="概率计算"></a>概率计算</h1><p>卡牌概况: 两副牌, 一共108张, 包含4张鬼 (Ghost), 36张主牌 (Main Cards). 为了简单起见, 默认方块4是主牌, 即所有的方块和所有的4都是主牌. </p>
-<h2 id="对-doubles-出现的概率分布"><a href="#对-doubles-出现的概率分布" class="headerlink" title="对(doubles)出现的概率分布"></a>对(doubles)出现的概率分布</h2><p>这里计算出现N张对的概率, 分别讨论庄家 (Boss), 非庄家 (Others). 随机发牌10万次, 统计庄家和非庄家手里的对的数量, 并以频率代替概率, 绘制出如下图表.</p>
-<p><img src="/images/拖拉机_对数.png" alt=""></p>
-<center>  <font size=3> 横坐标为你获得的对的数量, 纵坐标为概率. 蓝色曲线为非庄家的分布, 橙色曲线为庄家的分布. <font> </center>
-
-<p><strong>非庄家时</strong></p>
-<ol>
-<li><font color=blue> 最有可能获得3个对 </font></li>
-<li><font color=blue> 获得2-4个对的概率大概都在20-30%, 这三种情况总和占到了所有情况的60% </font></li>
-<li><font color=blue> 基本不可能一个对都没有, 此时概率只有2.5% </font>
-
-</li>
-</ol>
-<p><strong>庄家时</strong></p>
-<ol>
-<li><font color=red> 最有可能获得5个对, 平均比非庄家多出2个对 </font></li>
-<li><font color=red> 获得4-6个对的概率都在20%左右, 这三种情况占到了所有情况的60% </font></li>
-<li><font color=red> 一次获得7个以上对的概率达到了10%, 远高于非庄家的1% </font>
-
-</li>
-</ol>
-<p>此外, 庄家的概率分布标准差更大, 因此更有可能获得非常多对, 但同时也更有可能获得非常少对. 因此庄家更加靠运气吃饭. </p>
-<h2 id="主牌的分布"><a href="#主牌的分布" class="headerlink" title="主牌的分布"></a>主牌的分布</h2><p>这里计算在一次发牌中, 获得N张主牌的概率分布. 分别讨论庄家和非庄家的情况. 操作方式同上, 得到分布图. </p>
-<p><img src="/images/拖拉机_主牌数.png" alt=""></p>
-<center>  <font size=3> 横坐标为你获得的主牌的数量, 纵坐标为概率. 蓝色曲线为非庄家的分布, 橙色曲线为庄家的分布.</font>  </center>
-
-<p> <strong>非庄家时</strong> </p>
-<ol>
-<li><font color=blue> 最有可能获得8张主牌. </font></li>
-<li><font color=blue> 获得6-10张主牌的概率都在10%以上, 这三种情况占到了所有情况的60% </font> </li>
-<li><font color=blue> 只有10%的可能主牌数$\le$ 5张; 同样只有10%的可能主牌数$\ge$ 12张 </font></li>
-<li><font color=blue> 主牌分布的标准差大概为3张. 因此每一次发牌中, 主牌数量会有$\pm$ 3张的浮动 </font>
-
-</li>
-</ol>
-<p><strong>庄家时</strong> </p>
-<ol>
-<li><font color=red> 最有可能获得11张主牌, 平均比非庄家的人多出3张主牌</font></li>
-<li><font color=red> 获得9-13张主牌的概率在10%以上, 占到了所有情况的70%</font></li>
-<li><font color=red>  而对于庄家来说, 有只有10%的可能主牌数$\le$ 7张, 同样只有10%的概率主牌数$\ge$ 15张</font></li>
-<li><font color=red> 主牌分布的标准差大概为4张. 因此每一次发牌中, 主牌数量会有$\pm$ 4张的浮动</font>
-
-</li>
-</ol>
-<p>同样的, 庄家的分布方差更大, 因此更有可能获得超多主牌或者较少主牌. 于是庄家也更加靠运气吃饭. 由于进行了10万次随机发牌, 从频数上可以更加直观地看到这10万次发牌主牌数量集中在什么地方. 对于非庄家来说: </p>
-<blockquote>
-<p>这10万次发牌中: 只有1次有1张主牌, 17次有2张主牌. 100次有3张主牌, 600次有4张主牌, 2000次有5张主牌.<br>这10万次发牌中: 只有3次有18张主牌, 33次有17次主牌, 115次有16张主牌, 500次有15张主牌, 1630次有14张主牌, 8000次有13张主牌.<br>这10万次发牌中: 有几乎2万次是8张主牌, 2万次是9张主牌.</p>
-</blockquote>
-<p>庄家在这个基础上+3张主牌数即可. </p>
-<h2 id="对手有大于”对N”的对的概率"><a href="#对手有大于”对N”的对的概率" class="headerlink" title="对手有大于”对N”的对的概率"></a>对手有大于”对N”的对的概率</h2><p>这一小节的目的是为了分析一种情况下的出牌策略, 这种情况是: </p>
-<blockquote>
-<p>若我手里有对10, 那么我是否应该要出牌? 对手若有对K, 那么就惨败了. 这个概率似乎挺大的?<br>如果我手里有对K, 我是否应该出牌? 对手如果有对A, 也惨败. 但是这个概率似乎并不大?<br>如果我手里有对2, 我又是否应该出牌? 对2是最小的牌, 对手肯定有比这个大的牌.<br>如果我是庄家, 且我有对K, 那么被人打败的概率还是没有那么大的, 毕竟我拿了底牌, 手里的牌比别人更好.</p>
-</blockquote>
-<p>以上的叙述都是基于经验而来, 有一定的道理. 下面我们真正计算一下上面几种情况, 出牌被打败的概率. 显然, 这个问题也要分庄家和非庄家来看. 同样用随机发牌3万次, 统计对手能够打败自己的次数. 计算结果如下: </p>
-<p><img src="/images/拖拉机_对被打败概率.png" alt=""></p>
-<p><strong>自己是非庄家时</strong></p>
-<ol>
-<li><font color=blue> 如果自己手里有对10, 那么两个对手之一能够打败自己(有比10大的同花色对, 例如对J, 对A等)的概率是32% </font></li>
-<li><font color=blue> 如果自己手里有对K, 那么两个对手之一能够打败自己的概率是10% </font></li>
-<li><font color=blue> 如果自己手里只有对2, 那么被打败的概率则有66% </font>
-
-</li>
-</ol>
-<p><strong>自己是庄家时</strong></p>
-<ol>
-<li><font color=red> 如果自己手里有对10, 被打败的概率是20% </font></li>
-<li><font color=red> 如果自己手里有对K, 被打败5% </font></li>
-<li><font color=red> 如果自己手里只有对2, 被打败的概率则有45% </font> 
-
-</li>
-</ol>
-<p>由此可见, 庄家确实能够有效地降低自己出的对被打败的概率, 大约能够降低10%的概率. 但从实战角度来看, 我到底该不该出我手里的对? 例如我有对7应不应该出呢? 我们可以把这个概率的阈值设定为30%, 也就是说如果被打败的概率低于三分之一, 那就应该出牌; 反之则不应该出牌. 可以直接计算概率, 下图则是3万次随机发牌的统计概率分布图</p>
-<p><img src="/images/拖拉机_对被打败概率.png" alt=""></p>
-<center> <font size=3> 横坐标是你出的对, 纵坐标则是这个对被人打败的概率. 蓝色是非庄家情况, 橙色则是庄家的情况</font> </center>
-
-<p><strong>按照这个标准, 非庄家至少要出对10; 而庄家则至少要出对8或对7.</strong></p>
-<p>当然, 在实战中可以快速地计算各个对被打败的概率. 在小于10的对中, 我们可以采用线性插值的方式大致地计算出对N被打败的概率. 对非庄家来说: 斜率为</p>
-<script type="math/tex; mode=display">k=\frac{32-66}{8}=-4\%</script><p>也就是说, 我们可以大概估计: 比对3大的概率是66-4=62%; 比对4大的概率是: 58%; 比对5大的概率是54…比对10大的概率是33%. 自己是庄家则在这个基础上减去10%的概率.</p>
+        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>本文主要是收录一点在物理中看到的令人目瞪口呆的操作… 或是神奇的脑洞等等. 不定时更新</p>
+<h1 id="宇宙学"><a href="#宇宙学" class="headerlink" title="宇宙学"></a>宇宙学</h1><h2 id="Baumann-Csomology"><a href="#Baumann-Csomology" class="headerlink" title="Baumann.Csomology"></a>Baumann.Csomology</h2><p>在计算暴涨发生条件与暴涨持续条件的时候, 需要对暴涨场做一定的推导. 其中最神奇的操作如下: 已知暴涨场是时空协变的标量场, 满足方程</p>
+<script type="math/tex; mode=display">\ddot{\phi}+3H\dot{\phi}+V_{\phi}</script><p>而持续暴涨的条件为</p>
+<script type="math/tex; mode=display">-\frac{\ddot{\phi}}{H\dot{\phi}}-\frac{\dot{H}}{H^2}\equiv \eta \to 0</script><p>按理说, 如果直接将$\ddot{\phi}$代入其中, 能够得到$V(\phi)$与”速度”$\dot{\phi}$之间所所满足的条件. 但是其实我们知道, 在暴涨场主导的宇宙中, 单纯给定$V(\phi)$基本就已经确定了今后的宇宙演化和暴涨场演化. 所以按理说暴涨持续的条件可以转化成$V(\phi)$所需要满足的条件. 那怎么办呢…? <strong>我们知道</strong>, 在暴涨过程中, 要求哈勃常数缓慢变化或不变, 而可以知道哈勃常数的导数$\dot{H}\sim dot{\phi}^2$. 因此哈勃常数不变的话, $\ddot{\phi}\to 0$. 于是KG方程变成</p>
+<script type="math/tex; mode=display">3H\dot{\phi}=-V_{\phi}</script><p>然后求一次导<br>$3\dot{H}\dot{\phi}+3H\ddot{\phi}=-V_{\phi\phi}\dot{\phi}$<br>代入到暴涨持续条件, 竟然就化简成了</p>
+<script type="math/tex; mode=display">V_{\phi\phi}/3H^2-2\dot{H}/H^2</script><p>在暴涨时期, $H^2\sim V/3M^2$, $\dot{H}\to 0$, 于是成为了</p>
+<script type="math/tex; mode=display">\eta=M^2\frac{V_{\phi\phi}}{V}\to 0</script><p>得到了势能项的条件. 这里比较神奇之处在于: 本来KG方程就含有$\ddot{\phi}$, 这里却利用暴涨的物理性质直接将$\ddot{\phi}$扔掉, 然后对剩下的式子求导, 又出来一个$\ddot{\phi}$, 将这个代入到暴涨条件里… </p>
+<p>评价一下: 这里的做法虽然不严谨, 但是不失为一种方法. 但是需要注意的是, 最终的条件必然顶多是一个充分条件, 而绝不是必要条件, 而且<strong>未必自洽</strong>: 即在推导时丢掉了$\ddot{\phi}$, 最后满足暴涨持续条件的暴涨场不一定满足$\ddot{\phi}\to 0$. 所以最终还是得做自洽性检验. </p>
 
       
     </div>
@@ -515,9 +427,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag"><i class="fa fa-tag"></i> 生活</a>
-          
-            <a href="/tags/%E7%BA%B8%E7%89%8C/" rel="tag"><i class="fa fa-tag"></i> 纸牌</a>
+            <a href="/tags/%E7%89%A9%E7%90%86/" rel="tag"><i class="fa fa-tag"></i> 物理</a>
           
         </div>
       
@@ -530,8 +440,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/29/%E5%8D%87%E7%BA%A7-%E6%8B%96%E6%8B%89%E6%9C%BA-%E7%BA%B8%E7%89%8C%E6%B8%B8%E6%88%8F/" rel="next" title="升级(拖拉机)纸牌游戏">
-                <i class="fa fa-chevron-left"></i> 升级(拖拉机)纸牌游戏
+              <a href="/2020/03/24/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E7%9A%84%E6%96%87%E7%8C%AE%E7%BB%BC%E8%BF%B0/" rel="next" title="毕业论文的文献综述">
+                <i class="fa fa-chevron-left"></i> 毕业论文的文献综述
               </a>
             
           </div>
@@ -540,8 +450,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/03/05/2020%E7%95%99%E5%AD%A6%E7%94%B3%E8%AF%B7-%E5%B0%98%E5%9F%83%E8%90%BD%E5%AE%9A/" rel="prev" title="2020留学申请结束">
-                2020留学申请结束 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/04/01/%E7%90%83%E8%B0%90%E5%87%BD%E6%95%B0%E4%B8%8E%E7%AE%97%E5%AD%90%E7%90%86%E8%AE%BA/" rel="prev" title="球谐函数与算子理论">
+                球谐函数与算子理论 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -630,7 +540,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -652,7 +562,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -722,7 +632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概率计算"><span class="nav-number">2.</span> <span class="nav-text">概率计算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对-doubles-出现的概率分布"><span class="nav-number">2.1.</span> <span class="nav-text">对(doubles)出现的概率分布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主牌的分布"><span class="nav-number">2.2.</span> <span class="nav-text">主牌的分布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对手有大于”对N”的对的概率"><span class="nav-number">2.3.</span> <span class="nav-text">对手有大于”对N”的对的概率</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#宇宙学"><span class="nav-number">2.</span> <span class="nav-text">宇宙学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Baumann-Csomology"><span class="nav-number">2.1.</span> <span class="nav-text">Baumann.Csomology</span></a></li></ol></li></ol></div>
             
 
           </div>

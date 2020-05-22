@@ -325,6 +325,11 @@
         
 
         <div class="post-meta">
+        
+          <i class="fa fa-thumb-tack"></i>
+          <font color="red">置顶</font>
+          <span class="post-meta-divider">|</span>
+         
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -420,6 +425,22 @@
 <li>买一个大房子, 住一个大一点的房间, 比如你的房间有50平方米, 那么在同样的条件下, 一整晚都没有蚊子骚扰你的概率就提升到了到了$60\%$!! 划不划算!! </li>
 </ol>
 <p>那么, 你是买房呢还是灭蚊呢 (滑稽). 接下来的问题是: 如果蚊子会被你呼出的二氧化碳吸引从而更倾向于朝你飞过去, 那么这时候概率要怎么算? 这个模型其实比较复杂, 因为有许多细节需要进一步的假设. 例如蚊子到底是如何被吸引的, 蚊子能够闻到你的气味的距离是多少? 如果闻到了气味, 蚊子是否不飞到你身边不罢休? 等等等等, 这个问题有待以后解决.</p>
+<h1 id="鱿鱼是怎么卷曲的"><a href="#鱿鱼是怎么卷曲的" class="headerlink" title="鱿鱼是怎么卷曲的?"></a>鱿鱼是怎么卷曲的?</h1><p>最近炒了几次鱿鱼, 发现了一个有趣的现象. 我在切鱿鱼的时候, 一般是切成条状, 但切的方式有时候是横着切, 有时候是竖着切; 因为鱿鱼本身在切开之后就是一个大致长方向, 横着切竖着切在炒之前基本都看不出来有什么不同. </p>
+<p>放图</p>
+<p>但是在把鱿鱼炒熟之后, 我发现有的鱿鱼卷曲成了半个圆柱形, 有得鱿鱼卷曲成了一个圆环. 这就很奇怪了, 都是切成条状, 为什么他们的卷曲方式不一样的? </p>
+<p>放图</p>
+<p>我估计是鱿鱼内部的蛋白质结构造成的各向异性, 使得它们在被炒的时候会朝一个方向卷曲. 而我切条的时候有时是横着切, 那么就会卷曲成圆柱形; 而竖着切的时候, 就会卷曲成圆环. </p>
+<p><strong>于是我就在想, 能不能在切鱿鱼的时候不按套路切, 让它在被炒熟的时候卷曲的形状有一定的艺术感??</strong> 或许还能弄出个莫比乌斯换什么的形状…? </p>
+<p>虽然看上去挺难的, 而且可能需要多次尝试, 但还是蛮有意思的对吧? 如果还能从理论上去研究鱿鱼的卷曲, 并且能够计算出它卷曲之后的形状, 岂不妙哉? 于是本文应运而生. </p>
+<p>我暂时还没有对这个问题有很深刻的见解, 目前仅有几个零星的想法, 谨记录与此</p>
+<ol>
+<li><p>鱿鱼的卷曲类似”肥皂泡之所以为球状” 的原理, 可能是由于鱿鱼内部的张力造成的. 描述张力可以用应力张量来表示. 肥皂泡的应力张量显然是各向同性的, 但从鱿鱼的卷曲方式来看, 鱿鱼内部的应力张量肯定不是各向同性的. 此外, 鱿鱼比较薄, 可以认为这是一个二维的应力张量, 因此张力退化为表面张力.</p>
+</li>
+<li><p>如何去描述鱿鱼卷曲的形状? 同样, 如果假设鱿鱼是没有厚度的, 就是一片膜, 那么一个二维物体嵌入到$\mathbb{R}^3$的方式可以用$\mathbb{R}^3$上的标量场描述, 标量场的等值面则是鱿鱼的形状. 但是这个似乎有点复杂, 那么就另辟蹊径. 由于鱿鱼是从一个平面长方形卷曲成一个曲面, 他们之间是一个完全的微分同胚关系, 因此曲面上的诱导度规必定是平直度规, 那么黎曼曲率就无法应用了; 那么换一个角度, 可以用外曲率来描述. 所以我们可以将注意力集中到鱿鱼卷曲形状的外曲率上.</p>
+</li>
+<li><p>仔细想想, 应力张量和外曲率都是二维的二阶张量, 并且他们都有很相似的性质 (在鱿鱼身上), 是否可以认为鱿鱼卷曲时的应力张量至少正比于外曲率?</p>
+</li>
+</ol>
 
       
     </div>
@@ -552,7 +573,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -563,7 +584,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -574,7 +595,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -644,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#导言"><span class="nav-number">1.</span> <span class="nav-text">导言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#蚊子会飞进蚊帐吗"><span class="nav-number">2.</span> <span class="nav-text">蚊子会飞进蚊帐吗?</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#导言"><span class="nav-number">1.</span> <span class="nav-text">导言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#蚊子会飞进蚊帐吗"><span class="nav-number">2.</span> <span class="nav-text">蚊子会飞进蚊帐吗?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#鱿鱼是怎么卷曲的"><span class="nav-number">3.</span> <span class="nav-text">鱿鱼是怎么卷曲的?</span></a></li></ol></div>
             
 
           </div>

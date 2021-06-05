@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://xxxxxxx.xxx"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-simple.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/pig128.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/pig.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/pig16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="生活," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hong Xunyang's Homepage" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="因为新冠肺炎, 中大可怜的假期得到了延长. 从原来的2月8日开学, 延迟到了如今的三月初开学. 在我印象中似乎是第一次在我生日之前就开学了了. 近几天来看到新闻, 大概意思是各个高校要做好四月或五月开学的准备. 看来中大的假期要被迫延长几倍了 (偷笑). 因为家里的保姆是湖北的, 在回去之后湖北封城, 也会不来了. 所以这几个星期以来, 都是我和我妈妈在厨房里做饭. 可以说是终于开始学做饭了. 妈">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在家做饭">
+<meta property="og:url" content="hongxunyang.github.io/2020/02/18/%E5%9C%A8%E5%AE%B6%E5%81%9A%E9%A5%AD/index.html">
+<meta property="og:site_name" content="Hong Xunyang&#39;s Homepage">
+<meta property="og:description" content="因为新冠肺炎, 中大可怜的假期得到了延长. 从原来的2月8日开学, 延迟到了如今的三月初开学. 在我印象中似乎是第一次在我生日之前就开学了了. 近几天来看到新闻, 大概意思是各个高校要做好四月或五月开学的准备. 看来中大的假期要被迫延长几倍了 (偷笑). 因为家里的保姆是湖北的, 在回去之后湖北封城, 也会不来了. 所以这几个星期以来, 都是我和我妈妈在厨房里做饭. 可以说是终于开始学做饭了. 妈">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="/images/%E5%9C%A8%E5%AE%B6%E5%81%9A%E9%A5%AD1.jpg">
+<meta property="og:image" content="/images/%E5%9C%A8%E5%AE%B6%E5%81%9A%E9%A5%AD3.jpg">
+<meta property="og:image" content="/images/%E5%9C%A8%E5%AE%B6%E5%81%9A%E9%A5%AD6.jpg">
+<meta property="og:image" content="/images/%E5%9C%A8%E5%AE%B6%E5%81%9A%E9%A5%AD7.jpg">
+<meta property="og:image" content="/images/%E5%9C%A8%E5%AE%B6%E5%81%9A%E9%A5%AD5.jpg">
+<meta property="article:published_time" content="2020-02-18T14:04:35.000Z">
+<meta property="article:modified_time" content="2020-02-18T14:04:35.000Z">
+<meta property="article:author" content="Hong Xunyang">
+<meta property="article:tag" content="生活">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/%E5%9C%A8%E5%AE%B6%E5%81%9A%E9%A5%AD1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="hongxunyang.github.io/2020/02/18/在家做饭/"/>
+
+
+
+
+
+  <title>在家做饭 | Hong Xunyang's Homepage</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hong Xunyang's Homepage</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Physics Major | Undergrad @SYSU Physics | Grad @ETH Physics</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="hongxunyang.github.io/2020/02/18/%E5%9C%A8%E5%AE%B6%E5%81%9A%E9%A5%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hong Xunyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hong Xunyang's Homepage">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">在家做饭</h1>
+        
+
+        <div class="post-meta">
+        
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-18T15:04:35+01:00">
+                2020-02-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">生活</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/02/18/%E5%9C%A8%E5%AE%B6%E5%81%9A%E9%A5%AD/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/18/%E5%9C%A8%E5%AE%B6%E5%81%9A%E9%A5%AD/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>因为新冠肺炎, 中大可怜的假期得到了延长. 从原来的2月8日开学, 延迟到了如今的三月初开学. 在我印象中似乎是第一次在我生日之前就开学了了. 近几天来看到新闻, 大概意思是各个高校要做好四月或五月开学的准备. 看来中大的假期要被迫延长几倍了 (偷笑).</p>
+<p>因为家里的保姆是湖北的, 在回去之后湖北封城, 也会不来了. 所以这几个星期以来, 都是我和我妈妈在厨房里做饭. 可以说是终于开始学做饭了. 妈妈还说, 是不是以前觉得做饭很难, 一旦开始学做饭以后, 觉得也挺简单嘛? 我心里想: 我一直都觉得做饭不难, 只不过没有机会学罢了. </p>
+<p>这段时间做菜, 常常会做一些控制变量的实验. 例如同一盘菜分两次放到碟子里, 一次炒的时间短一点, 一次炒的时间长一点, 以此来看看炒菜时间的长短会对菜品产生什么样的影响; 同一盒牛肉, 一半拍打三分钟, 另一半不拍打, 两个一起炒, 看看吃饭的时候是否能够分的出来哪一个拍过哪一个没拍过. 诸如此类的尝试的确让我了解到了许多佐料的用法以及炒菜火候的控制方法. </p>
+<p><img src="/images/在家做饭1.jpg" alt=""></p>
+<blockquote>
+<p>简单记”蒜热锅”为: “先放蒜, 开小火热几个心跳, 放油”<br>简单记”小火耗油生粉”为: “收小火, 放耗油生粉搅拌均匀”<br>简单记”标准配料”为: “料酒耗油生粉白糖”<br>简单记”过冷河”为: “用水焯熟, 捞上来立刻浸到冷水里, 类似淬火”</p>
+</blockquote>
+<p>记录一下学会做的菜:</p>
+<ol>
+<li><strong>荷包蛋</strong>: 先放能够盖过整个鸡蛋的油, 开小火, 5-10秒之后放鸡蛋. 不断推动鸡蛋让鸡蛋不要粘锅, 大概背面硬了就能够翻到另外一面. 不要等油太热了才放鸡蛋, 否则鸡蛋里的水会在油里噼里啪啦作响. 可以在关火后放盐, 也可以捞上来之后放酱油. </li>
+<li><strong>菜花炒猪肉</strong>: 菜花比较难熟. 将菜花焯熟, 看着差不多就可以了. 捞上来之后放着. 蒜热锅, 开中火, 放各种颜色灯笼椒调色. 大概熟了放菜花, 开大火翻炒. 几十秒之后小火耗油生粉. </li>
+<li><strong>鲮鱼油麦菜</strong>: 先标准配料搅拌一抔鲮鱼放着. 蒜热锅, 放鲮鱼. 放油麦菜, 不要炒到油麦菜折叠起来, 最佳的火候是张开的油麦菜即将要折叠在一起. 等到快折叠时, 收小火, 将里面的水铲掉, 加盐(加味精). 搅拌即可.  </li>
+<li><strong>蒜蓉菜心</strong>: 较多蒜热锅, 开大火放青菜. 最佳火候是青菜尚硬未软时. </li>
+<li><strong>韭菜炒蚬肉</strong>: 洗干净蚬, 啥都不放用小火把蚬炒干, 快速翻炒, 直到干水有鱿鱼干的味道位置. 把蚬拿上来, 蒜+多姜热锅, 加韭菜中火翻炒, 最佳火候是韭菜尚硬未软, 加耗油. 最后混在一起即可</li>
+<li><strong>滑蛋豆角, 豆角煎蛋</strong>: 不放蒜不放姜. </li>
+<li><strong>草菇肉片</strong>: 草菇1分钟焯水. 放辣椒青椒和少许猪肉炒会比较好吃. </li>
+<li><strong>豆芽炒盐焗鸡</strong>: 实现准备好一点点盐焗鸡, 切碎. 蒜+鸡热锅, 放豆芽. 之后有两种办法: 一种是不加水直接炒, 效果是豆芽更硬一点; 另一种是加水加生粉, 这样豆芽就会软软的.  </li>
+<li><strong>姜葱牛肉</strong> : 木瓜酶. 不用蒜, 加很多很多葱会比较好吃.</li>
+<li><strong>炒饭</strong></li>
+<li><strong>炒米粉</strong>: 过冷河. </li>
+<li><strong>酱油炒鸡</strong></li>
+<li><strong>电饭煲鸡</strong></li>
+<li><strong>韭黄炒萝卜</strong>:</li>
+<li><strong>肉片炒土豆丝</strong>: 要多一点猪肉, 比炒青菜多. 加耗油比加盐更好吃.</li>
+<li><strong>冬菇耗油生菜</strong></li>
+<li><strong>木耳荷兰豆</strong></li>
+<li><strong>干煸四季豆</strong>: 提前将猪肉加酱油和盐. 四季豆焯水. 加入豆士和蒜和耗油炒久一点.</li>
+<li><strong>节瓜草菇金针菇</strong></li>
+<li><strong>芹菜炒牛肉碎</strong></li>
+<li><strong>炸虾</strong>: 首先拿酱油或蚝油浸泡一阵虾仁. 放面粉到碗里, 加一点点水, 放虾进去. 加糖加盐搅拌, 直至所有面粉都包裹住虾. 然后放到油里炸即可.</li>
+<li><strong>萝卜虾仁</strong>: 红萝卜白萝卜切成小块, 虾仁切半, 青椒切块, 这四种配料的大小都差不多, 用勺子可以一下舀起来. 在炒的时候加一点水, 外加耗油与许多生粉, 这样炒出来的菜十分下饭.</li>
+<li><strong>青椒豆芽</strong>: 荷兰豆, 青椒都切成长条, 和豆芽, 揉成丝状的蟹柳和一点辣椒一起炒, 效果也十分不错. </li>
+</ol>
+<p>学会了一些做菜的技术和方法: 调色, 炒干水, 等等.</p>
+<ul>
+<li><p><strong>关于调色</strong>: 各种颜色的灯笼椒加在菜里可以让菜变得好看. 葱也有这样的作用, 不过葱体积太小, 不太看得见. 例如草菇炒肉片的时候若不让放灯笼椒, 就会清一色的灰色, 不那么好看. 蚝油会让菜变得黑一点, 对于白花花的菜也是一个很好的调色作用. 例如菜花若不加耗油, 就会显得过于寡淡. 总之, 绿色红色黄色都可以由灯笼椒提供, 葱能够提供青绿色和白色, 蚝油能够让菜品变暗色调, 胡萝卜能够提供橙色等等.</p>
+<p><img src="/images/在家做饭3.jpg" width="500"/></p>
+</li>
+<li><p>蚬肉如果和酱料一起炒的话会湿哒哒的, 如果想要炒干水的话就需要啥都不放一开始就用小火先炒干水了, 再做配料. 之所以用小火是因为这个时候不能加油(否则又湿了), 很容易粘锅.</p>
+</li>
+<li><p><strong>关于配菜1</strong>: 自己琢磨的配菜原则, 不一定合适, 随时更新. <strong>首先</strong>, 配菜要味道合适: 味道大的和味道小的不适合放在一起, 例如滑蛋, 韭黄, 豆角等都是没有什么味道的, 是适合放在一起的; 但是滑蛋和蒜, 姜等配料就不适合放在一起, 鸡蛋本身没有味道, 蒜就会把鸡蛋的味道都抢走. <strong>其次</strong>, 口感不一样的菜是可以尝试放在一起, 但至少要做到能够在吃的时候区分得开: 例如硬的豆角粒和软的煎蛋或滑蛋, 生菜和小炒肉, 软的蚬和韭菜, 软的韭黄和硬的萝卜丝等; 另外, 韭黄和牛肉一起炒的时候, 韭黄一定要多, 否则在吃的时候基本无法将牛肉和韭黄区分开来 (韭黄粘在牛肉上), 这样牛肉和蒜的味道就抢走了韭黄的淡淡的味道, 导致韭黄没有存在感. <strong>最后</strong>, 两种菜能够同时被筷子夹起来. 例如草菇炒豆芽的时候, 草菇就要切成片, 而豆芽就要剪一半的长度, 同时炒完后加适量生粉, 这样才能够一定程度保证能够同时夹起来. 虾仁炒豆角粒也是同样道理, 虾仁需要剪成和豆角粒差不多的大小是比较合适的, 此外虾仁粒和豆角粒的数量不宜相差过大.</p>
+</li>
+<li><p><strong>关于配菜2</strong>: (2020.3.22记) 最近尝试了几种配菜, 感觉还不错, 就此记录下来. 1, 切成小块状的白萝卜, 红萝卜, 虾仁切半, 青椒切块, 这四种配料的大小都差不多, 用勺子可以一下舀起来. 在炒的时候加一点水, 外加耗油与许多生粉, 这样炒出来的菜十分下饭. 2, 荷兰豆, 青椒都切成长条, 和豆芽, 揉成丝状的蟹柳和一点辣椒一起炒, 效果也十分不错. 总结一下: <em>口感或大小一致的菜放在一起炒比较合适. 第1道菜里面, 所有菜均为块状, 虾仁和红萝卜是红色, 而青椒绿色, 白萝卜是白色, 这样颜色就搭配得很好; 而第2道菜里面, 所有菜均为长条状, 荷兰豆和青椒都是绿色, 豆芽是白色, 辣椒和蟹柳是红色, 颜色搭配也不错.</em><br><img src="/images/在家做饭6.jpg" width="500"/></p>
+</li>
+<li><strong>关于配菜3</strong>: (2020.3.22记) 对于颜色较为单一的菜品, 可以在完成之后再周围一圈摆上其他颜色的菜品 (可以来源于其他菜). 这样会使颜色更加好看一点.<br><img src="/images/在家做饭7.jpg" width="500"/></li>
+<li><p>炒青菜要加多油才好看好吃. 大火来炒. 为了让青菜更干水一点, 可以在炒的过程中收小火, 把水铲掉.</p>
+</li>
+<li><p><strong>牛肉的韧度</strong>: 牛肉的韧度在一定时间范围内似乎并不会随着炒的时长增加而增加. 反而是跟肉的质量和种类有关. 因此在以后炒牛肉的时候并不需要刻意去控制时长了. (又破除一个”多年经验”)</p>
+</li>
+<li><p><strong>关于下饭菜</strong></p>
+</li>
+<li><p><strong>额外配料</strong>: 发现将玉米粉加一点水调成糊状, 防到油里炸, 会形成脆脆的小碎块. 这些小碎块可以作为额外配料洒在菜品上. 增添黄色, 同时改变口感.<br><img src="/images/在家做饭5.jpg" width="500"/> </p>
+</li>
+<li><p>生粉能让酱汁沾到菜上, 并且让菜稍微软一点, 但是放太多的话菜品软绵绵就不那么好看了. </p>
+</li>
+</ul>
+<p>希望弄清楚的问题:</p>
+<ul>
+<li>拍打牛肉是否有效</li>
+<li>料酒到底啥味道.</li>
+<li>鸡精和味精在什么菜里面放最好.</li>
+<li>怎么才能让青菜被炒干水.</li>
+<li>到底是如何配菜的, 为什么韭黄和胡萝卜在一起炒好吃, 但是韭黄和牛肉放在一起就不好吃. </li>
+<li>先放盐和后放盐有没有区别. 先放盐是否能让青菜多出一点水?</li>
+<li>什么菜适合放生粉, 什么菜不适合. </li>
+<li>不知道蚝油是否具有生粉的效果 (感觉都是让酱汁变得粘稠), 尝试一下只放蚝油以及生粉蚝油一起放的效果. </li>
+<li>过冷河的作用.</li>
+<li>除了蚝油还有啥万能调料.</li>
+</ul>
+<h1 id="关于烹饪原理书籍"><a href="#关于烹饪原理书籍" class="headerlink" title="关于烹饪原理书籍"></a>关于烹饪原理书籍</h1><p>偶然在知乎上看到一个回答. </p>
+<p><strong>作者：胡厨厨</strong><br>链接：<a href="https://www.zhihu.com/question/377371903/answer/1078247503" target="_blank" rel="noopener">https://www.zhihu.com/question/377371903/answer/1078247503</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>这不是说的我们烹饪系的教材吗？？？？很多人以为我们在厨师学校，每天就是切菜炒菜。其实我们除了学做菜以外，每天还要上理论课，学习烹饪的原理。因为你在实操课上学的，只是老师的一些做菜经验，课堂之外这些知识你只能借鉴，却不能完全照搬。就像”世界上没有两片一样的树叶“一样，世上也没有两块一样的肉，你无法直接照搬课堂笔记上的配方和步骤。当你遇到不同的环境和食材，就得考你对烹饪原理的理解了。所以了解烹饪原理也是学好厨师很重要的一环。下面来推荐书《烹饪化学》是所有理论课中，我觉得最实用的一科，整本书没有一篇菜谱，但每一个知识点都和烹饪有关。整本书先讲了水、脂肪、蛋白质、碳水化合物、维生素、酶，从其化学性质讲到烹饪中的应用。基本就基本讲清楚了烹饪原料的应用，教会了我们处理食材，毕竟食材都是由水脂肪蛋白质这些组成的。</p>
+<p>除了教材外，我还推荐两套书，篇幅更长，讲得也更加全面细致，里面也有很多菜谱。《现代主义烹调. 这本书就厉害了，超级超级硬核，是一套物理学，生物学，数学博士兼厨师们写的书. 一套六册，几乎涵盖了所有烹饪食物相关的知识，从宰杀到保存再到烹饪，不同的烹饪手法对食材的影响，各种对照试验，有很多试验数据支持。关键还写的通俗易懂，把厨房里的工具，现象和原理解释得通通透透，让普通人看得明明白白。</p>
+<p>《食物与厨艺》</p>
+<p>一套共三本，鱼蛋肉香料面粉等等，非常全面，也有很多菜谱。作者还在哈佛开过相关的公开课，可以在B站和网易科通看，搜《科学与厨艺》. 对这本书感兴趣的可以看看 @芊小桌儿 的回答，描述的比较清楚！了解烹饪背后的原理，掌握了烹饪中的科学规律。你就会知道，在青椒和肉变成青椒肉丝这期间发生了什么，我们怎么样把食材变成我们心目中食物。如果是菜谱是一套套的招式，那么原理就是让你发明招式的东西。所以，用研究科学的方式看待做菜这件事情，才是正确的打开方式。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag"><i class="fa fa-tag"></i> 生活</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/17/%E6%96%B0%E5%86%A0%E8%82%BA%E7%82%8E%E7%96%AB%E6%83%85%E4%B8%8B%E7%9A%84%E5%AF%92%E5%81%87/" rel="next" title="新冠肺炎疫情下的寒假">
+                <i class="fa fa-chevron-left"></i> 新冠肺炎疫情下的寒假
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/28/%E5%8D%87%E7%BA%A7-%E6%8B%96%E6%8B%89%E6%9C%BA-%E7%BA%B8%E7%89%8C%E6%B8%B8%E6%88%8F/" rel="prev" title="升级(拖拉机)纸牌游戏">
+                升级(拖拉机)纸牌游戏 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+
+
+
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/touxiang.jpeg"
+                alt="Hong Xunyang" />
+            
+              <p class="site-author-name" itemprop="name">Hong Xunyang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/zhi-fei-ji-46-94" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-windows"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://245643119.wixsite.com/liudy" title="猪猪家的仓鼠" target="_blank">猪猪家的仓鼠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://ethz.ch/en/news-and-events/eth-news.html" title="ETH 新闻与博客" target="_blank">ETH 新闻与博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+
+
+
+
+
+
+
+
+
+     </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于烹饪原理书籍"><span class="nav-number">1.</span> <span class="nav-text">关于烹饪原理书籍</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hong Xunyang</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+-->
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script src="/js/src/Valine.min.js"></script>  
+
+    
+  
+  <script src="/js/src/Valine.min.js"></script>
+
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'tLOWuiNs9lPlkeQ130F8AGEl-gzGzoHsz',
+        appKey: 'ihjjpeqkthIl8kkj5O0mtc91',
+        placeholder: '说点什么吧!',
+        avatar:'mm',
+        guest_info:['nick'],
+        pageSize:'10' || 10,
+    });
+   
+    var infoEle = document.querySelector('#comments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

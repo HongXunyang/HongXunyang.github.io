@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://xxxxxxx.xxx"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-simple.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/pig128.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/pig.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/pig16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="仓鼠,游戏,编程," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hong Xunyang's Homepage" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="星露中的稻草人与洒水器星露谷物语中, 田地的种子和长出来的苗是会被乌鸦吃掉的. 这个时候就需要一个稻草人来帮助驱赶乌鸦. 不过稻草人的驱赶范围也不是无限的, 只有一个大致半径为8的圆的区域. 然而星露是个像素游戏, 因此这个圆当然就不是正圆, 而是一个曲曲折折的凸多边形. 当种子处于这个区域内, 就不会被乌鸦吃掉.   另一方面, 种子是需要洒水的. 我们用洒水器来洒水, 这个洒水器能够为它四周的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="星露启发下的&quot;最佳覆盖&quot;问题求解">
+<meta property="og:url" content="hongxunyang.github.io/2020/03/08/%E6%98%9F%E9%9C%B2%E5%90%AF%E5%8F%91%E4%B8%8B%E7%9A%84%E6%9C%80%E4%BD%B3%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/index.html">
+<meta property="og:site_name" content="Hong Xunyang&#39;s Homepage">
+<meta property="og:description" content="星露中的稻草人与洒水器星露谷物语中, 田地的种子和长出来的苗是会被乌鸦吃掉的. 这个时候就需要一个稻草人来帮助驱赶乌鸦. 不过稻草人的驱赶范围也不是无限的, 只有一个大致半径为8的圆的区域. 然而星露是个像素游戏, 因此这个圆当然就不是正圆, 而是一个曲曲折折的凸多边形. 当种子处于这个区域内, 就不会被乌鸦吃掉.   另一方面, 种子是需要洒水的. 我们用洒水器来洒水, 这个洒水器能够为它四周的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="/images/%E6%98%9F%E9%9C%B2%E8%A6%86%E7%9B%965.jpeg">
+<meta property="article:published_time" content="2020-03-08T16:53:20.000Z">
+<meta property="article:modified_time" content="2020-03-08T16:53:20.000Z">
+<meta property="article:author" content="Hong Xunyang">
+<meta property="article:tag" content="仓鼠">
+<meta property="article:tag" content="游戏">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/%E6%98%9F%E9%9C%B2%E8%A6%86%E7%9B%965.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="hongxunyang.github.io/2020/03/08/星露启发下的最佳覆盖问题求解/"/>
+
+
+
+
+
+  <title>星露启发下的"最佳覆盖"问题求解 | Hong Xunyang's Homepage</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hong Xunyang's Homepage</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Physics Major | Undergrad @SYSU Physics | Grad @ETH Physics</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="hongxunyang.github.io/2020/03/08/%E6%98%9F%E9%9C%B2%E5%90%AF%E5%8F%91%E4%B8%8B%E7%9A%84%E6%9C%80%E4%BD%B3%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hong Xunyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hong Xunyang's Homepage">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">星露启发下的"最佳覆盖"问题求解</h1>
+        
+
+        <div class="post-meta">
+        
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-08T17:53:20+01:00">
+                2020-03-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/08/%E6%98%9F%E9%9C%B2%E5%90%AF%E5%8F%91%E4%B8%8B%E7%9A%84%E6%9C%80%E4%BD%B3%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/08/%E6%98%9F%E9%9C%B2%E5%90%AF%E5%8F%91%E4%B8%8B%E7%9A%84%E6%9C%80%E4%BD%B3%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="/images/%E6%98%9F%E9%9C%B2%E8%A6%86%E7%9B%965.jpeg" rel="gallery_ckpjm082s002kcsva9g9g39ue"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="/images/%E6%98%9F%E9%9C%B2%E8%A6%86%E7%9B%965.jpeg" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <h1 id="星露中的稻草人与洒水器"><a href="#星露中的稻草人与洒水器" class="headerlink" title="星露中的稻草人与洒水器"></a>星露中的稻草人与洒水器</h1><p>星露谷物语中, 田地的种子和长出来的苗是会被乌鸦吃掉的. 这个时候就需要一个稻草人来帮助驱赶乌鸦. 不过稻草人的驱赶范围也不是无限的, 只有一个大致半径为8的圆的区域. 然而星露是个像素游戏, 因此这个圆当然就不是正圆, 而是一个曲曲折折的凸多边形. 当种子处于这个区域内, 就不会被乌鸦吃掉. </p>
+<p><img src="/images/星露覆盖6.png" alt=""></p>
+<p>另一方面, 种子是需要洒水的. 我们用洒水器来洒水, 这个洒水器能够为它四周的8个格子浇水. 由于稻草人的覆盖区域并不是一个规则的区域, 因此洒水器的洒水区域并不能够整整齐齐而又不重叠地覆盖掉这个区域. </p>
+<p>于是问题就来了, 如何用最少的洒水器, 覆盖尽可能多的面积, 而又使重叠面积最小呢? 于是, 这篇文章便是使用梯度下降的方法, 去寻找最佳的覆盖方式.</p>
+<h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><p>为了求解这个问题, 我们要按顺序解决以下几个问题</p>
+<ol>
+<li><strong>目标函数</strong></li>
+<li><strong>对稻草人所覆盖区域的描述</strong></li>
+<li><strong>对洒水器洒水区域的描述, 要求能够记录”重复洒水”</strong></li>
+<li><strong>洒水器的位置描述及生成</strong></li>
+<li><strong>洒水器位置的随机游走函数</strong></li>
+<li><strong>梯度下降或模拟退火函数</strong></li>
+</ol>
+<h2 id="目标函数"><a href="#目标函数" class="headerlink" title="目标函数"></a>目标函数</h2><p>有两种方式去设定目标函数. 按照仓鼠的思路: 要求所有的区域都能够浇得到水, 求实现这种目的的最少的洒水器的数量. 于是此时的目标函数就是洒水器的数量, 限定的条件则是所有区域都能够被浇水. </p>
+<p>而我则采取了另外一种思路: 并不要求所有区域都能够浇水, 固定洒水器的数量 (比如为 $N$ ), 任意排布洒水器的位置, 使得洒水器之间的的”重复洒水面积”最少. 于是此时目标函数就是”重复洒水面积”, 位形空间是 $N$ 个洒水器的坐标, 限定条件则是这些坐标都需要位于稻草人的覆盖区域内. 于是我需要再位形空间中用梯度下降的方法寻求目标函数的最小值. 然后再人工调整 $N$ 的大小, 目测看看哪个最合适.</p>
+<p>之所以采用这种目标函数, 是因为我认为重复洒水面积最少, 应该也意味着越节省洒水器的数量. 这个目标函数的位形空间也比较好设定. 当然仓鼠的思路应该也能够实现, 不过我暂时没有沿着此思路来进行编程了.</p>
+<h2 id="覆盖与洒水区域的描述"><a href="#覆盖与洒水区域的描述" class="headerlink" title="覆盖与洒水区域的描述"></a>覆盖与洒水区域的描述</h2><p>对于前两个问题, 从仓鼠那里得到启发, 可以用以下方式来描述: 用一个$19\times 19$的数组 (矩阵) 来描述区域, 稻草人能够覆盖的区域均设置为0, 而无法覆盖的区域则设置为$1$. 假设在 $(i,j)$ 的格子上有一个洒水器, 那么就让 $(i,j)$ 以及它周围的八个格子的数值设为1. 于是, 这样我们就实现了:</p>
+<ul>
+<li>如果格子中的数值等于$0$, 说明仍未洒水; 如果数值等于$1$, 说明洒水了一次, 或者处于稻草人覆盖区域之外; 如果数值$&gt;1$, 则说明已经重复洒水了; </li>
+<li>将超出区域外的洒水设定为无效洒水, 仍然用”重复洒水”的方式来统计. 也就是说, 超出稻草人覆盖区域一格, 等效于重复洒水一格. 这种设定意思就是”我既不希望重复洒水, 也不希望洒水区域超出稻草人能覆盖的区域”.</li>
+</ul>
+<p><img src="/images/星露覆盖3.png" alt=""></p>
+<h2 id="洒水器的位置生成与随机游走"><a href="#洒水器的位置生成与随机游走" class="headerlink" title="洒水器的位置生成与随机游走"></a>洒水器的位置生成与随机游走</h2><p>假设此时有 30 个洒水器, 那么30维数组$X$储存洒水器的横坐标, 30维数组$Y$储存洒水器的纵坐标. 再设定</p>
+<ul>
+<li>不同的洒水器不能重叠</li>
+<li>洒水器的位置不能超过稻草人覆盖面积<br>这两种约束条件, 用随机整数生成 ramdom.randint 来生成随机的30个横坐标和纵坐标就可以完成稻草人的位置生成了. 当然每生成一个都要判断一下是否符合上面的条件, 如果不符合就重新生成.</li>
+</ul>
+<p>而随机游走就更简单了, 每一步随机选择一个洒水器 $i$, 对他的横纵坐标都加上一个随机数即可. 这个随机数可以是 $(-2,2)$ 的均匀分布, 或者高斯分布都可以. </p>
+<h2 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h2><p>而梯度下降的算法则是标准梯度下降: </p>
+<ul>
+<li>随机生成30个洒水器位置</li>
+<li>计算目标函数 $O$</li>
+<li>随机游走一步, 计算新的目标函数 $O^\prime$, 如果$O^\prime \le O$, 就走这一步; 反之则不走这一步</li>
+<li>重复上面两步操作</li>
+</ul>
+<h1 id="具体实施"><a href="#具体实施" class="headerlink" title="具体实施"></a>具体实施</h1><p>不排版了, 无脑粘贴. 以后有时间再调整排版</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> random <span class="keyword">as</span> rd</span><br><span class="line"><span class="keyword">import</span> matplotlib.animation <span class="keyword">as</span> animation</span><br></pre></td></tr></table></figure>
+<h2 id="定义判断函数"><a href="#定义判断函数" class="headerlink" title="定义判断函数"></a>定义判断函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">judge</span><span class="params">(x,y)</span>:</span></span><br><span class="line">    <span class="comment"># 输入的x,y是一个数</span></span><br><span class="line">    <span class="comment"># 用于判断位置是否合法, x,y为洒水器的坐标, True 代表合法</span></span><br><span class="line">    <span class="keyword">if</span> abs(x)&gt;<span class="number">8</span> <span class="keyword">or</span> abs(y)&gt;<span class="number">8</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> (abs(x)==<span class="number">8</span> <span class="keyword">and</span> abs(y)&gt;<span class="number">4</span>) <span class="keyword">or</span> (abs(x)==<span class="number">7</span> <span class="keyword">and</span> abs(y)&gt;<span class="number">5</span>) <span class="keyword">or</span> (abs(x)==<span class="number">6</span> <span class="keyword">and</span> abs(y)&gt;<span class="number">6</span>) <span class="keyword">or</span> (abs(x)==<span class="number">5</span> <span class="keyword">and</span> abs(y)&gt;<span class="number">7</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">overlap</span><span class="params">(X,Y)</span>:</span></span><br><span class="line">    <span class="comment"># 输入的 X,Y是一个N维数组, 包含了所有洒水器的横纵坐标</span></span><br><span class="line">    <span class="comment"># 判断位形(X,Y)是否有重叠, 如有则输出重叠位置的坐标, 如无则输出(-100,-100)</span></span><br><span class="line">    xx=X.copy()</span><br><span class="line">    yy=Y.copy()</span><br><span class="line">    SI=np.argsort(xx)</span><br><span class="line">    xxsort=xx[SI]</span><br><span class="line">    yysort=yy[SI]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(xx)<span class="number">-1</span>):</span><br><span class="line">        <span class="keyword">if</span> xxsort[i]==xxsort[i+<span class="number">1</span>]:</span><br><span class="line">            <span class="keyword">if</span> yysort[i]==yysort[i+<span class="number">1</span>]:</span><br><span class="line">                <span class="keyword">return</span> xx[i],yy[i]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">-100</span>,<span class="number">-100</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">suboverlap</span><span class="params">(xtemp,ytemp)</span>:</span></span><br><span class="line">    <span class="comment"># 由于overlap 在没有重叠的时候输出-100, 这个函数</span></span><br><span class="line">    <span class="comment"># 实际上之只是用来判断输出的是不是-100, 也就是输出的是不是重叠情况</span></span><br><span class="line">    <span class="comment"># 没啥用处, 就是缩短一点代码而已</span></span><br><span class="line">    <span class="keyword">if</span> xtemp==<span class="number">-100</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<h2 id="定义位形-amp-随机游走"><a href="#定义位形-amp-随机游走" class="headerlink" title="定义位形 &amp; 随机游走"></a>定义位形 &amp; 随机游走</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generate</span><span class="params">(N)</span>:</span></span><br><span class="line">    <span class="comment"># 生成N个合法的位形</span></span><br><span class="line">    X=np.array(range(<span class="number">100</span>,<span class="number">100</span>+N))</span><br><span class="line">    Y=np.array(range(<span class="number">100</span>,<span class="number">100</span>+N))</span><br><span class="line">    Xtry=np.array(range(<span class="number">100</span>,<span class="number">100</span>+N))</span><br><span class="line">    Ytry=np.array(range(<span class="number">100</span>,<span class="number">100</span>+N))</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        <span class="keyword">while</span> <span class="number">1</span>&gt;<span class="number">0</span>:</span><br><span class="line">            Xtry[i]=rd.randint(<span class="number">-8</span>,<span class="number">8</span>)</span><br><span class="line">            Ytry[i]=rd.randint(<span class="number">-8</span>,<span class="number">8</span>)</span><br><span class="line">            <span class="keyword">if</span> judge(Xtry[i],Ytry[i]):          <span class="comment"># 先判断是否在区域内</span></span><br><span class="line">                xtemp, ytemp=overlap(Xtry,Ytry)  <span class="comment"># 再判断是否有重合</span></span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> suboverlap(xtemp,ytemp):        </span><br><span class="line">                    X[i]=Xtry[i]          <span class="comment"># 临时变量赋值到坐标上</span></span><br><span class="line">                    Y[i]=Ytry[i]</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> X, Y</span><br><span class="line">            </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">randomwalk</span><span class="params">(X,Y,rang=<span class="number">1</span>)</span>:</span></span><br><span class="line">    <span class="comment"># 位形的随机游走, 步长为0~2之间的随机数</span></span><br><span class="line">    Xtry=X.copy()</span><br><span class="line">    Ytry=Y.copy()</span><br><span class="line">    Xnon=X.copy()</span><br><span class="line">    Ynon=Y.copy()</span><br><span class="line">    i=rd.randint(<span class="number">0</span>,len(Xtry)<span class="number">-1</span>)</span><br><span class="line">    n=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="number">1</span>&gt;<span class="number">0</span>:</span><br><span class="line">        xstep=rd.randint(-rang,rang)</span><br><span class="line">        ystep=rd.randint(-rang,rang)</span><br><span class="line">        Xtry[i]=X[i]+xstep</span><br><span class="line">        Ytry[i]=Y[i]+ystep</span><br><span class="line">        <span class="keyword">if</span> judge(Xtry[i],Ytry[i]):</span><br><span class="line">            xtemp, ytemp=overlap(Xtry,Ytry)</span><br><span class="line">            <span class="keyword">if</span> suboverlap(xtemp,ytemp):</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">return</span> Xtry,Ytry</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        n+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> n&gt;<span class="number">10</span>:  </span><br><span class="line">            <span class="keyword">break</span>   <span class="comment"># 意思是如果走10次都走不动的话就不走了, 直接break</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> Xnon,Ynon</span><br><span class="line">            </span><br><span class="line">        </span><br><span class="line"><span class="comment">## 定义初始场地, 带有数字0表示未浇水, 数字1表示浇了一次水, 数字2表示浇了2次水等等.</span></span><br><span class="line"><span class="comment">## 稻草人覆盖区域外则定义为5, 这样画图画起来比较好看.                 </span></span><br><span class="line">        </span><br><span class="line">field=np.array([[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>],</span><br><span class="line">                [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>],</span><br><span class="line">                [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>],</span><br><span class="line">                [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>],</span><br><span class="line">                [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>],</span><br><span class="line">                [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>],</span><br><span class="line">                [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>],</span><br><span class="line">                [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>],</span><br><span class="line">                [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>],</span><br><span class="line">                [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>], </span><br><span class="line">                [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>] ])*<span class="number">5</span></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">coor2field</span><span class="params">(x=<span class="number">0</span>,y=<span class="number">0</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x+<span class="number">9</span>, y+<span class="number">9</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Coor2field</span><span class="params">(X,Y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> X+<span class="number">9</span>,Y+<span class="number">9</span></span><br></pre></td></tr></table></figure>
+<h2 id="浇水函数"><a href="#浇水函数" class="headerlink" title="浇水函数"></a>浇水函数</h2><p>这个函数中 F1, F2的区别就是: F1是用来计算洒水面积重合的, 所以 $(i,j)$ 周围的八个点以及它自己都 $+1$; 而 F2则是用来画图的, 因为 $(i,j)$ 自己 $+5$, 所以画图画出来之后会显得比较亮而已.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 浇水的区域将 field+1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">water</span><span class="params">(X,Y)</span>:</span></span><br><span class="line">    F1=field.copy()</span><br><span class="line">    F2=field.copy()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(X)):</span><br><span class="line">        </span><br><span class="line">        F1[X[i]+<span class="number">8</span>,Y[i]+<span class="number">8</span>]+=<span class="number">1</span></span><br><span class="line">        F1[X[i]+<span class="number">9</span>,Y[i]+<span class="number">8</span>]+=<span class="number">1</span></span><br><span class="line">        F1[X[i]+<span class="number">10</span>,Y[i]+<span class="number">8</span>]+=<span class="number">1</span></span><br><span class="line">        F1[X[i]+<span class="number">8</span>,Y[i]+<span class="number">9</span>]+=<span class="number">1</span></span><br><span class="line">        F1[X[i]+<span class="number">9</span>,Y[i]+<span class="number">9</span>]+=<span class="number">1</span></span><br><span class="line">        F1[X[i]+<span class="number">10</span>,Y[i]+<span class="number">9</span>]+=<span class="number">1</span></span><br><span class="line">        F1[X[i]+<span class="number">8</span>,Y[i]+<span class="number">10</span>]+=<span class="number">1</span></span><br><span class="line">        F1[X[i]+<span class="number">9</span>,Y[i]+<span class="number">10</span>]+=<span class="number">1</span></span><br><span class="line">        F1[X[i]+<span class="number">10</span>,Y[i]+<span class="number">10</span>]+=<span class="number">1</span>  </span><br><span class="line">        </span><br><span class="line">        F2[X[i]+<span class="number">8</span>,Y[i]+<span class="number">8</span>]+=<span class="number">1</span></span><br><span class="line">        F2[X[i]+<span class="number">9</span>,Y[i]+<span class="number">8</span>]+=<span class="number">1</span></span><br><span class="line">        F2[X[i]+<span class="number">10</span>,Y[i]+<span class="number">8</span>]+=<span class="number">1</span></span><br><span class="line">        F2[X[i]+<span class="number">8</span>,Y[i]+<span class="number">9</span>]+=<span class="number">1</span></span><br><span class="line">        F2[X[i]+<span class="number">9</span>,Y[i]+<span class="number">9</span>]+=<span class="number">7</span></span><br><span class="line">        F2[X[i]+<span class="number">10</span>,Y[i]+<span class="number">9</span>]+=<span class="number">1</span></span><br><span class="line">        F2[X[i]+<span class="number">8</span>,Y[i]+<span class="number">10</span>]+=<span class="number">1</span></span><br><span class="line">        F2[X[i]+<span class="number">9</span>,Y[i]+<span class="number">10</span>]+=<span class="number">1</span></span><br><span class="line">        F2[X[i]+<span class="number">10</span>,Y[i]+<span class="number">10</span>]+=<span class="number">1</span>  </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> F1,F2</span><br></pre></td></tr></table></figure></p>
+<h2 id="目标函数-1"><a href="#目标函数-1" class="headerlink" title="目标函数"></a>目标函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Object</span><span class="params">(F)</span>:</span></span><br><span class="line">    <span class="comment"># 这里需要输入的是F1, 就是用来计算重复洒水的面积的.        </span></span><br><span class="line">    final=np.nonzero(F)</span><br><span class="line">    origin=np.nonzero(field)</span><br><span class="line">    <span class="keyword">return</span> (sum(F[final[<span class="number">0</span>],final[<span class="number">1</span>]]<span class="number">-1</span>)-sum(field[origin[<span class="number">0</span>],origin[<span class="number">1</span>]]<span class="number">-1</span>)  )</span><br></pre></td></tr></table></figure>
+<p>这里测试一下目标函数是不是真的计算正确: 我们生成了5个洒水器, 然后看看重叠面积和目测是否一致<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">X,Y=generate(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">N=<span class="number">10</span></span><br><span class="line"><span class="keyword">for</span> times <span class="keyword">in</span> range(N):</span><br><span class="line">    X,Y=randomwalk(X,Y)</span><br><span class="line">    F1,F2=water(X,Y)</span><br><span class="line">    fig=plt.figure(figsize=(<span class="number">6</span>,<span class="number">6</span>))</span><br><span class="line">    plt.imshow(F2)</span><br><span class="line">    plt.title(<span class="string">'there are  '</span>+str(Object(F1))+<span class="string">'  overlap'</span>)</span><br></pre></td></tr></table></figure></p>
+<center class="half">
+    <img src="/images/星露覆盖2.png" width="400"/><img src="/images/星露覆盖3.png" width="400"/><img src="/images/星露覆盖4.png" width="400"/>
+</center>
+
+<p>看上去好像是正确的. </p>
+<h2 id="梯度下降函数"><a href="#梯度下降函数" class="headerlink" title="梯度下降函数"></a>梯度下降函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fire</span><span class="params">(N=<span class="number">20</span>,times=<span class="number">100</span>)</span>:</span></span><br><span class="line">    <span class="comment"># times 是指迭代的次数, 越多越接近最优解. 默认为100 (太少了)</span></span><br><span class="line">    X,Y=generate(N)</span><br><span class="line">    Xtry=X.copy()</span><br><span class="line">    Ytry=Y.copy()</span><br><span class="line">    O=<span class="number">1000</span></span><br><span class="line">    Otry=<span class="number">1000</span></span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> temp <span class="keyword">in</span> range(times):</span><br><span class="line">        Xtry,Ytry=randomwalk(X,Y)</span><br><span class="line">        F1,F2=water(Xtry,Ytry)</span><br><span class="line">        Otry=Object(F1)</span><br><span class="line">        n=<span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span>(Otry&gt;O <span class="keyword">and</span> n&lt;=<span class="number">50</span>):   <span class="comment"># 尝试走50次, 如果不行就不走了</span></span><br><span class="line">            n+=<span class="number">1</span></span><br><span class="line">            Xtry,Ytry=randomwalk(X,Y)</span><br><span class="line">            F1,F2=water(Xtry,Ytry)</span><br><span class="line">            Otry=Object(F1)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> Otry&lt;=O:</span><br><span class="line">            O=Otry.copy()</span><br><span class="line">            (X,Xtry)=(Xtry,X)</span><br><span class="line">            (Y,Ytry)=(Ytry,Y)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">continue</span>   </span><br><span class="line">    <span class="keyword">return</span> X,Y,O</span><br></pre></td></tr></table></figure>
+<h2 id="输出效果"><a href="#输出效果" class="headerlink" title="输出效果"></a>输出效果</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">X,Y,O=fire(N=<span class="number">30</span>,times=<span class="number">5000</span>)</span><br><span class="line">F1,F2=water(X,Y)</span><br><span class="line">print(<span class="string">'\n\n'</span>, Object(F1))</span><br><span class="line">fig=plt.figure(figsize=((<span class="number">6</span>,<span class="number">6</span>)))</span><br><span class="line">plt.imshow(F2)</span><br></pre></td></tr></table></figure>
+<p><img src="/images/星露覆盖1.png" alt=""></p>
+<h2 id="制作动画"><a href="#制作动画" class="headerlink" title="制作动画"></a>制作动画</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">N=<span class="number">30</span></span><br><span class="line">times=<span class="number">1000</span></span><br><span class="line"></span><br><span class="line">X,Y=generate(N)</span><br><span class="line">Xtry=X.copy()</span><br><span class="line">Ytry=Y.copy()</span><br><span class="line">fig=plt.figure(figsize=(<span class="number">7</span>,<span class="number">7</span>))</span><br><span class="line">line=plt.imshow(field)</span><br><span class="line"><span class="keyword">global</span> X</span><br><span class="line"><span class="keyword">global</span> Y</span><br><span class="line"></span><br><span class="line">O=<span class="number">1000</span></span><br><span class="line">Otry=<span class="number">1000</span></span><br><span class="line"><span class="keyword">global</span> O</span><br><span class="line"><span class="keyword">global</span> Otry</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">update</span><span class="params">(frame)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> X</span><br><span class="line">    <span class="keyword">global</span> Y</span><br><span class="line">    <span class="keyword">global</span> O</span><br><span class="line">    <span class="keyword">global</span> Otry</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    Xtry,Ytry=randomwalk(X,Y)</span><br><span class="line">    F1,F2=water(Xtry,Ytry)</span><br><span class="line">    Otry=Object(F1)</span><br><span class="line">    n=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(Otry&gt;O <span class="keyword">and</span> n&lt;=<span class="number">50</span>):</span><br><span class="line">        n+=<span class="number">1</span></span><br><span class="line">        Xtry,Ytry=randomwalk(X,Y)</span><br><span class="line">        F1,F2=water(Xtry,Ytry)</span><br><span class="line">        Otry=Object(F1)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> Otry&lt;=O:</span><br><span class="line">        O=Otry.copy()</span><br><span class="line">        (X,Xtry)=(Xtry,X)</span><br><span class="line">        (Y,Ytry)=(Ytry,Y)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">pass</span>   </span><br><span class="line">    </span><br><span class="line">    F1,F2=water(X,Y)</span><br><span class="line">    line.set_data(F2)</span><br><span class="line">    plt.title(<span class="string">'there are  '</span>+str(Object(F1))+<span class="string">'  overlap'</span>) </span><br><span class="line">    <span class="keyword">return</span> line,</span><br><span class="line"></span><br><span class="line">    line.set_data(F)</span><br><span class="line"></span><br><span class="line">    plt.title(<span class="string">'there are  '</span>+str(Object(F))+<span class="string">'  overlap'</span>)    </span><br><span class="line">    <span class="keyword">return</span> line,</span><br><span class="line"></span><br><span class="line">pam_ani=animation.FuncAnimation(fig,update, </span><br><span class="line">                                frames=range(times),</span><br><span class="line">                                interval=<span class="number">50</span>,</span><br><span class="line">                               repeat=<span class="literal">False</span>)</span><br><span class="line">pam_ani.save(<span class="string">'stardraw_Valley.gif'</span>,writer=<span class="string">'pillow'</span>)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E4%BB%93%E9%BC%A0/" rel="tag"><i class="fa fa-tag"></i> 仓鼠</a>
+          
+            <a href="/tags/%E6%B8%B8%E6%88%8F/" rel="tag"><i class="fa fa-tag"></i> 游戏</a>
+          
+            <a href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/05/%E6%98%9F%E9%9C%B2%E8%B0%B7%E7%89%A9%E8%AF%AD-Stardraw-Valley/" rel="next" title="星露谷物语 Stardraw Valley">
+                <i class="fa fa-chevron-left"></i> 星露谷物语 Stardraw Valley
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/09/%E7%91%9E%E5%A3%AB%E7%95%99%E5%AD%A6%E5%A4%87%E5%BF%98/" rel="prev" title="瑞士留学备忘">
+                瑞士留学备忘 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+
+
+
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/touxiang.jpeg"
+                alt="Hong Xunyang" />
+            
+              <p class="site-author-name" itemprop="name">Hong Xunyang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/zhi-fei-ji-46-94" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-windows"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://245643119.wixsite.com/liudy" title="猪猪家的仓鼠" target="_blank">猪猪家的仓鼠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://ethz.ch/en/news-and-events/eth-news.html" title="ETH 新闻与博客" target="_blank">ETH 新闻与博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+
+
+
+
+
+
+
+
+
+     </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#星露中的稻草人与洒水器"><span class="nav-number">1.</span> <span class="nav-text">星露中的稻草人与洒水器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题分析"><span class="nav-number">2.</span> <span class="nav-text">问题分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目标函数"><span class="nav-number">2.1.</span> <span class="nav-text">目标函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#覆盖与洒水区域的描述"><span class="nav-number">2.2.</span> <span class="nav-text">覆盖与洒水区域的描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#洒水器的位置生成与随机游走"><span class="nav-number">2.3.</span> <span class="nav-text">洒水器的位置生成与随机游走</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#梯度下降"><span class="nav-number">2.4.</span> <span class="nav-text">梯度下降</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#具体实施"><span class="nav-number">3.</span> <span class="nav-text">具体实施</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义判断函数"><span class="nav-number">3.1.</span> <span class="nav-text">定义判断函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义位形-amp-随机游走"><span class="nav-number">3.2.</span> <span class="nav-text">定义位形 &amp; 随机游走</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浇水函数"><span class="nav-number">3.3.</span> <span class="nav-text">浇水函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目标函数-1"><span class="nav-number">3.4.</span> <span class="nav-text">目标函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#梯度下降函数"><span class="nav-number">3.5.</span> <span class="nav-text">梯度下降函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出效果"><span class="nav-number">3.6.</span> <span class="nav-text">输出效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#制作动画"><span class="nav-number">3.7.</span> <span class="nav-text">制作动画</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hong Xunyang</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+-->
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script src="/js/src/Valine.min.js"></script>  
+
+    
+  
+  <script src="/js/src/Valine.min.js"></script>
+
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'tLOWuiNs9lPlkeQ130F8AGEl-gzGzoHsz',
+        appKey: 'ihjjpeqkthIl8kkj5O0mtc91',
+        placeholder: '说点什么吧!',
+        avatar:'mm',
+        guest_info:['nick'],
+        pageSize:'10' || 10,
+    });
+   
+    var infoEle = document.querySelector('#comments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

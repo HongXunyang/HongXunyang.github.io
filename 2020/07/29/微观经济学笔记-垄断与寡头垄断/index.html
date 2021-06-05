@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://xxxxxxx.xxx"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-simple.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/pig128.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/pig.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/pig16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="经济学," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hong Xunyang's Homepage" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="介绍在这一篇文章中, 我们主要来探讨当 市场中商家数量极少 时商家的 销售策略. 数量极少又分为两种情况: 垄断 (Monopoly), 是指市场中仅有一个商家; 寡头垄断 (Oligopoly), 是指市场中仅有两个或少数几个商家.  但在介绍这两种情况前, 我们先来梳理一下完美竞争市场 (Perfect Competition) 的一些特征  商家数量无穷大, 且商家需求曲线弹性无穷大: 假设">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[微观经济学笔记] 垄断与寡头垄断">
+<meta property="og:url" content="hongxunyang.github.io/2020/07/29/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%9E%84%E6%96%AD%E4%B8%8E%E5%AF%A1%E5%A4%B4%E5%9E%84%E6%96%AD/index.html">
+<meta property="og:site_name" content="Hong Xunyang&#39;s Homepage">
+<meta property="og:description" content="介绍在这一篇文章中, 我们主要来探讨当 市场中商家数量极少 时商家的 销售策略. 数量极少又分为两种情况: 垄断 (Monopoly), 是指市场中仅有一个商家; 寡头垄断 (Oligopoly), 是指市场中仅有两个或少数几个商家.  但在介绍这两种情况前, 我们先来梳理一下完美竞争市场 (Perfect Competition) 的一些特征  商家数量无穷大, 且商家需求曲线弹性无穷大: 假设">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-29T14:24:17.000Z">
+<meta property="article:modified_time" content="2020-07-29T14:24:17.000Z">
+<meta property="article:author" content="Hong Xunyang">
+<meta property="article:tag" content="经济学">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="hongxunyang.github.io/2020/07/29/微观经济学笔记-垄断与寡头垄断/"/>
+
+
+
+
+
+  <title>[微观经济学笔记] 垄断与寡头垄断 | Hong Xunyang's Homepage</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hong Xunyang's Homepage</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Physics Major | Undergrad @SYSU Physics | Grad @ETH Physics</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="hongxunyang.github.io/2020/07/29/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%9E%84%E6%96%AD%E4%B8%8E%E5%AF%A1%E5%A4%B4%E5%9E%84%E6%96%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hong Xunyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hong Xunyang's Homepage">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[微观经济学笔记] 垄断与寡头垄断</h1>
+        
+
+        <div class="post-meta">
+        
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-29T16:24:17+02:00">
+                2020-07-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6/" itemprop="url" rel="index">
+                    <span itemprop="name">经济学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/07/29/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%9E%84%E6%96%AD%E4%B8%8E%E5%AF%A1%E5%A4%B4%E5%9E%84%E6%96%AD/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/07/29/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%9E%84%E6%96%AD%E4%B8%8E%E5%AF%A1%E5%A4%B4%E5%9E%84%E6%96%AD/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>在这一篇文章中, 我们主要来探讨当 <strong>市场中商家数量极少</strong> 时商家的 <strong>销售策略</strong>. 数量极少又分为两种情况: 垄断 (Monopoly), 是指市场中仅有一个商家; 寡头垄断 (Oligopoly), 是指市场中仅有两个或少数几个商家. </p>
+<p>但在介绍这两种情况前, 我们先来梳理一下完美竞争市场 (Perfect Competition) 的一些特征</p>
+<ol>
+<li><strong>商家数量无穷大, 且商家需求曲线弹性无穷大</strong>: 假设市场中的需求曲线为 $ Q(P) $, 由于商家数量无穷大, 商家看到的需求曲线 $Q_i(P)$ 弹性将会趋于无穷大, 即对于商家来说, 价格的少许变化都会引起需求量的大幅降低. 这个是很好理解的, 因为若单个商家的价格上涨, 那么客户自然就会转向其他商户, 使得该商家能够售卖的商品急剧下降, 这一点体现在弹性无穷大上. </li>
+<li><strong>商家无法控制价格 (Price Taker)</strong>: 由于商家面对的需求曲线弹性无穷大, 因此实际上商家完全无法通过改变出售量, 或者改变自己的供给曲线来改变市场价格. 这个道理和上面的一样 — 客户完全可以不理你而去购买别的商户提供的商品. </li>
+<li><strong>价格固定为商品的成本价, 且市场供给曲线弹性无穷大</strong>: 若我们认为全部商家都是一样的, 那么商品的成本价对于他们来说也都一样, 于是所有商家的供给曲线都从成本价开始. 而市场的供给曲线则是这些曲线的叠加, 商家数量无穷大的极限情况下, 市场供给曲线就是一条开始于成本价, 弹性无穷的直线. 于是无论需求曲线如何, 价格始终都会固定在成本价上.</li>
+</ol>
+<p>可以看见, 这些特征都是建立在商家数量无穷大的基础之上的, 当商家数量极少时, 这些特征自然也就不存在了. 我们分情况来讨论</p>
+<h1 id="垄断-Monopoly"><a href="#垄断-Monopoly" class="headerlink" title="垄断 (Monopoly)"></a>垄断 (Monopoly)</h1><p>垄断是指某件商品的市场中仅有一个商家, 或者只有一个商家可以生产该商品. 那么此时显然第一条特征就不存在了, 即</p>
+<p>1.<strong>商家数量为 1, 此时市场需求曲线就是商家需求曲线</strong>: 因此商家所看到的需求曲线并不是弹性无穷大的, 而是一条正常的需求线.</p>
+<p>这样很容易就能看出, 第二条特征也是不正确的, 商家不再无法控制价格.</p>
+<p>2.<strong>商家可以通过控制价格 (Price Maker)</strong>: 这是因为, 市场中只有一个商家, 若商家升价, 客户是无法寻找到另一个更便宜的商店的. 因此此时商家是一个 Price Maker. 由于市场中的需求曲线是确定的, 因此商家既可以看作是 <em>控制价格$P$来改变销售量$Q$</em>, 也可以看作是<em>控制销售量$Q$来改变价格$P$</em>. 但在实际情况中, 还需要分情况讨论: 例如对于航空公司来说, 它并不能够提供任意多的航班, 因此它们通常是通过控制航班数量来改变价格; 而对于超市来说, 商品数量是很容易控制的, 因为他们可以随时进货加货, 因此它们是通过控制价格来改变销售量的. </p>
+<p>3.<strong>垄断情况下, 市场中并不存在供给曲线</strong>: 此时商家完全是可以任意控制销售量或是任意控制价格, 并不会出现所谓的供给曲线. 之所以在完美竞争市场下会出现供给曲线, 是源于商家并不能够自己决定价格, 而是被动地根据市场的价格来调整自己的出售量, 由此形成了供给曲线. 这种情况在垄断市场中并不存在</p>
+<p>现在我们便可以讨论商家的销售策略了. 为了方便讨论, 我们暂时只讨论单个商品的垄断市场. 此时商家的最佳策略仍然是净利润最大</p>
+<script type="math/tex; mode=display">0=\frac{d\Pi}{dQ}\equiv \frac{dR}{dQ}-\frac{dC}{dQ}\equiv MR-MC=0</script><p>在垄断市场中, $R=QP=P(Q)Q$, 是销售量 $Q$ 的函数. 这里我们将需求曲线 $Q=Q^D(P)$ 取反函数 $P=P(Q)$. 于是极值条件则是</p>
+<script type="math/tex; mode=display">\frac{dP}{dQ}Q+P(Q)=MC</script><p>由此解出的 $Q^{\star}$ 则是商家的最佳销售数量, 对应的 $P^{\star}=P(Q^{\star})$ 则是垄断市场的商品价格. 一般来说, 这个价格都会高于完美竞争市场中的价格, 并且商家的净利润 $\Pi &gt; 0$. </p>
+<h1 id="寡头垄断-Oligopoly"><a href="#寡头垄断-Oligopoly" class="headerlink" title="寡头垄断 (Oligopoly)"></a>寡头垄断 (Oligopoly)</h1><p>寡头垄断是指某件商品的市场中仅有少数几个商家, 或者只有少数几个商家可以生产该商品. 寡头垄断比垄断更加复杂, 因为此时市场中并不只有一个商家, 几个商家之间会出现<strong>博弈</strong>, 于是在不同条件下博弈, 寡头垄断市场的结果也会不一样. 我们将一步步地来分析这个问题. </p>
+<p>1.<strong>商家需求曲线不同于市场需求曲线</strong>: 这是很容易理解的, 对于每一个商家来说, 他们看到的需求曲线是</p>
+<script type="math/tex; mode=display">Q_i^D=Q^D_{\text{market}}-\sum_{j\neq i} Q^S_j</script><p>但是现在出现了一个问题, 此时是否真的存在 “商家需求曲线?”, 因为 $Q^D_j(P)$ 并不一定存在, 即每个商家都不一定存在供给曲线. 后面会看到, 这个问题并不大. </p>
+<p>2.<strong>商家的最佳销售策略仍然是净利润最大化</strong>: 由于不确定是否存在供给曲线, 我们干脆将省略掉 $Q^D(P)$ 或 $Q^S(P)$ 的上标, 而统一记为 $Q$, 标记为最终解的销售量. 对于商家 $i$ 来说, 他们的销售量是</p>
+<script type="math/tex; mode=display">Q_i=Q_{\text{market}}-\sum_{j\neq i}Q_j</script><p>于是它的利润为</p>
+<script type="math/tex; mode=display">\Pi_i = Q_iP(Q_{\text{market}_{}}) = Q_iP\left(Q_i+\sum_{j\neq i}Q_j\right)</script><p>利润最大值为 $d\Pi/dQ_i=0$, 得到</p>
+<script type="math/tex; mode=display">P+\frac{\partial P}{\partial Q_i}=0</script><p>假设一共有$n$个商店, 这是关于 $n$ 个 $Q_i$ 的 $n$ 个方程. <strong>每一个方程都表征了商家的一种响应</strong>, 即给定别人的出售量, 我自己要出售多少才能保证我的利润最大化. </p>
+<p>下一步, 联立 $n$ 个方程求解, 得到 $n$ 个商家的出售量 $Q<em>j$, 出售价格则是 $P\left(\sum</em>{j}Q_j\right)$. 至此, 我们完成了寡头垄断的求解.</p>
+<p>Wait, 还有一些问题. 为什么要联立方程? 每个方程不是一种响应而已吗? 这个就是寡头垄断的华点了. 实际上, 并不是所有情况下都是联立方程求解的. 为了方便叙述, 我们将目光限制到只有两个商家的问题上. 在各个商家决定销售数量的时候, 其实是需要进行一场博弈的. 有三种情况</p>
+<p><strong>两个商家同时决定出售量 (Cournot Model)</strong>: 也就是说, 在决定出售量 $Q$ 之前, 商家对无法得知对方的销售数量, 因此这就是一场囚徒博弈. 我们先假设两者 (A, B)的响应曲线为 $Q_A(Q_B)$ 与 $Q_B(Q_A)$. 对于 $A$ 来说, 必须在 $Q_A(Q_B)$ 线上才会利润最大, 不在线上的出售量都是不可接受的; 同理, 对于 B 来说, 不在 $Q_B(Q_A)$ 线上的销售量都是不可接受的. 因此, 若 AB 两者的出售量不在 $Q_A(Q_B),\,Q_B(Q_A)$ 的交点上, 至少会有一个商家会觉得不满意, 那么为什么这个商家在一开始就要选择这个令他不满意的销售量呢? 所以说这是一场囚徒博弈, 两者最终都会选择一个折中的方案, 即选择两条响应曲线的交点, 让双方都满意, 于是市场就达到了稳定. 在这种情况下, 联立响应曲线求交点是合理的.</p>
+<p><strong>有一方能提前决定出售量 (Stackelberg Model)</strong>: 此时不再是公平的囚徒博弈了. 由于一方可以抢先给定出售量, 因此这一方面就占据了一定的优势. 设这个幸运儿是A, B 则没有那么幸运. 这时候市场价格如何决定呢? 此时, A 已经知道 B 的响应曲线是 $Q_B(Q_A)$, 他就可以根据这点信息谋取利益. A 的纯利润为</p>
+<script type="math/tex; mode=display">\Pi_A = P(Q_A+Q_B)Q_A-C(Q_A) = P\Big[Q_A+Q_B(Q_A)  \Big]Q_A-C(Q_A)</script><p>这就完全是 $Q_A$ 的函数, 对 $Q_A$ 求导, 可以得到 $\Pi_A$ 的极值. 极值点处的 $Q_A^{\ast}$ 可以使得 A 的利益最大化. 在 A 决定了出售量之后, B 就根据他自己的响应曲线决定它的出售量</p>
+<script type="math/tex; mode=display">Q_B^{\ast}=Q_B(Q_A^\ast)</script><p>价格则是 $P^\ast = P(Q_A^\ast + Q_B^\ast)$. 一般来说, 这种情况下 A 赚的钱能够大幅上涨, 而 B 赚的钱则会有所下降. </p>
+<p><strong>双方有机会合作</strong>: 同样不再是无法交流的囚徒博弈. 此时的最佳情况是互相合作, 让外界看起来 <strong>两个商家就像是一个商家一样, 能够将市场垄断</strong>. 此时得到的利益两个商家互相分配, 整个市场就和垄断一模一样. 一般来说, 若是两者合作, 其收获的利益是会大于囚徒博弈下的收益的.</p>
+<h1 id="从寡头垄断到完美竞争"><a href="#从寡头垄断到完美竞争" class="headerlink" title="从寡头垄断到完美竞争"></a>从寡头垄断到完美竞争</h1><p>我们考虑商家同时决定出售量的模型 (Cournot Model). 从直觉上来说, 当商家数量逐渐增加时, 市场的情况应当会越来越向完美竞争的市场靠近. 换句话说, 当 $n\to \infty$ 时, 市场趋于完美竞争. 如何从理论上分析这一直觉呢? </p>
+<p>仔细观察寡头垄断市场和完美竞争市场之间的异同. 对于各个商家来说, 利益最大化都要求 $ MR = MC $, 其中 $MR \equiv dR/dQ;\, MC \equiv dC/dQ$. 在完美竞争中, $MR = P$, 寡头垄断则不是, 这是源于商家需求曲线弹性无穷大导致的—商家是无法决定价格的, 导致 $R = PQ,\, dR/dQ = P$. </p>
+<p>但是寡头垄断市场中, 商家看到的需求曲线并不是弹性无穷大的, 因而 $P=P(Q)$, 价格是市场出售量的函数. 对于每一个商家来说</p>
+<script type="math/tex; mode=display">R_i = P\left(Q_i+\sum_{j\neq i}Q_j\right) Q_i</script><p>这里我我们做一点假设: 所有商家都是全同的, 因此他们的出售量也是一样的. $Q = nQ_i = nQ_j$. 此时</p>
+<script type="math/tex; mode=display">R_i = P(nQ_i)Q_i</script><p>求出它对 $Q_i$ 的导数, 可以得到</p>
+<script type="math/tex; mode=display">MR_i \equiv \frac{dR_i}{dQ_i} = \frac{dP}{dQ_i}Q_i+P =\left( \frac{1}{n}\frac{d\ln P}{d\ln Q}+1\right)P = \left(\frac{1}{n\varepsilon}+1\right)P</script><p>其中$\varepsilon$ 是<strong>市场</strong>需求曲线的弹性, 并不是无穷大的. 很容易看到 $n\varepsilon$ 其实就是各个商家所看到的商家需求曲线的弹性. 注意式子</p>
+<script type="math/tex; mode=display">MR = \left(\frac{1}{n\varepsilon}+1\right)P</script><p>当 $n$ 较小时, $MR$ 和市场价格 $P$ 的差距还是较大的. 这个是什么意思呢? 其实是说此时市场价格比边际成本 $MC$ 更高, 因为商家需要取极值条件 $MR=MC$. 但是当 $n$ 越来越大时, 市场价格就越来越接近于边际成本, 直到 $n\to\infty$ 后, 极值条件就完全和完美竞争市场中一模一样了. </p>
+<p>于是, 寡头垄断市场自然过渡到完美竞争市场</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E7%BB%8F%E6%B5%8E%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 经济学</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/07/%E5%BC%80%E5%A7%8B%E5%81%A5%E8%BA%AB/" rel="next" title="开始健身!">
+                <i class="fa fa-chevron-left"></i> 开始健身!
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/10/%E6%88%91%E4%BB%AC%E8%A6%81%E5%BC%82%E5%9B%BD%E6%81%8B%E4%BA%86/" rel="prev" title="我们要异国恋了">
+                我们要异国恋了 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+
+
+
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/touxiang.jpeg"
+                alt="Hong Xunyang" />
+            
+              <p class="site-author-name" itemprop="name">Hong Xunyang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/zhi-fei-ji-46-94" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-windows"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://245643119.wixsite.com/liudy" title="猪猪家的仓鼠" target="_blank">猪猪家的仓鼠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://ethz.ch/en/news-and-events/eth-news.html" title="ETH 新闻与博客" target="_blank">ETH 新闻与博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+
+
+
+
+
+
+
+
+
+     </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#垄断-Monopoly"><span class="nav-number">2.</span> <span class="nav-text">垄断 (Monopoly)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#寡头垄断-Oligopoly"><span class="nav-number">3.</span> <span class="nav-text">寡头垄断 (Oligopoly)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#从寡头垄断到完美竞争"><span class="nav-number">4.</span> <span class="nav-text">从寡头垄断到完美竞争</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hong Xunyang</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+-->
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script src="/js/src/Valine.min.js"></script>  
+
+    
+  
+  <script src="/js/src/Valine.min.js"></script>
+
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'tLOWuiNs9lPlkeQ130F8AGEl-gzGzoHsz',
+        appKey: 'ihjjpeqkthIl8kkj5O0mtc91',
+        placeholder: '说点什么吧!',
+        avatar:'mm',
+        guest_info:['nick'],
+        pageSize:'10' || 10,
+    });
+   
+    var infoEle = document.querySelector('#comments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

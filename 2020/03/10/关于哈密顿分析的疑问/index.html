@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://xxxxxxx.xxx"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-simple.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/pig128.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/pig.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/pig16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="物理,哈密顿分析," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hong Xunyang's Homepage" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="问题一给定一个在电场中运动的粒子的拉格朗日量, 令$e&#x3D;1$ L&#x3D;\frac{m\dot{q}^2}{2}-Eq现在将质量和位置同时作为位形空间的参量 $(m,q)$. 勒让德变换后得到哈密顿量和相空间约束 H&#x3D;\frac{P^2}{2m}+Eq, \qquad \pi &#x3D;0其中$P$是$q$的共轭动量, $\pi$是质量$m$的共轭动量. 运动方程是 \dot{q}&#x3D;\frac{P}{m},\q">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于哈密顿分析的疑问">
+<meta property="og:url" content="hongxunyang.github.io/2020/03/10/%E5%85%B3%E4%BA%8E%E5%93%88%E5%AF%86%E9%A1%BF%E5%88%86%E6%9E%90%E7%9A%84%E7%96%91%E9%97%AE/index.html">
+<meta property="og:site_name" content="Hong Xunyang&#39;s Homepage">
+<meta property="og:description" content="问题一给定一个在电场中运动的粒子的拉格朗日量, 令$e&#x3D;1$ L&#x3D;\frac{m\dot{q}^2}{2}-Eq现在将质量和位置同时作为位形空间的参量 $(m,q)$. 勒让德变换后得到哈密顿量和相空间约束 H&#x3D;\frac{P^2}{2m}+Eq, \qquad \pi &#x3D;0其中$P$是$q$的共轭动量, $\pi$是质量$m$的共轭动量. 运动方程是 \dot{q}&#x3D;\frac{P}{m},\q">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-10T06:51:41.000Z">
+<meta property="article:modified_time" content="2020-03-10T06:51:41.000Z">
+<meta property="article:author" content="Hong Xunyang">
+<meta property="article:tag" content="物理">
+<meta property="article:tag" content="哈密顿分析">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="hongxunyang.github.io/2020/03/10/关于哈密顿分析的疑问/"/>
+
+
+
+
+
+  <title>关于哈密顿分析的疑问 | Hong Xunyang's Homepage</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hong Xunyang's Homepage</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Physics Major | Undergrad @SYSU Physics | Grad @ETH Physics</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="hongxunyang.github.io/2020/03/10/%E5%85%B3%E4%BA%8E%E5%93%88%E5%AF%86%E9%A1%BF%E5%88%86%E6%9E%90%E7%9A%84%E7%96%91%E9%97%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hong Xunyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hong Xunyang's Homepage">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">关于哈密顿分析的疑问</h1>
+        
+
+        <div class="post-meta">
+        
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-10T07:51:41+01:00">
+                2020-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%89%A9%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">物理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/10/%E5%85%B3%E4%BA%8E%E5%93%88%E5%AF%86%E9%A1%BF%E5%88%86%E6%9E%90%E7%9A%84%E7%96%91%E9%97%AE/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/10/%E5%85%B3%E4%BA%8E%E5%93%88%E5%AF%86%E9%A1%BF%E5%88%86%E6%9E%90%E7%9A%84%E7%96%91%E9%97%AE/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h1><p>给定一个在<strong>电场中运动的粒子</strong>的拉格朗日量, 令$e=1$</p>
+<script type="math/tex; mode=display">L=\frac{m\dot{q}^2}{2}-Eq</script><p>现在将质量和位置同时作为位形空间的参量 $(m,q)$. 勒让德变换后得到哈密顿量和相空间约束</p>
+<script type="math/tex; mode=display">H=\frac{P^2}{2m}+Eq, \qquad \pi =0</script><p>其中$P$是$q$的共轭动量, $\pi$是质量$m$的共轭动量. 运动方程是</p>
+<script type="math/tex; mode=display">\dot{q}=\frac{P}{m},\qquad \dot{P}=-E, \qquad \dot{m}=\lambda,\qquad \dot{\pi}=-\frac{P^2}{2m^2}</script><p>其中$\lambda$是拉格朗日乘子. 自洽性条件给出 $\phi_1\equiv \dot{\pi}=0$. 进一步给出下一级的次级约束</p>
+<script type="math/tex; mode=display">\phi_2\equiv \ddot{\pi}=\frac{PE}{m^2}+\frac{P^2}{4m^3}\lambda</script><p>于是要求有</p>
+<script type="math/tex; mode=display">\dot{m}\equiv \lambda = -\frac{-4Em}{P}\neq 0</script><p>然后我有几个疑问:</p>
+<p><strong>1. 第一个次级约束要求 $\dot{\pi}=0$, 也就是说要求$P=0$. 这个我并不知道如何理解. 是不是意味着无论如何$m$都不能作为位形变量?</strong><br><strong>2. 第二个次级约束给出 $\dot{m}=\lambda\neq 0$, 也就是质量必须是随时间变化的, 且不允许不变. 这个又怎么理解呢… 我以为它会给出质量必须是常数这个要求的…</strong></p>
+<p>当势能不含质量时, 即将 $E$ 替换成 $V(q)$时, 结论也不变.</p>
+<h1 id="问题二"><a href="#问题二" class="headerlink" title="问题二"></a>问题二</h1><p>如果势能项是线性依赖于质量的话, 例如$mV(q)=mgh$ 或者 $mV(q)=m/q$, 结果则完全不一样. 对</p>
+<script type="math/tex; mode=display">L=\frac{m\dot{q}^2}{2}-mV(q)</script><p>同样做哈密顿分析, 第一个次级约束要求</p>
+<script type="math/tex; mode=display">\phi_1=-\frac{P^2}{2m^2}-V(q)=0</script><p>也就是说: 要求$P^2=-2m^2V(q)$. 而第二个次级约束则给出</p>
+<script type="math/tex; mode=display">\dot{m}\equiv\lambda =0</script><p>即要求质量变化率为0, 质量必须是常数. 那么在这个约束下, 联系次级约束以及动量的运动方程</p>
+<script type="math/tex; mode=display">\dot{P}=-m\frac{dV}{dq}\qquad P^2=-2m^2V(q)</script><p>是否能够同时满足? 质量必须为常数这个是合理的, 但是第一个次级约束意味着什么呢?</p>
+<hr>
+<p>然而现在看来…似乎这个拉氏量有一些问题… 对于 $L=m\dot{q}^2/2-mq$, 拉格朗日方程为</p>
+<script type="math/tex; mode=display">-m=m\ddot{q},\quad \frac{1}{2}\dot{q}^2=0</script><p>这个显然是矛盾的, 整理一下可以看出来$\dot{q}=0, \ddot{q}=-1$. 这个微分方程显然是自相矛盾的. 因此, 之所以会出现哈密顿分析里面的那些问题, 是因为这个拉氏量本身就有问题, 或者<strong>将质量视作位形变量本身就有问题</strong>. 于是问题暂时得到了解决.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E7%89%A9%E7%90%86/" rel="tag"><i class="fa fa-tag"></i> 物理</a>
+          
+            <a href="/tags/%E5%93%88%E5%AF%86%E9%A1%BF%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-tag"></i> 哈密顿分析</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/09/%E7%91%9E%E5%A3%AB%E7%95%99%E5%AD%A6%E5%A4%87%E5%BF%98/" rel="next" title="瑞士留学备忘">
+                <i class="fa fa-chevron-left"></i> 瑞士留学备忘
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/15/%E5%9C%BA%E7%9A%84%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90,%20%E7%86%B5/" rel="prev" title="场的统计分析, 熵">
+                场的统计分析, 熵 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+
+
+
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/touxiang.jpeg"
+                alt="Hong Xunyang" />
+            
+              <p class="site-author-name" itemprop="name">Hong Xunyang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/zhi-fei-ji-46-94" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-windows"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://245643119.wixsite.com/liudy" title="猪猪家的仓鼠" target="_blank">猪猪家的仓鼠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://ethz.ch/en/news-and-events/eth-news.html" title="ETH 新闻与博客" target="_blank">ETH 新闻与博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+
+
+
+
+
+
+
+
+
+     </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题一"><span class="nav-number">1.</span> <span class="nav-text">问题一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题二"><span class="nav-number">2.</span> <span class="nav-text">问题二</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hong Xunyang</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+-->
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script src="/js/src/Valine.min.js"></script>  
+
+    
+  
+  <script src="/js/src/Valine.min.js"></script>
+
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'tLOWuiNs9lPlkeQ130F8AGEl-gzGzoHsz',
+        appKey: 'ihjjpeqkthIl8kkj5O0mtc91',
+        placeholder: '说点什么吧!',
+        avatar:'mm',
+        guest_info:['nick'],
+        pageSize:'10' || 10,
+    });
+   
+    var infoEle = document.querySelector('#comments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://xxxxxxx.xxx"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-simple.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/pig128.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/pig.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/pig16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="生活,编程,数学," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hong Xunyang's Homepage" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="一, 引言我们打牌的时候一般都会采用两种洗牌方式:  将牌的中间抽出来, 叠在最上面 将牌分成两份, 然后往中间叠  这两种方式的洗牌的效果肯定是不同的, 第一种洗地很快, 但是直觉上来看洗得不均匀; 而第二种洗地比较慢, 但是直觉上来看洗得比较均匀. 但是事实是不是这样呢? 是否有办法可以衡量哪一种洗牌方法会更好呢? 这里面我们将会遇到几个问题  如何对洗牌进行数学上的描述? 如何对洗牌方法更好">
+<meta property="og:type" content="article">
+<meta property="og:title" content="洗牌的数学模型">
+<meta property="og:url" content="hongxunyang.github.io/2020/04/30/%E6%B4%97%E7%89%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:site_name" content="Hong Xunyang&#39;s Homepage">
+<meta property="og:description" content="一, 引言我们打牌的时候一般都会采用两种洗牌方式:  将牌的中间抽出来, 叠在最上面 将牌分成两份, 然后往中间叠  这两种方式的洗牌的效果肯定是不同的, 第一种洗地很快, 但是直觉上来看洗得不均匀; 而第二种洗地比较慢, 但是直觉上来看洗得比较均匀. 但是事实是不是这样呢? 是否有办法可以衡量哪一种洗牌方法会更好呢? 这里面我们将会遇到几个问题  如何对洗牌进行数学上的描述? 如何对洗牌方法更好">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="/images/%E6%B4%97%E7%89%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B1.png">
+<meta property="og:image" content="/images/%E6%B4%97%E7%89%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B2.png">
+<meta property="og:image" content="/images/%E6%B4%97%E7%89%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B3.png">
+<meta property="og:image" content="/images/%E6%B4%97%E7%89%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B4.png">
+<meta property="og:image" content="/images/%E6%B4%97%E7%89%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B5.png">
+<meta property="og:image" content="/images/%E6%B4%97%E7%89%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B6.png">
+<meta property="og:image" content="/images/%E6%B4%97%E7%89%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B7.png">
+<meta property="og:image" content="/images/%E6%B4%97%E7%89%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B8.png">
+<meta property="og:image" content="/images/%E6%B4%97%E7%89%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B9.png">
+<meta property="og:image" content="/images/%E6%B4%97%E7%89%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B10.png">
+<meta property="og:image" content="/images/%E6%B4%97%E7%89%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B11.png">
+<meta property="og:image" content="/images/%E6%B4%97%E7%89%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B12.png">
+<meta property="og:image" content="/images/%E6%B4%97%E7%89%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B13.png">
+<meta property="article:published_time" content="2020-04-30T15:55:01.000Z">
+<meta property="article:modified_time" content="2020-04-30T15:55:01.000Z">
+<meta property="article:author" content="Hong Xunyang">
+<meta property="article:tag" content="生活">
+<meta property="article:tag" content="编程">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/%E6%B4%97%E7%89%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="hongxunyang.github.io/2020/04/30/洗牌的数学模型/"/>
+
+
+
+
+
+  <title>洗牌的数学模型 | Hong Xunyang's Homepage</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hong Xunyang's Homepage</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Physics Major | Undergrad @SYSU Physics | Grad @ETH Physics</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="hongxunyang.github.io/2020/04/30/%E6%B4%97%E7%89%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hong Xunyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hong Xunyang's Homepage">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">洗牌的数学模型</h1>
+        
+
+        <div class="post-meta">
+        
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-30T17:55:01+02:00">
+                2020-04-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index">
+                    <span itemprop="name">数学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/04/30/%E6%B4%97%E7%89%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/04/30/%E6%B4%97%E7%89%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一-引言"><a href="#一-引言" class="headerlink" title="一, 引言"></a>一, 引言</h1><p>我们打牌的时候一般都会采用两种洗牌方式:</p>
+<ul>
+<li>将牌的中间抽出来, 叠在最上面</li>
+<li>将牌分成两份, 然后往中间叠</li>
+</ul>
+<p>这两种方式的洗牌的效果肯定是不同的, 第一种洗地很快, 但是直觉上来看洗得不均匀; 而第二种洗地比较慢, 但是直觉上来看洗得比较均匀. 但是事实是不是这样呢? 是否有办法可以衡量哪一种洗牌方法会更好呢? 这里面我们将会遇到几个问题</p>
+<ol>
+<li>如何对洗牌进行数学上的描述?</li>
+<li>如何对<strong>洗牌方法更好</strong>做一个数学上的定义?</li>
+<li>哪种洗牌方式更好?</li>
+</ol>
+<p>这篇文章我们将简要地介绍一下, 笔者对这三个问题的解决方式.</p>
+<p>P.S. 这个文章不知道怎么分类, 暂且分在数学里面..</p>
+<h1 id="二-建模"><a href="#二-建模" class="headerlink" title="二, 建模"></a>二, 建模</h1><h2 id="2-1-对洗牌的描述"><a href="#2-1-对洗牌的描述" class="headerlink" title="2.1 对洗牌的描述"></a>2.1 对洗牌的描述</h2><p>为了解决问题, 我们首先要定义一个扑克牌的有序数对</p>
+<script type="math/tex; mode=display">s\equiv ( 0,1,2,3,4,5,6,\cdots,107 ) \in S</script><p>$S$ 则是所有$0\sim 107$这108个整数的所有排列的集合. $s\in S$ 表示一种洗牌的结果. 其中 $0,1$ 分别代表第一副牌和第二副牌的$\diamondsuit A$, 而 $2,3$ 则是第一副和第二副牌的 $\diamondsuit 2$, 以此类推; $102, 103$ 则是第一副牌和第二幅牌的 $\spadesuit K$; $104\sim 107$则对应两个小鬼 (ghost) 和两个大鬼 (Ghost).</p>
+<p>每个结果, 或说每个元素 $s_1, s_2\in S$ 之间以一个置换群群元相互联系 $g\in G$. 一次洗牌相当于对元素 $s$ 施加了一个置换操作</p>
+<script type="math/tex; mode=display">\text{Shuffle}:\,s \mapsto gs,\quad s\in S,\,g\in G</script><p>不同的洗牌方式对应不同的 $g$. 由于牌的数目是有限的, 因此置换群也是有限的. $\text{rank}\,G = 108!$. 虽然数量众多, 但毕竟是有限的, 因此同一种洗牌方式如果不断重复, 那么必定会在某一次洗牌之后恢复原状. 实际上就是</p>
+<script type="math/tex; mode=display">\{e,g,g^2,g^3,...|\,\forall g\in G\}</script><p>必定是一个有限的循环群, 每个元素 (洗牌方式) 的阶数必定是有限的. 这么一来, 如果你每次洗牌都是完美洗牌 (不出错), 那么洗着洗着你就会发现恢复到了原来的样子… 相当于没有洗… 举一些例子</p>
+<blockquote>
+<p>对于一副牌, 54张来说, 第二种方式的洗牌所对应的置换群是</p>
+</blockquote>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+0&1&2&\cdots&26&27&28&\cdots\\
+0&2&4&\cdots&1&3&5&\cdots\\
+\end{pmatrix}</script><blockquote>
+<p>我们可以找出其中元素的轨道. 例如对于$1$来说始终处于1; 对于2来说, 他所在的轨道是 (不知道标准的怎么表示…)</p>
+</blockquote>
+<script type="math/tex; mode=display">(2,3,5,9,17,33,14,27,2)</script><blockquote>
+<p>周期为8, 同样的, 也可以写出其他元素的轨道. 这个群$G$便被分解成了6个周期为$8$的轨道, 一个周期为$2$的轨道. 于是最终的结论就是如果不出错地洗牌, 这种洗牌方式在洗了8次之后将会恢复原状. </p>
+</blockquote>
+<p>然而, 现实是你不可能做到完美地实现不出错的置换, 因此在现实中你也不会遇到洗着洗着就洗回了原来的样子. 在这其中需要有一定的容错率: 让每次的置换群元素都和上一次相比有所不同, 这样实现的<strong>轨道</strong>就是可以不闭合的. </p>
+<h2 id="2-2-如何对洗牌方式更好做一个定义"><a href="#2-2-如何对洗牌方式更好做一个定义" class="headerlink" title="2.2 如何对洗牌方式更好做一个定义"></a>2.2 如何对<strong>洗牌方式更好</strong>做一个定义</h2><p>有许多方法可以定义什么叫做洗牌方式是更好的. 下面将会列举一些可能的方案, 而本文将会采取其中的一个方案. 我们暂且认为, 洗牌洗得越好, 每个人拿到的牌就越随机, 也就是随机性也大, 洗牌洗得越好.</p>
+<p><strong>方法一</strong>: 一个人拿到25张牌, 每一张的可能的花色数字都有一个具体的分布. 例如第一张牌有$25\%$的概率拿到$\clubsuit K$, $75\%$的概率拿到$\heartsuit J$; 而第二张牌有$35\%$概率拿到$\spadesuit A$, 有$65\%$的概率拿到$\diamondsuit 7$等等. 25张牌中的每一张牌都有一个具体的分布, 把它们并在一起, 这样一个人拿到牌的分布函数就是一个$25\times 108=2700$维的向量$\varphi$. $1\sim 108$表征了第一张牌的每一种花色数字的概率, $109\sim216$则是第二张牌的每一种花色数字的概率, 以此类推. 自然, 我们可以定义<strong>最随机</strong>的分布</p>
+<script type="math/tex; mode=display">\varphi_{max}(i)=\frac{1}{2700}</script><p>其中$i$指向量$\varphi$的第$i$个坐标值. 即每一张牌的每一种花色数字都是等可能的. 如此一来, 定义了最随机的分布$\varphi<em>{max}$, 就可以紧接着定义任意一个分布$\varphi$与\textbf{最随机}分布的差距, 以此作为随机程度的衡量. 于是\textbf{保真度}是一个很好的方法, 定义随机程度为任意分布$\varphi$与$\varphi</em>{max}$的保真度, 即</p>
+<script type="math/tex; mode=display">F_1\equiv |\left\langle \varphi|\varphi_{max}\right\rangle|^2</script><p>$F_1$即为随机程度的衡量.</p>
+<p><strong>方法二</strong>: 实际运算中, 会发现这个 Fidelity 并不是衡量地特别好, 一个看上去非常不均匀的分布, 和完全均匀分布的保真度也可能比较高. 于是这里提出另外一种方式. 首先我们计算某个玩家的分布和均匀分布之间的<strong>数据方差</strong>, 即</p>
+<script type="math/tex; mode=display">\sigma^2\equiv \sum \frac{(\varphi_i-\varphi_{max\,i})^2}{n}</script><p>显然, 这个方差越小越好, 因此它的倒数越大越好. 我们可以定义衡量标准</p>
+<script type="math/tex; mode=display">F_2\equiv \frac{1}{\sqrt{\sigma^2}}</script><p>以此作为随机性的某种衡量.</p>
+<p><strong>方法三</strong>: 放松要求, 不要求发牌完全随机, 只要求四个人拿到的牌的分布都尽可能接近. 设$\varphi_1,\,\varphi_2,\,\varphi_3,\, \varphi_4$为四个人拿到的牌的分布, 只要这四个分布足够接近就可以. 衡量的方法就是</p>
+<script type="math/tex; mode=display">F_3\equiv |\left\langle \varphi_1|\varphi_2\right\rangle|^2+|\left\langle \varphi_2|\varphi_3\right\rangle|^2+|\left\langle \varphi_3|\varphi_4\right\rangle|^2+|\left\langle \varphi_4|\varphi_1\right\rangle|^2</script><p><strong>方法四</strong>: 来自范骏逸. 这里转换思路, 不再要求洗牌之后随机程度最高, 而转为要求\textbf{洗完牌之后的牌的分布和洗牌之前的分布相差最大.} 关于这一点, 也有两种实现方式: 1, 直接计算洗牌前和洗牌后的牌分布的保真度; 2, 关注于其中某一张牌, 看它在洗完牌之后离原来的牌的某种<strong>距离</strong>, 然后对所有牌的距离取平均数, 作为衡量. 注意, 这里的距离只是抽象的距离, 并不一定是位置只差什么的. 这个距离可以是这个牌位置分布的方差之类的…<br><strong>方法五</strong>: 香农熵. 这个暂且也没有了解. </p>
+<p><strong>方法六</strong>: 两点关联函数计算牌分布的熵. 这个还没有想得太明白</p>
+<p>实际计算中, 我们将采用方法二进行衡量. </p>
+<h1 id="三-数值计算"><a href="#三-数值计算" class="headerlink" title="三, 数值计算"></a>三, 数值计算</h1><h2 id="3-1-对于几种洗牌方式的描述"><a href="#3-1-对于几种洗牌方式的描述" class="headerlink" title="3.1 对于几种洗牌方式的描述"></a>3.1 对于几种洗牌方式的描述</h2><p>由于实际上的洗牌是会存在失误的, 即每一次洗牌都不能保证严格对应同一个置换群群元 $g$, 而是会对 $g$ 有一定的偏移. 而这种偏移是呈现概率性的. 当然, 要描述这种存在失误的洗牌, 我们首先来描述一下不存在失误的洗牌. 前面提到的两种洗牌方式<em>在不失误的情况下</em>所对应的群元分别是:</p>
+<ul>
+<li>Method 1: <script type="math/tex; mode=display">
+\begin{pmatrix}
+0&1&2&\cdots&36&37&38&\cdots&72&73&74&\cdots\\
+36&37&38&\cdots&0&1&2&\cdots&72&73&74&\cdots\\
+\end{pmatrix}</script>显然这种方式完全无法洗开最后的 36 张牌, 所以实际上我们还会不断调整三等分的方式, 偶尔还二等分, 这样才能够把后面的牌洗掉.</li>
+<li>Method 2:<script type="math/tex; mode=display">
+\begin{pmatrix}
+0&1&2&\cdots&54&55&56&\cdots\\
+0&2&4&\cdots&1&3&5&\cdots\\
+\end{pmatrix}</script>这种洗牌的特点是一张前面的叠一张后面的. 看上去十分地均匀. </li>
+</ul>
+<p>有了完美的洗牌, 我们就要在这上面加入概率分布的特征, 以实现<strong>非完美洗牌</strong>. </p>
+<ul>
+<li><p>Method 1:</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+0&1&2&\cdots&36-a&37&38&\cdots&72+b&73&74&\cdots\\
+36-a&37&38&\cdots&0&1&2&\cdots&72+b&73&74&\cdots\\
+\end{pmatrix}</script><p>其中$a,b$都是一个位于$[-18,36]$的随机变量, 至于是什么样的分布则取决于人洗牌的风格. 在本文中我们将取均匀分布. 举一个例子, 当$a=0, b=36$, 相当于仅仅只把牌分成了两份, 前半份是 $0\sim 36$, 后半份是 $37\sim 108$, 然后交换这两份, 如此可以实现把后面的牌洗开. </p>
+</li>
+<li><p>Method 2:<br>在原始分布的基础上, 再施加一个额外的群元:</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+0&\cdots& n_1&n_1+1&\cdots& n_N& n_N+1&\cdots\\
+0&\cdots& n_1+1&n_1&\cdots&n_N+1&n_N&\cdots
+\end{pmatrix}</script><p>其中 $N$ 是任意一个小于 108 的整数. 直观来讲, 这个其实代表了我们在真正采用 Method 2 洗牌的时候, 总会两张或者多张同一边的叠在一起, 然后再叠另外一边, 这就是洗牌的<strong>不完美</strong>或者<strong>失误</strong>: 我们当然无法做到一张左边, 一张右边地叠在一起. 如此看来 $N$ 就是指失误的次数, 在本文章将会取 $N=20$.</p>
+</li>
+</ul>
+<p>于是, 我们将采用上面的两种洗牌方法进行编程, 用数值方法研究这两种洗牌方式的特征. 首先这里贴一下两种方法的代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">poker=array([i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">108</span>)])</span><br><span class="line"><span class="comment">## 置换群定义</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 标准第一类置换群 (无失误)</span></span><br><span class="line">permutation1=([i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">36</span>,<span class="number">72</span>)]+[i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">36</span>)]+[i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">72</span>,<span class="number">108</span>)])</span><br><span class="line"><span class="comment"># 第一类随机置换群 (有失误)</span></span><br><span class="line"><span class="comment"># 这里的sigma 是这种洗牌的手洗不确定性, 并不能完全将牌三等分. 这里的sigma并没有严格确定的值, 需要靠实际洗牌来确定. </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">randperm1</span><span class="params">()</span>:</span></span><br><span class="line">    b=rd.randint(<span class="number">0</span>,<span class="number">36</span>)</span><br><span class="line">    a=rd.randint(<span class="number">0</span>,<span class="number">36</span>)</span><br><span class="line">    tempperm=([i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">36</span>-a,<span class="number">72</span>+b)]+[i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">36</span>-a)]+[i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">72</span>+b,<span class="number">108</span>)])</span><br><span class="line">    <span class="keyword">return</span> tempperm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 标准第二类置换群 (无失误)</span></span><br><span class="line">ay1= ([i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">54</span>)])</span><br><span class="line">ay2= ([i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">54</span>,<span class="number">108</span>)])</span><br><span class="line">ay=[<span class="number">0</span>]*len(ay1+ay2)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">54</span>):</span><br><span class="line">    ay[<span class="number">2</span>*i]=ay2[i]</span><br><span class="line">    ay[<span class="number">2</span>*i+<span class="number">1</span>]=ay1[i]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">permutation2=ay.copy()</span><br><span class="line"><span class="comment"># 第二类随机置换群 (有失误)</span></span><br><span class="line"><span class="comment"># 这里的 number 是指叠牌失误的次数, 使得两个牌叠到了一起.</span></span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">def randperm2(number=30):
+    tempperm=array(permutation2.copy())
+    identity=list(range(108))
+
+    for i in range(number):
+        b=rd.randint(0,106)
+        change=identity.copy()
+        (change[b],change[b+1])=(change[b+1],change[b])
+        tempperm=tempperm[change]
+</code></pre>
+<h2 id="3-2-Method-1-的特征"><a href="#3-2-Method-1-的特征" class="headerlink" title="3.2 Method 1 的特征"></a>3.2 Method 1 的特征</h2><p>首先, 从图像上定性的看一看, 洗牌次数增多的时候, 洗牌效果有怎么样的变化. 我们先来观察一下, 洗牌1次, 5次, 20次, 100次的特征. 下面的图中, 横坐标表征的是卡牌的编号. 这里需要注意的是, 原本一共有108张牌, 但现在我们将1 ($\diamondsuit A<em>1$),2 ($\diamondsuit A_2$) 合并; 3 ($\diamondsuit 2_1$),4 ($\diamondsuit 2_1$) 也合并, 以此类推, 将相同花色数字的合并到同一个横坐标上, 因此横坐标上限从 108 降低到了 54. 纵坐标则是拿到这张牌的概率, 记为$P_N(x)$, 其中下标 $N$ 是指洗牌洗了 $N$ 次. 此外, 其中的橙色虚线代表了完全均匀分布的曲线 $P</em>{max}(x_{})$.</p>
+<ol>
+<li><strong>洗牌 1 次</strong>: 很自然, 一次洗牌当然无法洗均匀. 所以牌的浮动很大, 尤其是后半部分的浮动特别明显. 这个是源于 Method 1 本身洗牌的一个缺陷: 不太能够顾及到号码排序更后的牌; 需要洗很多次才能够将后方的牌洗开. </li>
+</ol>
+<p><img src="/images/洗牌的数学模型1.png" alt=""></p>
+<ol>
+<li><strong>洗牌 5 次</strong>: 5 次洗牌之后, 后方的不均匀性明显得到了改善. 但49号牌 ($\spadesuit K$) 以及之后的大小鬼仍然显得不那么均匀. </li>
+</ol>
+<p><img src="/images/洗牌的数学模型2.png" alt=""></p>
+<ol>
+<li><strong>洗牌 20 次</strong>: 20 次洗牌之后, 只剩下大鬼是不均匀的, 其他基本都已经达到了均匀的状态. 基本上我们可以认为这个已经是比较好的结果了—洗牌次数不多, 但已经达到了比较均匀的结果. </li>
+</ol>
+<p><img src="/images/洗牌的数学模型3.png" alt=""></p>
+<ol>
+<li><strong>洗牌 100 次</strong>: 正常来说不会洗牌洗 100 次, 但我们还是来看看洗牌那么多次能够达到什么样的效果. 可以看到, 洗牌洗得已经非常均匀了, 完全可以认为是均匀分布了. </li>
+</ol>
+<p><img src="/images/洗牌的数学模型4.png" alt=""></p>
+<p>现在, 我们定量地去衡量洗牌效果随着洗牌次数增加而增加的趋势. 首先定义实际分布$P(x)$的方差: $\sigma^2\equiv\sum<em>x (P(x)-P</em>{max}(x))^2/54<em>{}$. 容易想到, 当真实分布就是均匀分布 $P</em>{max}(x_{})$时, 方差为0; 而当真实分布偏离均匀分布很多的时候, 方差较大. 所以洗牌效果的好坏的定量判断可以定义为标准差的倒数</p>
+<script type="math/tex; mode=display">F[P_N]\equiv \frac{1}{\sqrt{\sigma^2}}</script><p>这样洗牌洗的越均匀, $F$就越大. 以此来衡量洗牌的好坏. 经过计算实际数值, 我们可以得到以下结果:</p>
+<script type="math/tex; mode=display">F[P_1]\approx 24</script><script type="math/tex; mode=display">F[P_2]\approx 25</script><script type="math/tex; mode=display">F[P_{10}]\approx 55</script><script type="math/tex; mode=display">F[P_{20}]\approx 100</script><script type="math/tex; mode=display">F[P_{100}]\approx 250_{}</script><p>从图像来看, 基本上我们选定 $F[P_N]=100$ 作为衡量均匀性的一个标尺, 超过它就是均匀的, 小于它则不是均匀的.</p>
+<h2 id="3-3-Method-2-特征"><a href="#3-3-Method-2-特征" class="headerlink" title="3.3 Method 2 特征"></a>3.3 Method 2 特征</h2><p>现在我们来看 Method 2 的表现</p>
+<ol>
+<li><strong>洗牌 1 次</strong>: 完全不能看</li>
+</ol>
+<p><img src="/images/洗牌的数学模型5.png" alt=""></p>
+<ol>
+<li><strong>洗牌 5 次</strong>: 不能看</li>
+</ol>
+<p><img src="/images/洗牌的数学模型6.png" alt=""></p>
+<ol>
+<li><strong>洗牌 20 次</strong>: 还是不能看</li>
+</ol>
+<p><img src="/images/洗牌的数学模型7.png" alt=""></p>
+<ol>
+<li><strong>洗牌 100 次</strong>: 只有洗牌洗到了 100 次之后才有点像话.</li>
+</ol>
+<p><img src="/images/洗牌的数学模型8.png" alt=""></p>
+<p>并且</p>
+<script type="math/tex; mode=display">F[P_1]\approx 5</script><script type="math/tex; mode=display">F[P_2]\approx 5</script><script type="math/tex; mode=display">F[P_{10}]\approx 5</script><script type="math/tex; mode=display">F[P_{20}]\approx 5</script><script type="math/tex; mode=display">F[P_{100}]\approx 35_{}</script><p>一直到 20 次洗牌, 洗牌的效果都差不多: <strong>都很差</strong>. 表现差的原因可能是</p>
+<ul>
+<li>本身这种洗牌方式就不行. </li>
+<li>在设置置换群的时候, 随机性设置地太低</li>
+</ul>
+<p>我更倾向于认为是第一种, 没有理由. 如果真的是这样的话, 那么这种洗牌方法就是一种 <strong>洗的又慢, 洗得又不均匀</strong>的方法, 应该被摒弃.</p>
+<h2 id="3-4-还有没有其他洗牌方法"><a href="#3-4-还有没有其他洗牌方法" class="headerlink" title="3.4 还有没有其他洗牌方法?"></a>3.4 还有没有其他洗牌方法?</h2><p>其实还有方法能够提升这两种洗牌方式的洗牌效果, 那就是<strong>交替使用 Method 1 和 Method 2</strong>, 之后会发现, 这样子洗牌能够很好地保留 Method 1 洗牌洗得均匀的优点, 同时又具有 Metho 2 对各个位置的牌都一视同仁的优点. 于是位于编号最后的牌能够很快地被洗开. 基于这一点考虑, 我们将引入更多的方法: Method n 是指施加了一次 Method 2 洗牌之后, 连续施加 $(n-2)$ 次 Method 1 的洗牌. 举个例子: Method 3 对应 Method 2 + Method 1; Method 4 对应 Method 2 + Method 1 + Method 1, 以此类推.</p>
+<p>那么, 我们来看一看 Method 3 的洗牌效果. 注意, 由于 Method 3 是两次洗牌的复合, 因此实施了 2 次的 Method 3 洗牌实际上是等效施加了 Method 1 和 Method 2 各两次, 等效于 4 次实际洗牌次数. 下面的洗牌次数均代表<strong>实际洗牌次数</strong>. </p>
+<ol>
+<li><strong>洗牌 2 次</strong>: 和其他洗牌方式一样, 这种洗牌方式在一开始表现并不好, 并且能够体现出 Method 1 的一个特征: 尾部无法洗开.<br><img src="/images/洗牌的数学模型9.png" alt=""></li>
+</ol>
+<ol>
+<li><strong>洗牌 6 次</strong>: 洗牌 6 次之后效果明显变好, 尾部虽有涨落, 但涨落程度比单纯 Method 1 好.<br><img src="/images/洗牌的数学模型10.png" alt=""></li>
+</ol>
+<ol>
+<li><strong>洗牌 20 次</strong>: 20 次洗牌已经可以说把所有牌都洗开了, 基本趋于均匀分布, 尾部也不再有 Method 1 的不均匀效果.<br><img src="/images/洗牌的数学模型11.png" alt=""></li>
+</ol>
+<ol>
+<li><strong>洗牌 100 次</strong>: 不用说了, 100次洗牌已经效果非常好了.<br><img src="/images/洗牌的数学模型12.png" alt=""></li>
+</ol>
+<h2 id="3-5-哪种洗牌方式更好"><a href="#3-5-哪种洗牌方式更好" class="headerlink" title="3.5 哪种洗牌方式更好?"></a>3.5 哪种洗牌方式更好?</h2><p>在实际的洗牌中, 我们希望洗牌洗得越快越好, 洗牌洗得越均匀越好. 因此评判一个洗牌方法的好坏, 我们应该用<strong>上升到某个均匀度所需要的时间</strong>来衡量, 这个时间越小, 说明洗牌方法越好. 这个均匀度的阈值我们设置为 $F=100$, 某种洗牌方式达到这个阈值的所需时间越少, 就越好. </p>
+<p>从日常经验来看, 大致估算一下两种洗牌方式所需要的时间:</p>
+<ul>
+<li>Method 1:  $0.5\sim 1\,\mathrm{s}$, 取平均数 $0.75\,\mathrm{s}$.</li>
+<li>Method 2:  $2\sim 4 \,\mathrm{s}$, 取平均数 $3\,\mathrm{s}$.</li>
+<li>Method 3:  $2.5\sim 5\,\mathrm{s}$, 取平均数$3.75\,\mathrm{s}$</li>
+<li>…</li>
+</ul>
+<p>下图将几种方法随着时间增加, 其 Fidelity 增加的趋势绘制了出来. </p>
+<p><img src="/images/洗牌的数学模型13.png" alt=""></p>
+<p>可以看到, Method 2 完全不能看, 直接抛弃. Method 1 在最初的阶段随机度上涨地很快, 但在中间就被 Method 4 超越了. 大致上从图中可以得到结论: <strong>洗一次 Method 2, 接着洗 2 次 Method 1, 重复2~3次, 花费时间10~15秒就已经能够达到 Fidelity 100 以上的程度, 这种方法是比较好的.</strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag"><i class="fa fa-tag"></i> 生活</a>
+          
+            <a href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
+          
+            <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 数学</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/27/%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E5%B0%8F%E7%89%A9%E7%90%86/" rel="next" title="生活中的小物理">
+                <i class="fa fa-chevron-left"></i> 生活中的小物理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="计算机系统: 学习笔记">
+                计算机系统: 学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+
+
+
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/touxiang.jpeg"
+                alt="Hong Xunyang" />
+            
+              <p class="site-author-name" itemprop="name">Hong Xunyang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/zhi-fei-ji-46-94" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-windows"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://245643119.wixsite.com/liudy" title="猪猪家的仓鼠" target="_blank">猪猪家的仓鼠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://ethz.ch/en/news-and-events/eth-news.html" title="ETH 新闻与博客" target="_blank">ETH 新闻与博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+
+
+
+
+
+
+
+
+
+     </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-引言"><span class="nav-number">1.</span> <span class="nav-text">一, 引言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-建模"><span class="nav-number">2.</span> <span class="nav-text">二, 建模</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-对洗牌的描述"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 对洗牌的描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-如何对洗牌方式更好做一个定义"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 如何对洗牌方式更好做一个定义</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三-数值计算"><span class="nav-number">3.</span> <span class="nav-text">三, 数值计算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-对于几种洗牌方式的描述"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 对于几种洗牌方式的描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-Method-1-的特征"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 Method 1 的特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-Method-2-特征"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 Method 2 特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-还有没有其他洗牌方法"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 还有没有其他洗牌方法?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-哪种洗牌方式更好"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 哪种洗牌方式更好?</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hong Xunyang</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+-->
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script src="/js/src/Valine.min.js"></script>  
+
+    
+  
+  <script src="/js/src/Valine.min.js"></script>
+
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'tLOWuiNs9lPlkeQ130F8AGEl-gzGzoHsz',
+        appKey: 'ihjjpeqkthIl8kkj5O0mtc91',
+        placeholder: '说点什么吧!',
+        avatar:'mm',
+        guest_info:['nick'],
+        pageSize:'10' || 10,
+    });
+   
+    var infoEle = document.querySelector('#comments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

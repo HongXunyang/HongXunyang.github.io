@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://xxxxxxx.xxx"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-simple.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/pig128.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/pig.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/pig16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="物理,哈密顿分析,场论," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hong Xunyang's Homepage" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="介绍这里记录一些平时学习物理的一些见解. 并不保证正确, 纯属娱乐. 杂七杂八的想法一,从两个角度可以窥见牛顿引力理论的不足, 或者能够略窥世界本质的一角.  月球始终一面朝向地球: 这个其实是个非常有趣的现象. 我们可以认为地月系统是一个由于潮汐消耗导致已经稳定的系统, 或者说能量已经达到了最低. 但是为什么一面始终朝向地球就是能量最低呢? 从另一个角度来看, 这个意味着: 如果你啥都不做, 面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于物理的一些见解">
+<meta property="og:url" content="hongxunyang.github.io/2020/03/15/%E5%85%B3%E4%BA%8E%E7%89%A9%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%81%E8%A7%A3/index.html">
+<meta property="og:site_name" content="Hong Xunyang&#39;s Homepage">
+<meta property="og:description" content="介绍这里记录一些平时学习物理的一些见解. 并不保证正确, 纯属娱乐. 杂七杂八的想法一,从两个角度可以窥见牛顿引力理论的不足, 或者能够略窥世界本质的一角.  月球始终一面朝向地球: 这个其实是个非常有趣的现象. 我们可以认为地月系统是一个由于潮汐消耗导致已经稳定的系统, 或者说能量已经达到了最低. 但是为什么一面始终朝向地球就是能量最低呢? 从另一个角度来看, 这个意味着: 如果你啥都不做, 面">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-15T16:11:50.000Z">
+<meta property="article:modified_time" content="2020-03-15T16:11:50.000Z">
+<meta property="article:author" content="Hong Xunyang">
+<meta property="article:tag" content="物理">
+<meta property="article:tag" content="哈密顿分析">
+<meta property="article:tag" content="场论">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="hongxunyang.github.io/2020/03/15/关于物理的一些见解/"/>
+
+
+
+
+
+  <title>关于物理的一些见解 | Hong Xunyang's Homepage</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hong Xunyang's Homepage</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Physics Major | Undergrad @SYSU Physics | Grad @ETH Physics</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="hongxunyang.github.io/2020/03/15/%E5%85%B3%E4%BA%8E%E7%89%A9%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%81%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hong Xunyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hong Xunyang's Homepage">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">关于物理的一些见解</h1>
+        
+
+        <div class="post-meta">
+        
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-15T17:11:50+01:00">
+                2020-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%89%A9%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">物理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/15/%E5%85%B3%E4%BA%8E%E7%89%A9%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%81%E8%A7%A3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/15/%E5%85%B3%E4%BA%8E%E7%89%A9%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%81%E8%A7%A3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>这里记录一些平时学习物理的一些见解. 并不保证正确, 纯属娱乐.</p>
+<h1 id="杂七杂八的想法"><a href="#杂七杂八的想法" class="headerlink" title="杂七杂八的想法"></a>杂七杂八的想法</h1><h2 id="一"><a href="#一" class="headerlink" title="一,"></a>一,</h2><p>从两个角度可以窥见牛顿引力理论的不足, 或者能够略窥世界本质的一角.</p>
+<ol>
+<li><strong>月球始终一面朝向地球</strong>: 这个其实是个非常有趣的现象. 我们可以认为地月系统是一个由于潮汐消耗导致已经稳定的系统, 或者说能量已经达到了最低. 但是为什么一面始终朝向地球就是能量最低呢? 从另一个角度来看, 这个意味着: 如果你啥都不做, 面朝前运动, 在引力的支配下运动, 你始终是面朝速度方向的. 这个非常神奇, 如果用牛顿的时空观去理解这个问题时, 你会发现月球其实是在自转的: 自转周期等于公转周期, 于是始终面朝地球. 但是, 为什么有自转的情况下反而能量最低最稳定呢? 于是从这里我们可以看到牛顿引力或者牛顿时空观的一些矛盾之处. </li>
+</ol>
+<p>从这个矛盾出发, 我们大概可以猜想: 我什么都不做的情况下, 在引力的支配下运动, 始终面朝前, 是否意味着我其实本身就是在匀速直线运动, 而引力只是个假想的东西呢? 或者说, 引力和其他力不一样, 是更加”背景”, 更加类似于”舞台”的这种东西呢? </p>
+<p>当然, 你要从牛顿力学的角度看出来地月系统是能量最低系统也不容易. 这个就要求一种<em>物理思考</em>: 能够看到月球始终面朝地球的原因是由于这种运动是最稳定的运动. 而且能够在”地球为什么不始终面朝太阳”这一现象的干扰下, 得出同样的结论, 是必须需要一定的<em>物理思考</em>的. </p>
+<ol>
+<li><strong>同一个引力源下所有物体的加速度都一样</strong>: 这是伽利略实验得出的结论. 我们需要注意到, 不是所有东西在同一个电场下都会产生同一个加速度的; 但却是所有东西在同一个引力场下都会产生同一个加速度. 更加印证了引力是某种”背景”和”舞台”, 而世间的所有东西都是这个舞台上的演员, 舞台一旦动起来, 所有演员都会跟着一起动. </li>
+</ol>
+<p>那么这个背景很自然地首先想到空间结构. 什么样的空间结构会使得你在”匀速直线”运动之后又回到同一个点? 首先想到的就是”圆环”, “球面” 等等空间结构. 但是不对, 并不是所有在引力源下的运动都会回到原点, 如果你的速度够快, 引力源给你的作用只是”稍微偏转一下角度”. 那么你自己思考: 那么我可以放宽条件, 虽然是有些情况下能够回到同一个点, 但是这个点是空间上的点. 又回忆到再力学课上学习的位移-时间图, 顿时就看到了突破口. 我可以扭曲位移-时空图的”结构”, 把它扭成”麻花”一样, 那么不就能够使得一个质点不断地绕转引力源 (就像是沿着麻花的花纹螺旋上升), 自己看自己却是像是匀速直线运动吗? 同样, 如果质点的速度太大, 那么就不会沿着”麻花的花纹”, 而是会一圈一圈向外走, 自己看来仍然是在匀速直线运动. 这一下就解决了两个问题.</p>
+<p>从这里看, 得出现代的时空结构需要几个十分要求<em>物理思考</em>的洞见: 匀速直线运动是能量最低的运动, 月球始终面朝地球运动是能量最低的运动, 将视野拓展到时空图.</p>
+<ol>
+<li>此外, 在点电荷电场中绕转的粒子, 是否并不是始终”面朝前”运动呢? 如何用实验验证呢?</li>
+</ol>
+<h2 id="二"><a href="#二" class="headerlink" title="二,"></a>二,</h2><p>广义相对论的出现是否必然要求狭义相对论的出现? 狭义相对论的出现是否必然要求电磁理论的完善? </p>
+<p>在我的理解中, 狭义相对论的出现是由于电磁理论推导出的光速. 而这个光速与参考系之间的矛盾成为了当时物理学界内的很大的矛盾. 此外, 洛伦兹强行构造出来的洛伦兹变换也为狭义相对论的诞生做了必要的铺垫. </p>
+<h2 id="三"><a href="#三" class="headerlink" title="三,"></a>三,</h2><p>为什么引力波的速度和电磁波的速度一样? 这个是个很神奇的巧合. 可能可以深入探究一下, 作为未来思考的方向. </p>
+<p>之所以会思考这个问题, 思路如下:<br>1, 是否能够证明如果一个速度不随参考系变化而变化, 这个速度是速度上限? 也就是, 是否能够证明除了光速以外, 不存在参考系不变的速度?<br>2, 当时光速不随参考系变化的结论是怎么出来的? 是从电磁场方程推出来的. 电磁场方程是四维协变的方程, 因此波速是在任何一个参考系下都适用的.<br>3, 那引力波呢? 引力波方程是否也是四维协变的方程? 微扰下计算得到了引力波波速是光速, 但是非微扰情况是否也是这样?<br>4, 如果引力波的波速不是光速, 但是这个引力波的方程也是在协变情况下推导的, 那么不就会出现: 一个不随参考系变化的速度, 却又不是光速, 和第一个矛盾?<br>5, 为什么广义相对论里面, 光速和引力波的速度一样? 是巧合吗</p>
+<h2 id="四"><a href="#四" class="headerlink" title="四,"></a>四,</h2><p>在FRW宇宙中, 纯物质宇宙有$\rho\propto a^{-3}$, 但纯辐射宇宙中, $P\propto a^{-4}$. 一个是与体积相关, 一个是与体积的$4/3$次方相关, 是否隐含了什么东西? 而且在纯辐射主导的宇宙中, 共形时间下宇宙是匀速膨胀的, 这是否也隐含了什么?</p>
+<h2 id="五"><a href="#五" class="headerlink" title="五"></a>五</h2><p>物理空间为什么是微分流形? 是否可以假设(例如在微观层面), 空间变为单纯拓扑空间而没有无限可微的微分结构; 再进一步是否可以存在连拓扑空间都算不上的空间?  </p>
+<h1 id="理论力学与哈密顿分析"><a href="#理论力学与哈密顿分析" class="headerlink" title="理论力学与哈密顿分析"></a>理论力学与哈密顿分析</h1><h2 id="拉格朗日力学"><a href="#拉格朗日力学" class="headerlink" title="拉格朗日力学"></a>拉格朗日力学</h2><p>一般讨论到拉格朗日力学和哈密顿力学的区别的时候, 有的教材会说: 拉氏力学的方程是二阶微分方程, 而哈氏力学的方程是两个一阶微分方程. 而我认为, 实际上拉氏力学也可以看作是两个一阶微分方程.</p>
+<p>从几何的角度来看, 拉氏力学描述切从$T\mathscr{C}$上的流, 而哈氏力学描述余切丛$T^{\star}\mathscr{C}$上的流. 而既然余切丛和切从可以看做是同构的流形, 那么自然拉氏力学和哈氏力学都可以看作是同一个动力学模型在不同流形中的描述. </p>
+<p>对于哈氏力学来说, 流由哈密顿方程决定</p>
+<script type="math/tex; mode=display">\dot{X}=\frac{\partial H}{\partial X},\qquad \dot{P}=-\frac{\partial H}{\partial X}</script><p>而对于拉氏力学来说, 流由拉格朗日方程以及”提升曲线”决定</p>
+<script type="math/tex; mode=display">\dot{x}=v,\qquad \dot{v}=\left(\frac{\partial^2L}{\partial v^i\partial v^j}\right)^{-1}\left( \frac{\partial L}{\partial x^i}-v^j\frac{\partial^2 L}{\partial v^j \partial q^i} \right)</script><p>第一个方程代表了”提升曲线”, 与拉氏量无关; 第二个方程则是拉格朗日方程. 这大概就是拉氏力学和哈氏力学的差别…</p>
+<h2 id="哈密顿力学"><a href="#哈密顿力学" class="headerlink" title="哈密顿力学"></a>哈密顿力学</h2><p>1, 对场的哈密顿量做傅里叶分解, $\mathscr{H}\to \mathscr{H}_k,\quad \phi\to \phi_k,\quad \pi \to \pi_k$. 从理论力学可以知道, 纯坐标变换是正则变换; 由于$P\to Q\quad Q\to -P$是正则变换, 可以推理得到纯动量变换也必然是正则变换. 因此傅里叶变换是一个正则变换, 对哈密顿密度做傅里叶变换之后的$\mathscr{H}_k=\pi_k+\cdots$可以看做是$\Gamma$相空间的另一组坐标.</p>
+<p>2, 场在离散化之后可以看做是多粒子系统的统计力学. 只不过相互作用较为复杂. 由于傅里叶变换是正则变换, 因此在傅里叶空间看场, 可以将相互作用变得简单一点. 看做统计力学的好处在于: 我们不可能完全了解每个场点的场值, 因此信息是缺失的. 在信息缺失的时候, 可以考虑最大熵模型, 估计场最有可能处于什么样的状态.</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>1.<strong>线性泛函变分中, $y$与$y^\prime$到底是不是独立的?</strong> 设一个线性泛函表示为积分形式</p>
+<script type="math/tex; mode=display">J[y(x)]\equiv \int\,F(x,y,y^\prime)\,\mathrm{d}x</script><p>那么按理说, 确定了$y(x)$之后, $y^\prime(x)$也应当随之确定, 但是为什么在变分的时候还是把 $y^\prime$ 当做一个独立变量? 关于这个问题, 我稍作一番思考, 想法如下:</p>
+<p>首先, 一个给定的 $y(x)$ 的确就已经把 $y^\prime(x)$ 确定下来了, 因此实际上只需要 $y(x)$ 就能够将泛函 $J[y(x)]$ 的值定下来, 这也是为什么泛函写作 $J[y(x)]$ 而不是 $J[y,y^\prime]$. 但是由于你需要把它写成积分的形式, 因此 $F(x,y,y^\prime)$ 显含 $y^\prime$ 实际上意味着你在积分的时候, 除了要看 $x$ 这一点的取值 $y(x)$, 还需要看邻域内 $y$ 的取值, 然后计算 $\big(y(x+\Delta x)-y(x-\Delta x)\big)/2\Delta x $. 这个要求并不与 “泛函仅依赖于 $y(x)$ “ 矛盾, $F$含有$y^\prime$ 只是代表了在积分求和时还需要考虑每一点邻域内的函数取值罢了.</p>
+<p>举个例子, $F(x,y,y^\prime)\equiv xy^2y^\prime$, 而对于 $\int\,xy^2(x)y^\prime(x)\,\mathrm{d}x$ 来说, 实际上只需要给定 $y(x)$, 整个积分就已经确定下来了. 例如给定 $y(x)=x$, 那么这个积分就是 $\int\,x^3\,\mathrm{d}x$ (忽略了上下限). 所谓显含 $y^\prime = 1$ 只不过是在说你在积分的时候还要把 $y^\prime$ 加上去罢了. </p>
+<p>其次, 在取泛函变分的时候, $y$ 与 $y^\prime$ 虽然是在多元函数 $F(x,y,y^\prime)$ 中被当做独立变量来求导:</p>
+<script type="math/tex; mode=display">\delta J[y]= \int\, \frac{\partial F}{\partial y}\delta y + \frac{\partial F}{\partial y^\prime}\delta y^\prime\,\mathrm{d}x</script><p>但是实际上他们仍然是不独立的. 这个体现在</p>
+<script type="math/tex; mode=display">\delta \left(\frac{dy}{dx}\right)=\frac{d}{dx}\Big(\delta y \Big)\quad \text{or}\quad \delta (y^\prime)=(\delta y)^\prime</script><p>这个式子意味着: 只要我的函数变分 $\delta y(x)$ 确定下来之后, $\delta y^\prime(x)$ 就不能随便取了, 因为它已经被定下来了: $\delta(y^\prime)=(\delta y)^\prime$, 这样才能够保证在给函数 $y(x)$ 施加一个增量 $\delta y(x)$ 之后, 新的函数 $Y(x)=y(x)+\delta y(x)$ 的函数本身和它新的导数 $Y^\prime(x)= y^\prime(x)+\delta y^\prime(x)$ 是自洽的, 换句话说, <strong>前者的导数必须等于后者</strong>:  </p>
+<script type="math/tex; mode=display">\frac{d}{dx} Y(x) = \frac{d}{dx}y(x)+\frac{d}{dx}\delta y(x) = y^\prime(x)+\delta y^\prime(x) = Y^\prime(x)</script><p>也就是说</p>
+<script type="math/tex; mode=display">\frac{d}{dx}\delta y(x) = \delta y^\prime(x)</script><p>这个恰好就是上面提到的那个条件. 所以说 <strong>微分符号和变分符号可交换, 蕴含着函数和它的一阶导不独立这一信息.</strong></p>
+<h2 id="量子力学"><a href="#量子力学" class="headerlink" title="量子力学"></a>量子力学</h2><p>从波函数表述到矩阵表述再到波函数表述</p>
+<h1 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h1><ol>
+<li>走二维迷宫的时候, 总可以沿着墙壁走, 总能走到出口. 但是, 如果我知道捷径, 从而径直走向出口, 这种方法所用的时间会比沿着墙壁走短多少呢? 他们之间是否有一个复杂度的关系?</li>
+</ol>
+<h1 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h1><h2 id="球谐函数与算子理论"><a href="#球谐函数与算子理论" class="headerlink" title="球谐函数与算子理论"></a>球谐函数与算子理论</h2><p>今天仓鼠问我:”怎么画一个球面上的热度图? 也就是球面上每一点都有一个值, 用不同颜色表示不同的值”. 刚开始我还不知道怎么用python来实现, 后来想一想, 发现这个不就是把球面上的标量场画出来吗. 于是我百度了一下”python 绘制 球谐函数”, 第一条就已经能够解决问题了.</p>
+<p>后来我仔细想一想, 自己还真的对球谐函数了解非常少, 毕竟平时没怎么用得上, 即使用的时候也是直接用 “角动量本征态来代替”. 说到角动量本征态, 我便想到, 我们平时对量子力学的理解太过依赖于线性代数了: 基本上所有的态都当做是一个箭头, 本征矢就是一个矩阵的不变子空间的元素等等, 几乎把所有东西都想象成箭头和矩阵或变换. 可是却不曾想到, 量子力学的态本身其实应该先是一个波函数, 然后才是一个矢量; 同样的, 态空间本身应该首先是$L^2(\mathbb{R}^3)$空间, 然后才是一个希尔伯特空间. 在GTM267中有一段很耐人寻味的话: 在一般的线性代数中, 数学家们提到三维线性空间的时候, 物理学家们总会说’哦你说的是$\mathbb{R}^3$’呀, 可是这时候数学家会说: ‘不不不, 我还没有取特定的表示’; 然而到了量子力学, 这个情形似乎反过来了, 当物理学家们说某个量子态的态矢的时候, 数学家们说: ‘哦你说的是波函数$\psi(x)$’呀, 可是物理学家们会说: ‘不不不, 我们还没有取位置表象呢, 他可以位于任意一个表象’. </p>
+<p>但即使如此, 身为物理系学生来说, 虽然我们的确习惯于更抽象的表述—即态矢表述, 或希尔伯特空间表述—然而我们却在某些情况下缺少了具象化的能力. 一个例子就是几乎忘记了角动量本征矢在位置表象下就是球谐函数, 即使知道了角动量本征矢能张成整个希尔伯特空间, 也忘记了球谐函数本身也能够线性展开任意一个球面标量场, 等等等等….也就是说, 即使有时候学会了某些”抽象”的表述方式, 这种抽象未必是真的能成为我们脑子里的”抽象”, 而是成为了另外一种具象: 态矢始终在我们脑海中就是一个箭头, 从来就不是球面标量场, $\mathbb{R}^3$标量场等等.</p>
+<p>抛开这些, 我们再关注一下球谐函数. 它是球面算子$\nabla^2$的本征函数, 而在球面上$\nabla^2$是一个有界自伴算子, 因而其本征空间能够张成整个$L^2(S^2)$, 在物理里的说法就是角动量本征矢是完备的. 之所以是有界算子, 一个原因就是球面$S^2$在直观上就是一个有限”大小”的空间, 即使求了导, 函数的范数也不会奇异到趋于无穷. 于是我们从这个角度将球谐函数和角动量本征矢联系在了一起. </p>
+<p>本质上来说, 球谐函数是球面标量场$L^2(S^2)$上的一组离散基, 它所对应的算子$\nabla^2$在球面上的PVM是”点点测度”(忘记这个名字该怎么叫了); 而谐函数$e^{ikx}$虽然不是$L^2(\mathbb{R}^3)$的函数, 但是他是算子$\nabla^2$在$\mathbb{R}^3$上的”伪本征矢” (同样忘记名字了), 它同样能够张成整个$L^2(\mathbb{R}^3)$.</p>
+<p>最后再来谈一下我对算子理论非常粗浅的理解, 并阐述一下为什么傅里叶变换那么重要, 以及算子理论所能够给出的其他更广义的积分变换.</p>
+<p>之所以傅里叶变化重要, 是因为傅里叶空间的基$e^{ikx}$是$P\equiv i\nabla$的”伪本征矢”, 在许多利用$P$构造出来的算子, 例如$-P^2+\omega^2\equiv -\nabla^2+\omega^2$在换基之后, 算子就成了一个乘法算子了. 乘法算子显然是比求导算子简单不少的. 另外, 许多微分方程都是仅仅由$P$算子构造出来的, 因此变换到傅里叶空间, 所有算子就都成了乘法算子, 也就简单不少了. </p>
+<p>当然, 许多自伴算子都是酉等价于乘法算子的, 那为啥只有傅里叶变换那么重要呢? 其他自伴算子诱导出来的积分变换没有用吗? 事实上当然也很有用, 只不过并不是很多方程能够写成这些算子的函数. 例如贝塞尔方程的算子</p>
+<script type="math/tex; mode=display">\mathcal{B}(\psi)\equiv \ddot{\psi}+\frac{\dot{\psi}}{t}+\left(1-\frac{m^2}{t^2}\right)\psi</script><script type="math/tex; mode=display">\mathcal{B}\equiv \frac{d^2}{dt^2}+\frac{1}{t}\frac{d}{dt}+1-\frac{m^2}{t^2}</script><p>显然, 这个算子的形式太过特殊了, 并不是很多算子能够写成$f(\mathcal{B})$, 因此贝塞尔函数所对应的积分变换就不那么常用. </p>
+<p>我们可以这样认为: 积分变换的意义在于把某个算子变换成乘法算子, 以简化算子的形式. 如果某一个方程是贝塞尔算子的函数, 即$f(\mathcal{B})\psi=0$, 那么用贝塞尔函数来展开 (贝塞尔积分变换), 直接就能成为代数方程</p>
+<script type="math/tex; mode=display">f(k)\psi(k)=0</script><p>另一方面, 对于一些复杂的算子, 我们也可以将其分解为某个算子的函数, 例如无阻尼谐振子算子</p>
+<script type="math/tex; mode=display">\mathcal{H}=\frac{d^2}{dt^2}+\omega^2=\left(\frac{d}{dt}+\omega\right)\left(\frac{d}{dt}-\omega\right)=\left(iP+\omega\right)\left(iP-\omega\right)</script><p>于是实际上我们只需要研究$P\equiv -i\frac{d}{dt}$这一个算子及其本征函数的问题, 就可以去研究谐振子算子了. 这个给了我们一个解微分方程的启示: 将微分方程分解成某个$f(\mathcal{O})$, 其中$\mathcal{O}$是一个比较简单的算子, 再研究这个算子的本征函数, 就可以解决原本的微分方程了.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E7%89%A9%E7%90%86/" rel="tag"><i class="fa fa-tag"></i> 物理</a>
+          
+            <a href="/tags/%E5%93%88%E5%AF%86%E9%A1%BF%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-tag"></i> 哈密顿分析</a>
+          
+            <a href="/tags/%E5%9C%BA%E8%AE%BA/" rel="tag"><i class="fa fa-tag"></i> 场论</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/15/%E5%9C%BA%E7%9A%84%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90,%20%E7%86%B5/" rel="next" title="场的统计分析, 熵">
+                <i class="fa fa-chevron-left"></i> 场的统计分析, 熵
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/16/The-Theorem-of-Ostrogradsky/" rel="prev" title="The Theorem of Ostrogradsky">
+                The Theorem of Ostrogradsky <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+
+
+
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/touxiang.jpeg"
+                alt="Hong Xunyang" />
+            
+              <p class="site-author-name" itemprop="name">Hong Xunyang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/zhi-fei-ji-46-94" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-windows"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://245643119.wixsite.com/liudy" title="猪猪家的仓鼠" target="_blank">猪猪家的仓鼠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://ethz.ch/en/news-and-events/eth-news.html" title="ETH 新闻与博客" target="_blank">ETH 新闻与博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+
+
+
+
+
+
+
+
+
+     </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#杂七杂八的想法"><span class="nav-number">2.</span> <span class="nav-text">杂七杂八的想法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一"><span class="nav-number">2.1.</span> <span class="nav-text">一,</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二"><span class="nav-number">2.2.</span> <span class="nav-text">二,</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三"><span class="nav-number">2.3.</span> <span class="nav-text">三,</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四"><span class="nav-number">2.4.</span> <span class="nav-text">四,</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五"><span class="nav-number">2.5.</span> <span class="nav-text">五</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理论力学与哈密顿分析"><span class="nav-number">3.</span> <span class="nav-text">理论力学与哈密顿分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#拉格朗日力学"><span class="nav-number">3.1.</span> <span class="nav-text">拉格朗日力学</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#哈密顿力学"><span class="nav-number">3.2.</span> <span class="nav-text">哈密顿力学</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">3.3.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#量子力学"><span class="nav-number">3.4.</span> <span class="nav-text">量子力学</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他-1"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数学"><span class="nav-number">5.</span> <span class="nav-text">数学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#球谐函数与算子理论"><span class="nav-number">5.1.</span> <span class="nav-text">球谐函数与算子理论</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hong Xunyang</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+-->
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script src="/js/src/Valine.min.js"></script>  
+
+    
+  
+  <script src="/js/src/Valine.min.js"></script>
+
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'tLOWuiNs9lPlkeQ130F8AGEl-gzGzoHsz',
+        appKey: 'ihjjpeqkthIl8kkj5O0mtc91',
+        placeholder: '说点什么吧!',
+        avatar:'mm',
+        guest_info:['nick'],
+        pageSize:'10' || 10,
+    });
+   
+    var infoEle = document.querySelector('#comments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

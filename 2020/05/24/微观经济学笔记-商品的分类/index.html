@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://xxxxxxx.xxx"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-simple.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/pig128.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/pig.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/pig16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="经济学," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hong Xunyang's Homepage" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="商品的类别我们先来考虑当收入改变时, 我们对一件商品的看法.  Normal Goods: 假如我们收入增加, 对一件商品的购买也增加了, 那么我们把这种商品称为 Normal goods. 很多商品都属于 normal goods, 这也是这个名称的由来. 例如将 “外出吃饭” 作为一种商品, 那么当收入增加时, 外出吃饭的次数很有可能会增加; 此外, “搭的士” 也有可能是一种 normal">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微观经济学笔记 [商品的分类]">
+<meta property="og:url" content="hongxunyang.github.io/2020/05/24/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%95%86%E5%93%81%E7%9A%84%E5%88%86%E7%B1%BB/index.html">
+<meta property="og:site_name" content="Hong Xunyang&#39;s Homepage">
+<meta property="og:description" content="商品的类别我们先来考虑当收入改变时, 我们对一件商品的看法.  Normal Goods: 假如我们收入增加, 对一件商品的购买也增加了, 那么我们把这种商品称为 Normal goods. 很多商品都属于 normal goods, 这也是这个名称的由来. 例如将 “外出吃饭” 作为一种商品, 那么当收入增加时, 外出吃饭的次数很有可能会增加; 此外, “搭的士” 也有可能是一种 normal">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="/images/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6_%E5%95%86%E5%93%81%E7%9A%84%E5%88%86%E7%B1%BB2.jpg">
+<meta property="og:image" content="/images/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6_%E5%95%86%E5%93%81%E7%9A%84%E5%88%86%E7%B1%BB3.jpg">
+<meta property="og:image" content="/images/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6_%E5%95%86%E5%93%81%E7%9A%84%E5%88%86%E7%B1%BB1.jpg">
+<meta property="article:published_time" content="2020-05-24T14:21:05.000Z">
+<meta property="article:modified_time" content="2020-05-24T14:21:05.000Z">
+<meta property="article:author" content="Hong Xunyang">
+<meta property="article:tag" content="经济学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6_%E5%95%86%E5%93%81%E7%9A%84%E5%88%86%E7%B1%BB2.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="hongxunyang.github.io/2020/05/24/微观经济学笔记-商品的分类/"/>
+
+
+
+
+
+  <title>微观经济学笔记 [商品的分类] | Hong Xunyang's Homepage</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hong Xunyang's Homepage</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Physics Major | Undergrad @SYSU Physics | Grad @ETH Physics</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="hongxunyang.github.io/2020/05/24/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%95%86%E5%93%81%E7%9A%84%E5%88%86%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hong Xunyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hong Xunyang's Homepage">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">微观经济学笔记 [商品的分类]</h1>
+        
+
+        <div class="post-meta">
+        
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-24T16:21:05+02:00">
+                2020-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6/" itemprop="url" rel="index">
+                    <span itemprop="name">经济学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/24/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%95%86%E5%93%81%E7%9A%84%E5%88%86%E7%B1%BB/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/24/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%94%E8%AE%B0-%E5%95%86%E5%93%81%E7%9A%84%E5%88%86%E7%B1%BB/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="商品的类别"><a href="#商品的类别" class="headerlink" title="商品的类别"></a>商品的类别</h1><p>我们先来考虑当收入改变时, 我们对一件商品的看法.</p>
+<ol>
+<li><strong>Normal Goods</strong>: 假如我们收入增加, 对一件商品的购买也增加了, 那么我们把这种商品称为 Normal goods. 很多商品都属于 normal goods, 这也是这个名称的由来. 例如将 “外出吃饭” 作为一种商品, 那么当收入增加时, 外出吃饭的次数很有可能会增加; 此外, “搭的士” 也有可能是一种 normal goods, 当收入增加, 很有可能会不去坐公交车, 而转过来搭的士, 那么在的士的消费就会增加.</li>
+<li><p><strong>Inferior Goods</strong>: 如果收入增加, 我们对一件商品的消费反而减少了, 那么这种商品被称为 inferior goods. 例如残次品就是一个例子, 当我们收入不高时, 我们无法去消费合格或者高端的消费品, 我们便只能将就着去消费残次品; 但是收入增加了, 我们不必去使用残次品了, 于是消费便转向了合格或高端产品. 罐头食品或者盒饭就是一个例子.</p>
+<p><img src="/images/微观经济学_商品的分类2.jpg" width="400"/></p>
+</li>
+</ol>
+<p>注意, 这里我们虽然将商品分类了, 但是并不代表这是一个客观的分类. 实际上这种分类是十分 <strong>主观</strong>的, 它是因人而异的: 一件商品对于我来说是 normal goods, 对于另一个人来说可能是 inferior goods. 有两个影响因素</p>
+<ol>
+<li><strong>商品分类与一个人的收入有关</strong>: 的士对于我来说是 normal goods, 因为我平时基本之是骑自行车省钱, 只有赚了钱才敢去打的; 但是对于富豪来说, 的士就是个 inferior goods, 当赚了钱, 还要啥出租车, 直接就坐直升机了. 从数学上来说, 也就是极值点的移动与 budget 约束本身有关.</li>
+<li><strong>商品分类与个人喜好有关</strong>: 对于我来说出租车是normal goods; 但是对于另外一个和我同样收入的人则未必, 如果他不会骑自行车, 但是又害怕的士会传染新冠, 那么当他赚钱了之后也会开私人直升机出行. 从数学上来说, 也就是极值点的移动与 utility function 有关.</li>
+</ol>
+<p>此外, 除了收入改变会影响一个人购买某样商品的意愿, 这个商品价格的改变也会影响购买商品的意愿. 还是以出租车为例子. 假如某一天的士突然免费了, 那么对于我来说当然是天天打的, 那么我消费的士的数量显然大幅提高; 但是对于更加有钱的人来说, 的士免费省了他们的钱, 这个省了的钱恰好能够购买一架私人直升机, 于是他们虽然仍然搭的士, 但是消费的士的数量应当是会降低的, 因为他们能够省下钱去坐直升机了.</p>
+<p>那么, 我们如何理解这种商品购买数量与收入之间的关系呢? </p>
+<p>具象来说, 一个人的思考过程应当是这样的:</p>
+<ol>
+<li>商品 1 变贵了, 那么假如我硬要保持我的高兴程度不变的话, 我就只能减少商品 1 的购买, 转而去购买更多的商品 2, 商品 3 等等. 这是保持高兴程度前提下, 商品 1,2,3 是如何互相替代的, 这个思考过程称为 <strong>substitution effect</strong>.</li>
+<li><p>但是这样一来, 我的钱就不够用了, 那么现在我就只能够降低我的高兴程度, 勉为其难地同时再降低商品 2, 3 等的购买. 这个则是不得不降低高兴程度, 去迎合我为数不多的收入, 这个思考过程称为 <strong>income effect</strong>.</p>
+<p><img src="/images/微观经济学_商品的分类3.jpg" width="500"/></p>
+</li>
+</ol>
+<p>抽象来说, 这个实际上就是在价格空间中, budget 约束 $\phi_b$ 发生变化时, 极值点会朝哪个方向移动, 并且移动的方向会受到什么影响. 我们可以从数学上给出这两种效应的由来, 实际上这两种效应都能从分析中找到源头.  </p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>我们考虑 $n$ 个商品, 因而价格空间 $\mathrm{dim}\,M=n$, 需求空间 $\mathrm{dim}\, D = n$. 我们取价格空间的一点 $p=(p_i)$, 在需求空间中有 budget 约束</p>
+<script type="math/tex; mode=display">\phi=p^iq_i-b=0</script><p>其中 $p^i$ 为第 $i$ 个商品的价格, $b$ 则是 budget. 现在我们研究, 当 $p$ 变动时 $p_i\to p_i+\Delta p_i$, 极值点 $q_i$ 的变化. 设 $U(q)$ 为 utility function. 设价格从 $\bf{p}\to \bf{p}^{\prime}$. 价格改变前后, 极值点分别满足</p>
+<script type="math/tex; mode=display">\overline{\nabla U}=\lambda \nabla\phi,\quad \nabla U = \lambda^{\prime} \phi^\prime</script><p>带上划线的表示子价格改变前的极值点上取值. 代入约束的具体表达, 可以得到</p>
+<script type="math/tex; mode=display">\overline{\partial_i U} = \lambda p_i,\quad \partial_i U = \lambda^\prime  p^\prime_i</script><p>设价格改变前的极值点为$\bar{q}<em>i {}</em>{}$, 将 $U$ 在这一点线性展开,, 并且令 $\lambda^\prime = \lambda + \Delta \lambda$, 代入价格改变后的式子, 有</p>
+<script type="math/tex; mode=display">\overline{\partial_i U}+\overline{\partial_j\partial_i U} \Delta q_j = (\lambda + \Delta \lambda)(p_i + \Delta p_i)</script><p>利用 $\overline{\partial_i U}=\lambda p_i$, 代入可以得到</p>
+<script type="math/tex; mode=display">\Delta q_j = (\overline{\partial_i\partial_j U})^{-1}(\underbrace{\lambda \Delta p_i}_{\text{I}} + \underbrace{\Delta \lambda p_i}_{\text{II}} ) {}_{}</script><p>用下括号括着标注 I, II 的两项在一定程度的近似下就是 substitution effect 与 income effect 的来源. 下面解释原因.</p>
+<p>假设这个人的 utility function 中, 各种商品的耦合很小或几乎没有耦合, 那么 $\partial<em>i\partial_j U=u_i\delta</em>{ij}{}<em>{}$ 即只有对角项. 用人话来说, 就是商品 2 的增多或减少都不会影响我对 商品 1 的兴趣. 此外, 我们再进一步假设商品 1,2,3,4 都很类似, 或者我对他们的喜欢程度都差不多, 那么这时候 $\partial_i\partial_j U=\delta</em>{ij} {}_{}$, 直接成为了单位矩阵, 这时候就可以简写为</p>
+<script type="math/tex; mode=display">\Delta q_i = \underbrace{\lambda \Delta p_i}_{\text{I}} + \underbrace{\Delta \lambda  p_i}_{\text{II}}</script><p>我们分别考虑这两部分的效应</p>
+<ol>
+<li><p>$\text{I}$: 考虑 $\Delta q_i = \lambda \Delta p_i$. 从几何的角度来看, \Delta p_i 就是指约束面变化 $\phi\to \phi^\prime$ 时, 其法向量的变化 (因为 $p_i$ 就是线性约束 $\phi$ 这个平面的法向量). 法向量的变化肯定会存在垂直于他自己的变化, 我们考察这一部分 $\Delta p_i \bot \p_i$, 换句话说 $\Delta p_i$ 平行于约束面, <strong>同时也平行于等 utility 面</strong>. 于是我们便知道了, 这一项的贡献实际上就是 substitution effect 的部分. $\Delta q_i$ 在这一部分中保持了高兴程度 (utility) 不变</p>
+<p><img src="/images/微观经济学_商品的分类1.jpg" width="400"/></p>
+</li>
+<li><p>$\text{II}$: 考虑 $\Delta q_i = \Delta \lambda p_i$. 同样从几何角度来看, 这个就是<strong>沿着 budget 约束面的法向量进行移动</strong>. 当一个人的收入变化的时候, 它的约束面也是沿着法向量进行移动. $\Delta q_i$ 在这一部分中, 等价于收入减少或增加时购买量的移动, 因此表征了 income effect</p>
+</li>
+</ol>
+<p>至此, 我们完成了从数学上以及直觉上对”商品价格改变的影响” 这一件事情的分析. </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E7%BB%8F%E6%B5%8E%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 经济学</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/23/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%94%E8%AE%B0_%E6%88%90%E6%9C%AC/" rel="next" title="[微观经济学笔记] 成本">
+                <i class="fa fa-chevron-left"></i> [微观经济学笔记] 成本
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0-%E4%BD%8D%E8%BF%90%E7%AE%97/" rel="prev" title="计算机系统笔记 [位运算]">
+                计算机系统笔记 [位运算] <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+
+
+
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/touxiang.jpeg"
+                alt="Hong Xunyang" />
+            
+              <p class="site-author-name" itemprop="name">Hong Xunyang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/zhi-fei-ji-46-94" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-windows"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://245643119.wixsite.com/liudy" title="猪猪家的仓鼠" target="_blank">猪猪家的仓鼠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://ethz.ch/en/news-and-events/eth-news.html" title="ETH 新闻与博客" target="_blank">ETH 新闻与博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+
+
+
+
+
+
+
+
+
+     </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#商品的类别"><span class="nav-number">1.</span> <span class="nav-text">商品的类别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分析"><span class="nav-number">2.</span> <span class="nav-text">分析</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hong Xunyang</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+-->
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script src="/js/src/Valine.min.js"></script>  
+
+    
+  
+  <script src="/js/src/Valine.min.js"></script>
+
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'tLOWuiNs9lPlkeQ130F8AGEl-gzGzoHsz',
+        appKey: 'ihjjpeqkthIl8kkj5O0mtc91',
+        placeholder: '说点什么吧!',
+        avatar:'mm',
+        guest_info:['nick'],
+        pageSize:'10' || 10,
+    });
+   
+    var infoEle = document.querySelector('#comments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
